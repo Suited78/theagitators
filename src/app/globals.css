@@ -32,6 +32,27 @@
   color-scheme: light;
 }
 
+/* ------------------------------------------------------------------
+   Palette preview: "Agitator" brand direction (navy / purple), for
+   comparison against the default editorial palette above. Toggled at
+   runtime by <PaletteSwitcher> via [data-palette] on <html>. --rule* stay
+   untouched — they're color-mix() off --color-ink/--color-bone, so they
+   recompute automatically. Every value here is checked at ≥4.5:1 against
+   the background it appears on (see the switcher's inline comment).
+   ------------------------------------------------------------------ */
+:root[data-palette="agitator"] {
+  --color-bone: #f4f2fa;
+  --color-bone-deep: #ece7f7;
+  --color-bone-edge: #ded4ef;
+  --color-ink: #1c2b4a;
+  --color-ink-deep: #131e38;
+  --color-ink-soft: #26262b;
+  --color-ink-faint: #5b5f78;
+  --color-accent: #6b35c9;
+  --color-accent-bright: #b9a0f0;
+  --color-paper-dim: #c2c3de;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;

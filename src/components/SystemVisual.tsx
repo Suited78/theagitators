@@ -9,26 +9,39 @@ import {
   easeInOutCubic,
   systemStates,
 } from "@/lib/system";
+import { PALETTE_CHANGE_EVENT } from "@/components/PaletteSwitcher";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 type Tone = "light" | "dark";
 
 type Palette = { edge: string; node: string; accent: string; halo: string };
 
-const palettes: Record<Tone, Palette> = {
-  light: {
-    edge: "21, 20, 15",
-    node: "21, 20, 15",
-    accent: "201, 62, 29",
-    halo: "201, 62, 29",
-  },
-  dark: {
-    edge: "246, 243, 236",
-    node: "246, 243, 236",
-    accent: "255, 106, 61",
-    halo: "255, 106, 61",
-  },
-};
+/** "#1c2b4a" -> "28, 43, 74", for building rgba() strings in canvas fillStyle/strokeStyle. */
+function hexToTriplet(hex: string, fallback: string): string {
+  const clean = hex.trim().replace("#", "");
+  if (!/^[0-9a-f]{6}$/i.test(clean)) return fallback;
+  const r = parseInt(clean.slice(0, 2), 16);
+  const g = parseInt(clean.slice(2, 4), 16);
+  const b = parseInt(clean.slice(4, 6), 16);
+  return `${r}, ${g}, ${b}`;
+}
+
+/**
+ * Reads the live design tokens rather than hardcoding colours, so the motif
+ * follows the palette switcher (which flips these CSS custom properties)
+ * instead of always drawing the default editorial palette.
+ */
+function readPalette(tone: Tone): Palette {
+  const styles = getComputedStyle(document.documentElement);
+  const ink = hexToTriplet(styles.getPropertyValue("--color-ink"), "21, 20, 15");
+  const bone = hexToTriplet(styles.getPropertyValue("--color-bone"), "246, 243, 236");
+  const accent = hexToTriplet(styles.getPropertyValue("--color-accent"), "201, 62, 29");
+  const accentBright = hexToTriplet(styles.getPropertyValue("--color-accent-bright"), "255, 106, 61");
+
+  return tone === "dark"
+    ? { edge: bone, node: bone, accent: accentBright, halo: accentBright }
+    : { edge: ink, node: ink, accent, halo: accent };
+}
 
 export type SystemVisualProps = {
   /** 0..1 across the five states. Read from a ref each frame, never re-renders. */
@@ -54,7 +67,12 @@ export function SystemVisual({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const palette = palettes[tone];
+    let palette = readPalette(tone);
+    const onPaletteChange = () => {
+      palette = readPalette(tone);
+    };
+    window.addEventListener(PALETTE_CHANGE_EVENT, onPaletteChange);
+
     let width = 0;
     let height = 0;
     let raf = 0;
@@ -173,6 +191,7 @@ export function SystemVisual({
       cancelAnimationFrame(raf);
       ro.disconnect();
       io.disconnect();
+      window.removeEventListener(PALETTE_CHANGE_EVENT, onPaletteChange);
     };
   }, [progressRef, reduced, tone, density]);
 
