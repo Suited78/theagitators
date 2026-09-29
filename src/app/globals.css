@@ -1,56 +1,40 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   The AGItators — design tokens
-   One accent, warm paper, near-black ink, editorial type scale.
+   The Agitators — design tokens.
+   Source: Brand Guidelines v1.1 (29 September 2026). Aubergine anchors,
+   mint opens, purple is for buttons and emphasis, paper is the canvas.
+   Rough balance: 55% light space, 30% aubergine, 10% mint, 5% purple.
    ------------------------------------------------------------------ */
 @theme {
-  --color-bone: #f6f3ec;
-  --color-bone-deep: #ece7db;
-  --color-bone-edge: #e0d9c8;
-  --color-ink: #15140f;
-  --color-ink-deep: #100f0b;
-  --color-ink-soft: #56534a;
-  --color-ink-faint: #686358;
-  --color-accent: #b8381a;
-  --color-accent-bright: #ff6a3d;
-  --color-paper-dim: #cfc9b8;
+  --color-paper: #faf8f3;
+  --color-aubergine: #2d163b;
+  --color-purple: #7b319b;
+  --color-mint: #bee8cc;
+  /* Secondary text: 6.61:1 on paper. */
+  --color-muted: #625469;
+  /* Decorative dividers only — never a functional border. */
+  --color-divider: #d9d0de;
 
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-sans: var(--font-manrope), Arial, ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 6px;
+  --radius-card: 12px;
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  --rule: color-mix(in srgb, var(--color-ink) 14%, transparent);
-  --rule-strong: color-mix(in srgb, var(--color-ink) 26%, transparent);
-  --rule-invert: color-mix(in srgb, var(--color-bone) 16%, transparent);
-  --header-h: 4.5rem;
-  --gutter: clamp(1.25rem, 5vw, 6rem);
+  /* Decorative hairlines between rows. */
+  --rule: var(--color-divider);
+  /* Functional borders (outlined buttons, toggles) need real contrast. */
+  --rule-strong: var(--color-muted);
+  --rule-invert: color-mix(in srgb, var(--color-paper) 20%, transparent);
+  --focus: var(--color-purple);
+  --header-h: 5rem;
+  /* Guidelines: side gutters 20–64px, container 1200px. */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
   color-scheme: light;
-}
-
-/* ------------------------------------------------------------------
-   Palette preview: "Agitator" brand direction (navy / purple), for
-   comparison against the default editorial palette above. Toggled at
-   runtime by <PaletteSwitcher> via [data-palette] on <html>. --rule* stay
-   untouched — they're color-mix() off --color-ink/--color-bone, so they
-   recompute automatically. Every value here is checked at ≥4.5:1 against
-   the background it appears on (see the switcher's inline comment).
-   ------------------------------------------------------------------ */
-:root[data-palette="agitator"] {
-  --color-bone: #f4f2fa;
-  --color-bone-deep: #ece7f7;
-  --color-bone-edge: #ded4ef;
-  --color-ink: #1c2b4a;
-  --color-ink-deep: #131e38;
-  --color-ink-soft: #26262b;
-  --color-ink-faint: #5b5f78;
-  --color-accent: #6b35c9;
-  --color-accent-bright: #b9a0f0;
-  --color-paper-dim: #c2c3de;
 }
 
 html {
@@ -59,22 +43,23 @@ html {
 }
 
 body {
-  background-color: var(--color-bone);
-  color: var(--color-ink);
+  background-color: var(--color-paper);
+  color: var(--color-aubergine);
   font-family: var(--font-sans);
-  font-synthesis-weight: none;
+  font-size: 1.125rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-bone);
+  background: var(--color-purple);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -82,87 +67,140 @@ body {
 /* ---------------- layout ---------------- */
 @utility shell {
   width: 100%;
-  max-width: 96rem;
+  max-width: calc(75rem + var(--gutter) * 2);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
 
+/* Guidelines: section spacing 56–112px. */
 @utility section-pad {
-  padding-block: clamp(5rem, 11vw, 10.5rem);
+  padding-block: clamp(3.5rem, 8vw, 7rem);
 }
 
-/* ---------------- type ---------------- */
+/* ---------------- type ----------------
+   Manrope only. 800 for headlines, 600–700 for labels, 400 for reading.
+   Display 40–80px; H1/H2 36–64px; H3 22–28px; body 18px/1.6. */
 @utility display-xl {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 8.6vw, 8.25rem);
-  line-height: 0.94;
+  font-size: clamp(2.75rem, 6.2vw, 5rem);
+  line-height: 1.05;
   letter-spacing: -0.03em;
-  font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 144;
+  font-weight: 800;
 }
 
 @utility display-l {
-  font-family: var(--font-display);
-  font-size: clamp(2.35rem, 5.6vw, 4.75rem);
-  line-height: 1.0;
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+  line-height: 1.08;
   letter-spacing: -0.025em;
-  font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 96;
+  font-weight: 800;
 }
 
 @utility display-m {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.2vw, 2.85rem);
-  line-height: 1.06;
+  font-size: clamp(1.625rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 48;
+  font-weight: 800;
 }
 
 @utility display-s {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 1.9vw, 1.7rem);
-  line-height: 1.18;
+  font-size: clamp(1.375rem, 1.9vw, 1.75rem);
+  line-height: 1.2;
   letter-spacing: -0.015em;
-  font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 32;
+  font-weight: 700;
 }
 
 @utility lede {
-  font-size: clamp(1rem, 1.3vw, 1.3125rem);
+  font-size: clamp(1.1875rem, 1.5vw, 1.375rem);
   line-height: 1.55;
-  letter-spacing: -0.011em;
-  color: var(--color-ink-soft);
+  color: var(--color-muted);
 }
 
 @utility label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 @utility body-copy {
-  font-size: 1rem;
-  line-height: 1.62;
-  letter-spacing: -0.008em;
-  color: var(--color-ink-soft);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-muted);
 }
 
-/* ---------------- surfaces ---------------- */
-@utility ink-panel {
-  background-color: var(--color-ink);
-  color: var(--color-bone);
+/* Guidelines: links stay underlined. */
+@utility text-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-thickness 0.2s;
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* ---------------- controls ----------------
+   Minimum 48px tall, 6px corners. Light surfaces: white on purple,
+   hover aubergine. Dark surfaces: aubergine on mint, hover paper. */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+  border-radius: var(--radius-control);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    background-color 0.25s var(--ease-out-quint),
+    color 0.25s var(--ease-out-quint),
+    border-color 0.25s var(--ease-out-quint);
+}
+
+@utility btn-primary {
+  background-color: var(--color-purple);
+  color: #fff;
+  &:hover {
+    background-color: var(--color-aubergine);
+  }
+}
+
+@utility btn-secondary {
+  border: 2px solid var(--color-aubergine);
+  color: var(--color-aubergine);
+  &:hover {
+    background-color: var(--color-aubergine);
+    color: var(--color-paper);
+  }
+}
+
+@utility btn-on-dark {
+  background-color: var(--color-mint);
+  color: var(--color-aubergine);
+  &:hover {
+    background-color: var(--color-paper);
+  }
+}
+
+/* ---------------- surfaces ----------------
+   Paper is the default. Aubergine sections are punctuation. */
+@utility aubergine-panel {
+  background-color: var(--color-aubergine);
+  color: var(--color-paper);
   --rule: var(--rule-invert);
+  --focus: var(--color-mint);
+}
+
+@utility mint-panel {
+  background-color: var(--color-mint);
+  color: var(--color-aubergine);
+  --rule: color-mix(in srgb, var(--color-aubergine) 22%, transparent);
 }
 
 @utility hairline-t {
   border-top: 1px solid var(--rule);
-}
-
-@utility hairline-b {
-  border-bottom: 1px solid var(--rule);
 }
 
 /* ---------------- motion ---------------- */
@@ -177,21 +215,4 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-}
-
-/* Underline that draws in on hover — used on nav + inline links. */
-@utility link-draw {
-  position: relative;
-  display: inline-block;
-}
-@utility link-draw-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.15em;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.45s var(--ease-out-quint);
 }

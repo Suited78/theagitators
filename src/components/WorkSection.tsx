@@ -21,8 +21,8 @@ export function WorkSection() {
         </div>
 
         <Reveal>
-          <p className="label mt-14 flex items-center gap-3 border border-dashed border-[var(--rule-strong)] px-4 py-3 text-ink-soft">
-            <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+          <p className="label mt-12 flex items-center gap-3 rounded-[var(--radius-control)] bg-mint px-4 py-3 text-aubergine">
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-aubergine" />
             {workIntro.notice}
           </p>
         </Reveal>

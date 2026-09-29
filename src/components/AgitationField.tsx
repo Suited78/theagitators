@@ -53,27 +53,29 @@ const lineWaves: Wave[][] = (() => {
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 function triplet(value: string, fallback: string) {
-  const hex = value.trim().replace("#", "");
+  let hex = value.trim().replace("#", "");
+  // Tailwind stores some tokens in shorthand (white is #fff).
+  if (/^[0-9a-f]{3}$/i.test(hex)) hex = hex.replace(/./g, (c) => c + c);
   if (!/^[0-9a-f]{6}$/i.test(hex)) return fallback;
   return `${parseInt(hex.slice(0, 2), 16)}, ${parseInt(hex.slice(2, 4), 16)}, ${parseInt(hex.slice(4, 6), 16)}`;
 }
 
-/** Colours come from the live tokens, so the field follows the palette switcher. */
+/** Colours come from the brand tokens, so the field can't drift from the palette. */
 function readColours(tone: Tone, background: string) {
   const styles = getComputedStyle(document.documentElement);
   const token = (name: string) => styles.getPropertyValue(name);
   if (tone === "dark") {
     return {
-      line: triplet(token("--color-bone"), "246, 243, 236"),
-      accent: triplet(token("--color-accent-bright"), "255, 106, 61"),
-      fill: `rgb(${triplet(token(background), "21, 20, 15")})`,
+      line: triplet(token("--color-paper"), "250, 248, 243"),
+      accent: triplet(token("--color-mint"), "190, 232, 204"),
+      fill: `rgb(${triplet(token(background), "45, 22, 59")})`,
       lineAlpha: 0.42,
     };
   }
   return {
-    line: triplet(token("--color-ink"), "21, 20, 15"),
-    accent: triplet(token("--color-accent"), "184, 56, 26"),
-    fill: `rgb(${triplet(token(background), "246, 243, 236")})`,
+    line: triplet(token("--color-aubergine"), "45, 22, 59"),
+    accent: triplet(token("--color-purple"), "123, 49, 155"),
+    fill: `rgb(${triplet(token(background), "250, 248, 243")})`,
     lineAlpha: 0.5,
   };
 }
@@ -88,7 +90,7 @@ export function AgitationField({
 }: AgitationFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const reduced = usePrefersReducedMotion();
-  const backgroundVar = background ?? (tone === "dark" ? "--color-ink" : "--color-bone");
+  const backgroundVar = background ?? (tone === "dark" ? "--color-aubergine" : "--color-paper");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -96,13 +98,8 @@ export function AgitationField({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let colours = readColours(tone, backgroundVar);
+    const colours = readColours(tone, backgroundVar);
     let dirty = true;
-    const paletteObserver = new MutationObserver(() => {
-      colours = readColours(tone, backgroundVar);
-      dirty = true;
-    });
-    paletteObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-palette"] });
 
     let width = 0;
     let height = 0;
@@ -267,7 +264,6 @@ export function AgitationField({
       cancelAnimationFrame(raf);
       resizeObserver.disconnect();
       visibility.disconnect();
-      paletteObserver.disconnect();
       window.removeEventListener("pointermove", onPointer);
       window.removeEventListener("pointerdown", onPointer);
     };

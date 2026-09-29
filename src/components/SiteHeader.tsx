@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { nav, site } from "@/content/site";
-import { Wordmark } from "./Wordmark";
+import { Logo } from "./Logo";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 export function SiteHeader() {
@@ -63,21 +63,18 @@ export function SiteHeader() {
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
         "[transition-timing-function:var(--ease-out-quint)]",
         scrolled && !menuOpen
-          ? "border-b border-[var(--rule)] bg-bone/80 backdrop-blur-md"
+          ? "border-b border-[var(--rule)] bg-paper/90 backdrop-blur-md"
           : "border-b border-transparent",
       ].join(" ")}
     >
       <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
-        <a
-          href="#top"
-          className="group -mx-1 rounded-sm px-1 py-1 text-[1.0625rem] font-medium"
-          aria-label={`${site.name} — back to top`}
-        >
-          <Wordmark />
+        {/* Guidelines minimum for the full horizontal lockup: 180px. */}
+        <a href="#top" className="-m-1 rounded-sm p-1" aria-label={`${site.name} — back to top`}>
+          <Logo className="w-[180px] lg:w-[196px]" />
         </a>
 
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-7">
             {nav.map((item) => {
               const isActive = active === item.id;
               return (
@@ -85,16 +82,16 @@ export function SiteHeader() {
                   <a
                     href={`#${item.id}`}
                     aria-current={isActive ? "true" : undefined}
-                    className="group relative block py-1 text-sm text-ink-soft transition-colors duration-300 hover:text-ink aria-[current]:text-ink"
+                    className="group relative block py-1 text-[0.9375rem] font-semibold text-muted transition-colors duration-300 hover:text-aubergine aria-[current]:text-aubergine"
                   >
                     {item.label}
                     <span
                       aria-hidden="true"
                       className={[
-                        "absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-accent",
+                        "absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-purple",
                         "transition-transform duration-500 [transition-timing-function:var(--ease-out-quint)]",
-                        "group-hover:origin-left group-hover:scale-x-100",
-                        isActive ? "origin-left scale-x-100" : "",
+                        "group-hover:scale-x-100",
+                        isActive ? "scale-x-100" : "",
                       ].join(" ")}
                     />
                   </a>
@@ -105,10 +102,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
-            className="hidden rounded-full border border-[var(--rule-strong)] px-5 py-2 text-sm text-ink transition-colors duration-400 [transition-timing-function:var(--ease-out-quint)] hover:border-ink hover:bg-ink hover:text-bone sm:inline-block"
-          >
+          <a href="#contact" className="btn btn-primary hidden sm:inline-flex">
             Start a conversation
           </a>
           <button
@@ -117,21 +111,19 @@ export function SiteHeader() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="-mr-2 flex items-center gap-2 rounded-sm p-2 lg:hidden"
+            className="-mr-2 flex min-h-12 items-center gap-2.5 rounded-[var(--radius-control)] px-2 lg:hidden"
           >
-            <span className="label text-ink">{menuOpen ? "Close" : "Menu"}</span>
-            <span aria-hidden="true" className="relative block h-3 w-5">
+            <span className="label text-aubergine">{menuOpen ? "Close" : "Menu"}</span>
+            <span aria-hidden="true" className="relative block h-3.5 w-5">
               <span
                 className={[
-                  "absolute left-0 block h-px w-5 bg-ink transition-transform duration-400",
-                  "[transition-timing-function:var(--ease-out-quint)]",
+                  "absolute left-0 block h-0.5 w-5 bg-aubergine transition-transform duration-300",
                   menuOpen ? "top-1.5 rotate-45" : "top-0.5",
                 ].join(" ")}
               />
               <span
                 className={[
-                  "absolute left-0 block h-px w-5 bg-ink transition-transform duration-400",
-                  "[transition-timing-function:var(--ease-out-quint)]",
+                  "absolute left-0 block h-0.5 w-5 bg-aubergine transition-transform duration-300",
                   menuOpen ? "top-1.5 -rotate-45" : "top-2.5",
                 ].join(" ")}
               />
@@ -149,9 +141,9 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={reduced ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 top-[var(--header-h)] z-40 bg-bone lg:hidden"
+            className="fixed inset-0 top-[var(--header-h)] z-40 bg-paper lg:hidden"
           >
-            <nav aria-label="Mobile" className="shell flex h-full flex-col justify-between py-10">
+            <nav aria-label="Mobile" className="shell flex h-full flex-col justify-between py-8">
               <ul className="flex flex-col">
                 {nav.map((item, index) => (
                   <motion.li
@@ -167,18 +159,12 @@ export function SiteHeader() {
                       className="display-s flex items-baseline justify-between py-4"
                     >
                       {item.label}
-                      <span className="label text-ink-faint">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                      <span className="label text-muted">{String(index + 1).padStart(2, "0")}</span>
                     </a>
                   </motion.li>
                 ))}
               </ul>
-              <a
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="mt-10 block rounded-full bg-ink px-6 py-4 text-center text-base text-bone"
-              >
+              <a href="#contact" onClick={() => setMenuOpen(false)} className="btn btn-primary mt-10 w-full">
                 Start a conversation
               </a>
             </nav>

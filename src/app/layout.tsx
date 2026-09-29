@@ -1,27 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, IBM_Plex_Mono, Inter } from "next/font/google";
-import { PaletteSwitcher, paletteBlockingScript } from "@/components/PaletteSwitcher";
+import { Manrope } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
+// The brand typeface: one family, weights 400–800.
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
-  axes: ["SOFT", "WONK", "opsz"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
@@ -42,22 +28,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f3ec",
+  themeColor: "#faf8f3",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en-GB"
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
-    >
-      <body className="antialiased">
-        {/* Must run before any content paints — see paletteBlockingScript. */}
-        <script dangerouslySetInnerHTML={{ __html: paletteBlockingScript }} />
-        {children}
-        <PaletteSwitcher />
-      </body>
+    <html lang="en-AU" className={manrope.variable}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

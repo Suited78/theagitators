@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { processIntro, processSteps } from "@/content/process";
 import { AgitationField } from "./AgitationField";
+import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 
 export function ProcessSection() {
@@ -52,18 +53,15 @@ export function ProcessSection() {
   const current = processSteps[active];
 
   return (
-    <section id="how" className="section-pad scroll-mt-[var(--header-h)] bg-bone-deep">
+    <section id="how" className="section-pad scroll-mt-[var(--header-h)] bg-white">
       <div className="shell">
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-10">
           <div className="lg:col-span-6">
             <Reveal>
-              <p className="label flex items-center gap-3 text-ink-faint">
-                <span aria-hidden="true" className="h-px w-8 shrink-0 bg-accent" />
-                {processIntro.eyebrow}
-              </p>
+              <Eyebrow>{processIntro.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal index={1}>
-              <h2 className="display-l mt-6 max-w-[14ch] text-balance">{processIntro.headline}</h2>
+              <h2 className="display-l mt-5 max-w-[14ch] text-balance">{processIntro.headline}</h2>
             </Reveal>
           </div>
           <div className="mt-6 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
@@ -79,17 +77,17 @@ export function ProcessSection() {
           band above them on small ones.
         */}
         <div className="mt-12 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-x-10">
-          <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-bone-deep pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pb-0">
+          <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-white pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pb-0">
             <div className="relative h-[24vh] min-h-[150px] lg:h-[min(60vh,540px)]">
               <AgitationField
                 progressRef={progressRef}
-                background="--color-bone-deep"
+                background="--color-white"
                 className="absolute inset-0 h-full w-full"
               />
             </div>
             <div className="mt-3 flex items-center justify-between gap-4">
-              <p className="label text-ink-faint">
-                {current.step} — <span className="text-ink">{current.title}</span>
+              <p className="label text-muted">
+                {current.step} — <span className="text-aubergine">{current.title}</span>
               </p>
               <div className="flex items-center gap-1.5" aria-hidden="true">
                 {processSteps.map((step, index) => (
@@ -98,7 +96,7 @@ export function ProcessSection() {
                     className={[
                       "h-1 rounded-full transition-all duration-700",
                       "[transition-timing-function:var(--ease-out-quint)]",
-                      index === active ? "w-6 bg-accent" : "w-1.5 bg-[var(--rule-strong)]",
+                      index === active ? "w-6 bg-purple" : "w-1.5 bg-[var(--rule-strong)]",
                     ].join(" ")}
                   />
                 ))}
@@ -115,7 +113,7 @@ export function ProcessSection() {
                     <span
                       className={[
                         "label shrink-0 pt-2 tabular-nums transition-colors duration-700",
-                        isActive ? "text-accent" : "text-ink-faint",
+                        isActive ? "text-purple" : "text-muted",
                       ].join(" ")}
                     >
                       {step.step}
@@ -125,7 +123,7 @@ export function ProcessSection() {
                         className={[
                           "display-m text-balance transition-colors duration-700",
                           // Dimmed by colour, not opacity, so it stays above contrast minimums.
-                          isActive ? "text-ink" : "lg:text-ink-faint",
+                          isActive ? "text-aubergine" : "lg:text-muted",
                         ].join(" ")}
                       >
                         {step.title}

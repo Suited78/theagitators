@@ -1,14 +1,13 @@
 import type { NavItem } from "./types";
 
 export const site = {
-  name: "The AGItators",
-  /** Split for the wordmark treatment: the "AGI" sits between these two. */
-  wordmark: { before: "The ", agi: "AGI", after: "tators" },
+  // Brand guidelines: standard title case, never "AGI" in capitals.
+  name: "The Agitators",
   tagline: "Change is happening. Agitate accordingly.",
   positioningLine:
     "A small consultancy helping smaller organisations redesign how they work — with AI as the lever, not the point.",
   description:
-    "The AGItators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
+    "The Agitators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
   email: "hello@theagitators.example",
   linkedin: "https://www.linkedin.com/",
   url: "https://theagitators.example",

@@ -1,4 +1,4 @@
-# The AGItators — concept website
+# The Agitators — concept website
 
 A single-page concept site for a prospective consultancy, built as both a design
 prototype and a strategic conversation artefact. It is deliberately opinionated:
@@ -69,15 +69,34 @@ Section order is the argument the page makes, and lives in `src/app/page.tsx`.
 
 ## Design system
 
+Implements **The Agitators Brand Guidelines v1.1** (29 September 2026).
 Tokens are defined once in `src/app/globals.css`, under `@theme` (Tailwind v4).
+The pre-brand editorial design is preserved on the `design/editorial-v1` branch.
 
-- **Palette.** Warm bone paper (`--color-bone`), near-black ink, a single
-  vermilion accent (`--color-accent`), and a brighter accent for inverted
-  sections. Dark sections use the `ink-panel` utility, which also flips the
-  hairline colour.
-- **Type.** Fraunces for editorial display, Inter for text, IBM Plex Mono for
-  labels and figure captions. Loaded through `next/font`, so they are
-  self-hosted at build time with no layout shift.
+- **Name.** "The Agitators", standard title case. Never "AGI" in capitals and
+  never a recoloured "Agi": the only nod to AGI is the three-part underline
+  built into the logo.
+- **Logo.** The supplied master artwork in `public/brand/`, used untouched via
+  `Logo.tsx`: primary on paper (header), reversed on aubergine (footer). The
+  full horizontal lockup is kept at or above its 180px minimum. Favicons in
+  `src/app/` come from the same export pack.
+- **Colour.** Aubergine `#2D163B` (text, structure, dark sections), purple
+  `#7B319B` (buttons, emphasis), mint `#BEE8CC` (fills, signals on dark), paper
+  `#FAF8F3` (canvas), muted `#625469` (secondary text). White is a utility
+  surface. `#D9D0DE` is used only for decorative dividers. Aubergine sections
+  (`aubergine-panel`) are punctuation; mint appears as one section
+  (`mint-panel`) and one callout.
+- **Type.** Manrope only, self-hosted through `next/font`. 800 for headlines
+  (display tops out at 80px), 700 for labels, 400 for 18px body text.
+- **Layout.** 1200px container, 20–64px gutters, 56–112px section spacing,
+  6px corners on controls and 12px on cards, rules rather than shadows.
+- **Motif.** The three-part bar (`Motif.tsx`) marks section labels and card
+  tops. On the team section, each placeholder portrait brings one piece of
+  the supplied symbol forward: three perspectives, three founders.
+- **Controls.** `btn` plus `btn-primary` (white on purple, hover aubergine),
+  `btn-secondary` (outlined aubergine) or `btn-on-dark` (aubergine on mint,
+  hover paper). All at least 48px tall. Inline links stay underlined
+  (`text-link`).
 - **Scale.** `display-xl` / `display-l` / `display-m` / `display-s`, `lede`,
   `body-copy` and `label` are custom utilities. Every size is fluid, so changing
   a clamp changes the whole site.
@@ -85,7 +104,7 @@ Tokens are defined once in `src/app/globals.css`, under `@theme` (Tailwind v4).
 ## The agitation field
 
 The page's one visual device (`src/components/AgitationField.tsx`): stacked
-ink ridgelines, drawn to a canvas, that the visitor stirs as the pointer
+ridgelines, drawn to a canvas, that the visitor stirs as the pointer
 passes through, then settle. It's the brand name made literal, and it's
 there for atmosphere rather than explanation. It appears three times:
 
@@ -98,7 +117,8 @@ there for atmosphere rather than explanation. It appears three times:
 Each ridge is filled with the section's background colour, so nearer lines
 hide the ones behind them; that is what gives the field its depth, and why
 the `background` prop must match the section it sits in. Colours come from
-the live design tokens, so it follows the palette switcher. The shapes are
+the brand tokens: aubergine lines with a purple accent on light sections,
+paper lines with a mint accent on aubergine. The shapes are
 seeded, so the landscape is the same on every visit. Amplitude, stir
 strength and line spacing are the numbers to adjust in the component.
 
@@ -111,10 +131,11 @@ strength and line spacing are the numbers to adjust in the component.
 - `prefers-reduced-motion` is respected by every animated component — reveals
   render statically, the accordion opens instantly, and the agitation field is
   drawn once as a still image that ignores the pointer.
-- Audited with axe-core at desktop and mobile widths under both palettes, with
+- Audited with axe-core at desktop and mobile widths, with
   every case study expanded and every section scrolled into view: zero
-  violations. De-emphasis is done with colour rather than opacity, so dimmed
-  text still meets contrast minimums.
+  violations. Every button measures at least 48px tall. De-emphasis is done
+  with colour rather than opacity, so dimmed text still meets contrast
+  minimums.
 
 ---
 

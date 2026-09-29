@@ -25,10 +25,10 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
         className="w-full cursor-pointer text-left"
       >
         <div className="grid items-start gap-x-8 gap-y-5 py-8 md:grid-cols-12 lg:py-10">
-          <span className="label text-ink-faint tabular-nums md:col-span-2 md:pt-3">
+          <span className="label text-purple tabular-nums md:col-span-2 md:pt-3">
             {String(index + 1).padStart(2, "0")}
             {study.illustrative ? (
-              <span className="ml-3 rounded-full border border-[var(--rule-strong)] px-2 py-0.5 text-[0.6rem] tracking-[0.12em] text-ink-faint">
+              <span className="ml-3 rounded-[4px] bg-mint px-2 py-0.5 text-[0.6875rem] text-aubergine">
                 Illustrative
               </span>
             ) : null}
@@ -42,10 +42,10 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
           </div>
 
           <div className="flex flex-col gap-3 md:col-span-3 md:pt-2">
-            <p className="label text-ink-faint">{study.sector}</p>
+            <p className="label text-muted">{study.sector}</p>
             <ul className="flex flex-wrap gap-1.5">
               {study.tags.map((tag) => (
-                <li key={tag} className="rounded-full bg-bone-deep px-2.5 py-1 text-xs text-ink-soft">
+                <li key={tag} className="rounded-[var(--radius-control)] bg-white px-3 py-1.5 text-sm font-semibold text-muted">
                   {tag}
                 </li>
               ))}
@@ -56,11 +56,11 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
             aria-hidden="true"
             className="hidden justify-self-end md:col-span-1 md:block md:pt-3"
           >
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-[var(--rule-strong)] transition-colors duration-500 [transition-timing-function:var(--ease-out-quint)] group-hover:border-ink">
-              <span className="absolute h-px w-3.5 bg-ink" />
+            <span className="relative flex h-10 w-10 items-center justify-center rounded-[var(--radius-control)] border-2 border-aubergine text-aubergine transition-colors duration-300 group-hover:bg-aubergine group-hover:text-paper">
+              <span className="absolute h-0.5 w-3.5 bg-current" />
               <span
                 className={[
-                  "absolute h-px w-3.5 bg-ink transition-transform duration-500",
+                  "absolute h-0.5 w-3.5 bg-current transition-transform duration-500",
                   "[transition-timing-function:var(--ease-out-quint)]",
                   open ? "rotate-0" : "rotate-90",
                 ].join(" ")}
@@ -68,7 +68,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
             </span>
           </span>
 
-          <span className="label text-ink-faint md:hidden">
+          <span className="label text-purple md:hidden">
             {open ? "Close" : "Read the detail"}
           </span>
         </div>
@@ -101,18 +101,18 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
                   <img
                     src={study.image.src}
                     alt={study.image.alt}
-                    className="aspect-[3/2] w-full border border-[var(--rule)] object-cover"
+                    className="aspect-[3/2] w-full rounded-[var(--radius-card)] object-cover"
                   />
                 ) : (
                   <CaseStudyGlyph
                     variant={index}
-                    className="aspect-[3/2] w-full border border-[var(--rule)]"
+                    className="aspect-[3/2] w-full rounded-[var(--radius-card)]"
                   />
                 )}
                 {study.metric ? (
                   <div className="mt-6 border-t border-[var(--rule)] pt-5">
-                    <p className="display-s text-accent">{study.metric.value}</p>
-                    <p className="body-copy mt-2 text-sm">{study.metric.label}</p>
+                    <p className="display-s text-purple">{study.metric.value}</p>
+                    <p className="body-copy mt-2 text-base">{study.metric.label}</p>
                   </div>
                 ) : null}
               </div>
@@ -120,21 +120,21 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
               <div className="md:col-span-6">
                 <dl className="space-y-7">
                   <div>
-                    <dt className="label text-ink-faint">Challenge</dt>
-                    <dd className="body-copy mt-2 text-ink">{study.challenge}</dd>
+                    <dt className="label text-purple">Challenge</dt>
+                    <dd className="body-copy mt-2 text-aubergine">{study.challenge}</dd>
                   </div>
                   <div>
-                    <dt className="label text-ink-faint">What we did</dt>
-                    <dd className="body-copy mt-2 text-ink">{study.whatWeDid}</dd>
+                    <dt className="label text-purple">What we did</dt>
+                    <dd className="body-copy mt-2 text-aubergine">{study.whatWeDid}</dd>
                   </div>
                   <div>
-                    <dt className="label text-ink-faint">Outcome</dt>
-                    <dd className="body-copy mt-2 text-ink">{study.outcome}</dd>
+                    <dt className="label text-purple">Outcome</dt>
+                    <dd className="body-copy mt-2 text-aubergine">{study.outcome}</dd>
                   </div>
                 </dl>
                 <div className="mt-8 border-t border-[var(--rule)] pt-6">
                   {study.detail.map((paragraph) => (
-                    <p key={paragraph} className="body-copy mt-3 text-sm first:mt-0">
+                    <p key={paragraph} className="body-copy mt-3 text-base first:mt-0">
                       {paragraph}
                     </p>
                   ))}

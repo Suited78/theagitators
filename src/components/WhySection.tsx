@@ -1,4 +1,5 @@
 import { why } from "@/content/why";
+import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 
 export function WhySection() {
@@ -6,13 +7,10 @@ export function WhySection() {
     <section id="why" className="section-pad scroll-mt-[var(--header-h)] hairline-t">
       <div className="shell">
         <Reveal>
-          <p className="label flex items-center gap-3 text-ink-faint">
-            <span aria-hidden="true" className="h-px w-8 bg-accent" />
-            {why.eyebrow}
-          </p>
+          <Eyebrow>{why.eyebrow}</Eyebrow>
         </Reveal>
 
-        <div className="mt-10 grid gap-x-10 gap-y-12 lg:grid-cols-12">
+        <div className="mt-8 grid gap-x-12 gap-y-10 lg:grid-cols-12">
           <h2 className="display-l text-balance lg:col-span-7">
             {why.headline.map((line, index) => (
               <Reveal key={line} as="span" index={index} className="block">
@@ -23,7 +21,7 @@ export function WhySection() {
 
           <div className="lg:col-span-5 lg:pt-3">
             <Reveal index={2}>
-              <p className="lede text-ink">{why.lede}</p>
+              <p className="lede text-aubergine">{why.lede}</p>
             </Reveal>
             {why.body.map((paragraph, index) => (
               <Reveal key={paragraph} index={index + 3}>
@@ -34,31 +32,32 @@ export function WhySection() {
         </div>
 
         {/* The unanswered questions — an editorial list, not a feature grid. */}
-        <div className="mt-20 lg:mt-28">
+        <div className="mt-16 lg:mt-24">
           <Reveal>
-            <p className="label text-ink-faint">What nobody has time to work out</p>
+            <p className="label text-purple">What nobody has time to work out</p>
           </Reveal>
-          <ol className="mt-8 grid gap-x-12 sm:grid-cols-2">
+          <ol className="mt-6 grid gap-x-12 md:grid-cols-2">
             {why.questions.map((question, index) => (
               <Reveal
                 as="li"
                 key={question}
                 index={index % 3}
-                className="group flex items-start gap-5 border-t border-[var(--rule)] py-6"
+                className="flex items-start gap-5 border-t border-[var(--rule)] py-5"
               >
-                <span className="label mt-1.5 shrink-0 text-accent tabular-nums">
+                <span className="label mt-1 shrink-0 text-purple tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="display-s text-pretty text-ink">{question}</span>
+                <span className="text-pretty text-[1.25rem] leading-snug font-semibold">{question}</span>
               </Reveal>
             ))}
           </ol>
         </div>
 
+        {/* Mint callout, after the guidelines' "voice in practice" panel. */}
         <Reveal>
-          <p className="display-m mt-20 max-w-[24ch] text-balance lg:mt-28 lg:ml-auto lg:text-right">
-            {why.closer}
-          </p>
+          <div className="mt-16 rounded-[var(--radius-card)] bg-mint px-6 py-8 sm:px-10 sm:py-10 lg:mt-24">
+            <p className="display-m max-w-[40ch] text-balance">{why.closer}</p>
+          </div>
         </Reveal>
       </div>
     </section>

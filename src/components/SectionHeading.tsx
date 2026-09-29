@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 
 type SectionHeadingProps = {
@@ -20,19 +21,16 @@ export function SectionHeading({
   return (
     <div className={className}>
       <Reveal>
-        <p className="label flex items-center gap-3 text-ink-faint">
-          <span aria-hidden="true" className="h-px w-8 bg-accent" />
-          {eyebrow}
-        </p>
+        <Eyebrow>{eyebrow}</Eyebrow>
       </Reveal>
       <Reveal index={1}>
-        <h2 className={`display-l mt-6 text-balance ${align === "left" ? "max-w-[18ch]" : "max-w-[26ch]"}`}>
+        <h2 className={`display-l mt-5 text-balance ${align === "left" ? "max-w-[18ch]" : "max-w-[26ch]"}`}>
           {headline}
         </h2>
       </Reveal>
       {supporting ? (
         <Reveal index={2}>
-          <p className="lede mt-7 max-w-[52ch]">{supporting}</p>
+          <p className="lede mt-6 max-w-[52ch]">{supporting}</p>
         </Reveal>
       ) : null}
     </div>
