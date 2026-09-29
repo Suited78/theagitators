@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { hero } from "@/content/site";
-import { BeforeAfterFigure } from "./BeforeAfterFigure";
+import { AgitationField } from "./AgitationField";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 export function Hero() {
@@ -53,7 +53,7 @@ export function Hero() {
         </h1>
       </div>
 
-      {/* Supporting statement and CTAs left; the motif bleeds off the right. */}
+      {/* Supporting statement and CTAs left; the field bleeds off the right edge. */}
       <div className="shell grid grid-cols-1 items-end gap-x-10 gap-y-8 pb-8 lg:grid-cols-12 lg:pb-12">
         <motion.div {...rise(0.5)} className="lg:col-span-5">
           <p className="lede max-w-[44ch] text-ink">{hero.supporting}</p>
@@ -73,14 +73,9 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
-          {...(reduced ? {} : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1.2, delay: 0.55 } })}
-          className="relative lg:col-span-6 lg:col-start-7"
-        >
-          <div className="border-t border-[var(--rule)] pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
-            <BeforeAfterFigure />
-          </div>
-        </motion.div>
+        <div className="relative -mx-[var(--gutter)] h-[clamp(220px,34vh,380px)] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] lg:col-span-7 lg:col-start-6 lg:ml-0 lg:[mask-image:linear-gradient(to_right,transparent,black_18%)]">
+          <AgitationField interactive className="absolute inset-0 h-full w-full" />
+        </div>
       </div>
     </section>
   );

@@ -43,7 +43,6 @@ messaging can be rewritten without touching layout. Types are in
 | `outcomes.ts` | "What changes" index |
 | `capabilities.ts` | The six capability areas |
 | `process.ts` | The five-step way of working |
-| `workedExample.ts` | The illustrative quote process behind both figures: its steps and hours before, during and after, and what the figure shows at each of the five steps |
 | `caseStudies.ts` | Case studies, including the standing "illustrative" notice |
 | `team.ts` | The three founders |
 | `manifesto.ts` | Point-of-view statements |
@@ -83,27 +82,25 @@ Tokens are defined once in `src/app/globals.css`, under `@theme` (Tailwind v4).
   `body-copy` and `label` are custom utilities. Every size is fluid, so changing
   a clamp changes the whole site.
 
-## The figures: one worked example
+## The agitation field
 
-The page's visuals are one illustrative process (a small agency turning a
-client brief into a sent quote) shown twice, rather than decoration:
+The page's one visual device (`src/components/AgitationField.tsx`): stacked
+ink ridgelines, drawn to a canvas, that the visitor stirs as the pointer
+passes through, then settle. It's the brand name made literal, and it's
+there for atmosphere rather than explanation. It appears three times:
 
-- **Fig. 1, in the hero** (`BeforeAfterFigure.tsx`) draws the process before
-  and after on one time scale, so the after bar is visibly shorter rather than
-  rescaled. It switches to "after" once on first view, and a toggle lets the
-  visitor flip back. The footnote states how much of the saving comes from
-  removing waiting rather than from the AI step, a point the manifesto makes in
-  words.
-- **Fig. 2, in "How we work"** (`ProcessFigure.tsx`) shows the same process as
-  it looks after each of the five steps: mapped, friction marked, drafting step
-  trialled, rebuilt, handed over. On large screens it pins beside the steps and
-  follows the one in view; on small screens each step carries its own copy.
+- **Hero**: restless on its own, stirred by the pointer (or a tap), bleeding
+  off the right edge.
+- **How we work**: pinned beside the steps (a band above them on small
+  screens), going from turbulent to one coordinated swell as you scroll.
+- **Contact**: a full-width band on the dark panel to close the page.
 
-All of it comes from `src/content/workedExample.ts`. Totals, handoff counts and
-the saving in the hero footnote are computed from the step rows, so editing an
-hour or adding a step updates every figure and number consistently. Steps keep
-the same `id` across the before, trial and after flows, which is what lets a
-step that survives the redesign animate into place instead of reappearing.
+Each ridge is filled with the section's background colour, so nearer lines
+hide the ones behind them; that is what gives the field its depth, and why
+the `background` prop must match the section it sits in. Colours come from
+the live design tokens, so it follows the palette switcher. The shapes are
+seeded, so the landscape is the same on every visit. Amplitude, stir
+strength and line spacing are the numbers to adjust in the component.
 
 ## Accessibility and motion
 
@@ -112,12 +109,12 @@ step that survives the redesign animate into place instead of reappearing.
   `aria-controls`; the mobile menu traps scroll, closes on `Escape` and returns
   focus to its trigger.
 - `prefers-reduced-motion` is respected by every animated component — reveals
-  render statically, the accordion opens instantly, the hero figure does not
-  switch on its own, and the process figure's rows change without animating.
+  render statically, the accordion opens instantly, and the agitation field is
+  drawn once as a still image that ignores the pointer.
 - Audited with axe-core at desktop and mobile widths under both palettes, with
-  every case study expanded, both states of the hero figure, and each of the five
-  process stages scrolled into view: zero violations. De-emphasis is done with
-  colour rather than opacity, so dimmed text still meets contrast minimums.
+  every case study expanded and every section scrolled into view: zero
+  violations. De-emphasis is done with colour rather than opacity, so dimmed
+  text still meets contrast minimums.
 
 ---
 
@@ -151,7 +148,6 @@ this is a concept site. Remove it before any real launch.
 
 - One page, no routes. Case studies expand in place rather than on their own pages.
 - No CMS. Content is TypeScript modules.
-- No real imagery. The figures are drawn from data in HTML and CSS, and the
-  case study visuals are generated SVG, so nothing needs licensing or art
-  direction yet. The worked example is illustrative, not a client result.
+- No real imagery. The agitation field is drawn in code and the case study
+  visuals are generated SVG, so nothing needs licensing or art direction yet.
 - The email address, LinkedIn links and every case study are placeholders.

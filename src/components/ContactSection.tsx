@@ -1,11 +1,12 @@
 import { finalCta, site } from "@/content/site";
+import { AgitationField } from "./AgitationField";
 import { Reveal } from "./Reveal";
 
 export function ContactSection() {
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(finalCta.action.subject)}`;
 
   return (
-    <section id="contact" className="ink-panel scroll-mt-[var(--header-h)] pt-[clamp(5rem,11vw,10rem)] pb-[clamp(4rem,7vw,7rem)]">
+    <section id="contact" className="ink-panel scroll-mt-[var(--header-h)] pt-[clamp(5rem,11vw,10rem)]">
       <div className="shell">
         <Reveal>
           <p className="label flex items-center gap-3 text-paper-dim">
@@ -39,10 +40,14 @@ export function ContactSection() {
               <a href={mailto} className="underline decoration-[color-mix(in_srgb,var(--color-bone)_35%,transparent)] underline-offset-4 transition-colors duration-300 hover:text-bone">
                 {site.email}
               </a>
-              <p className="mt-1.5 text-xs text-paper-dim/70">{finalCta.note}</p>
+              <p className="mt-1.5 text-xs text-paper-dim">{finalCta.note}</p>
             </div>
           </div>
         </Reveal>
+      </div>
+
+      <div className="relative mt-[clamp(3rem,6vw,5rem)] h-[clamp(160px,24vh,260px)] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+        <AgitationField tone="dark" interactive spacing={10} className="absolute inset-0 h-full w-full" />
       </div>
     </section>
   );

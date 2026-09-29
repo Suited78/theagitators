@@ -179,18 +179,6 @@ body {
   }
 }
 
-/* A changed value settles in rather than snapping. */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.15em);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /* Underline that draws in on hover — used on nav + inline links. */
 @utility link-draw {
   position: relative;

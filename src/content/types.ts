@@ -32,26 +32,6 @@ export type ProcessStep = {
   title: string;
   description: string;
 };
-
-export type FlowStep = {
-  /** Stable across flows, so a step that survives a redesign animates rather than reappears. */
-  id: string;
-  label: string;
-  /** Role that does the step; waits have none. */
-  owner?: string;
-  hours: number;
-  kind: "work" | "wait" | "ai";
-};
-
-export type WorkedExampleStage = {
-  flow: "before" | "prototype" | "after";
-  caption: string;
-  /** Short annotations pinned to a step, by step id. */
-  notes?: Record<string, string>;
-  /** Step ids drawn as a trial rather than a settled part of the process. */
-  trial?: string[];
-};
-
 export type CaseStudy = {
   id: string;
   /** Client or organisation name. Placeholder until real work is cleared. */
