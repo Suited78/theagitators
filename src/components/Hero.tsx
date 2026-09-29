@@ -1,40 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { hero } from "@/content/site";
-import { SystemVisual } from "./SystemVisual";
+import { BeforeAfterFigure } from "./BeforeAfterFigure";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const progressRef = useRef(0);
   const reduced = usePrefersReducedMotion();
-
-  // The hero only travels a fraction into the second state — the system should
-  // look like it is beginning to resolve, not resolved.
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const height = section.offsetHeight || 1;
-      progressRef.current = Math.min(1, Math.max(0, window.scrollY / height)) * 0.2;
-    };
-    const onScroll = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      if (frame) cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
 
   const rise = (delay: number, distance = 16) =>
     reduced
@@ -47,7 +19,6 @@ export function Hero() {
 
   return (
     <section
-      ref={sectionRef}
       id="top"
       className="flex min-h-[100svh] flex-col pt-[var(--header-h)]"
     >
@@ -106,19 +77,8 @@ export function Hero() {
           {...(reduced ? {} : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1.2, delay: 0.55 } })}
           className="relative lg:col-span-6 lg:col-start-7"
         >
-          <div className="relative h-[clamp(160px,24vh,270px)] border-t border-[var(--rule)] lg:border-t-0 lg:border-l lg:pl-8">
-            <SystemVisual
-              progressRef={progressRef}
-              className="absolute inset-0 h-full w-full lg:left-8 lg:w-[calc(100%-2rem)]"
-              density={0.9}
-            />
-          </div>
-          <div className="mt-3 flex items-baseline justify-between gap-4 lg:pl-8">
-            <p className="label text-ink-faint">Fig. 01 — Complexity</p>
-            <p className="label hidden items-center gap-3 text-ink-faint sm:flex">
-              {hero.scrollCue}
-              <span aria-hidden="true" className="block h-px w-10 bg-[var(--rule-strong)]" />
-            </p>
+          <div className="border-t border-[var(--rule)] pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <BeforeAfterFigure />
           </div>
         </motion.div>
       </div>

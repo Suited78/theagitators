@@ -42,7 +42,8 @@ messaging can be rewritten without touching layout. Types are in
 | `audiences.ts` | Who we help — add, remove or rename sectors freely |
 | `outcomes.ts` | "What changes" index |
 | `capabilities.ts` | The six capability areas |
-| `process.ts` | The five-step way of working, and the state each step maps to in the signature visual |
+| `process.ts` | The five-step way of working |
+| `workedExample.ts` | The illustrative quote process behind both figures: its steps and hours before, during and after, and what the figure shows at each of the five steps |
 | `caseStudies.ts` | Case studies, including the standing "illustrative" notice |
 | `team.ts` | The three founders |
 | `manifesto.ts` | Point-of-view statements |
@@ -82,23 +83,27 @@ Tokens are defined once in `src/app/globals.css`, under `@theme` (Tailwind v4).
   `body-copy` and `label` are custom utilities. Every size is fluid, so changing
   a clamp changes the whole site.
 
-## The signature visual
+## The figures: one worked example
 
-`src/components/SystemVisual.tsx` renders a canvas of 44 nodes that reorganise
-through five states as you scroll:
+The page's visuals are one illustrative process (a small agency turning a
+client brief into a sent quote) shown twice, rather than decoration:
 
-**Complexity → Understanding → Redesign → Capability → Momentum**
+- **Fig. 1, in the hero** (`BeforeAfterFigure.tsx`) draws the process before
+  and after on one time scale, so the after bar is visibly shorter rather than
+  rescaled. It switches to "after" once on first view, and a toggle lets the
+  visitor flip back. The footnote states how much of the saving comes from
+  removing waiting rather than from the AI step, a point the manifesto makes in
+  words.
+- **Fig. 2, in "How we work"** (`ProcessFigure.tsx`) shows the same process as
+  it looks after each of the five steps: mapped, friction marked, drafting step
+  trialled, rebuilt, handed over. On large screens it pins beside the steps and
+  follows the one in view; on small screens each step carries its own copy.
 
-The geometry for each state lives in `src/lib/system.ts` — each state supplies a
-position for the same node index, so the system appears to reorganise rather
-than redraw, and the edge sets crossfade while the nodes glide. It appears twice:
-faintly in the hero (which only travels a fraction into the second state), and in
-the "How we work" section, where it is pinned and driven by the active step. The
-`Fig. 0N` caption names the state.
-
-The same scroll handler drives both the motif and the step highlighting, so they
-cannot disagree. Under `prefers-reduced-motion` the ambient drift stops and the
-motif snaps to the scroll position rather than easing toward it.
+All of it comes from `src/content/workedExample.ts`. Totals, handoff counts and
+the saving in the hero footnote are computed from the step rows, so editing an
+hour or adding a step updates every figure and number consistently. Steps keep
+the same `id` across the before, trial and after flows, which is what lets a
+step that survives the redesign animate into place instead of reappearing.
 
 ## Accessibility and motion
 
@@ -107,9 +112,12 @@ motif snaps to the scroll position rather than easing toward it.
   `aria-controls`; the mobile menu traps scroll, closes on `Escape` and returns
   focus to its trigger.
 - `prefers-reduced-motion` is respected by every animated component — reveals
-  render statically, the accordion opens instantly, and the canvas stops drifting.
-- Audited with axe-core at desktop and mobile widths, with every case study
-  expanded: zero violations.
+  render statically, the accordion opens instantly, the hero figure does not
+  switch on its own, and the process figure's rows change without animating.
+- Audited with axe-core at desktop and mobile widths under both palettes, with
+  every case study expanded, both states of the hero figure, and each of the five
+  process stages scrolled into view: zero violations. De-emphasis is done with
+  colour rather than opacity, so dimmed text still meets contrast minimums.
 
 ---
 
@@ -143,6 +151,7 @@ this is a concept site. Remove it before any real launch.
 
 - One page, no routes. Case studies expand in place rather than on their own pages.
 - No CMS. Content is TypeScript modules.
-- No real imagery. Visuals are generated SVG and canvas so nothing needs
-  licensing or art direction yet.
+- No real imagery. The figures are drawn from data in HTML and CSS, and the
+  case study visuals are generated SVG, so nothing needs licensing or art
+  direction yet. The worked example is illustrative, not a client result.
 - The email address, LinkedIn links and every case study are placeholders.

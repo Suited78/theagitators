@@ -11,8 +11,8 @@
   --color-ink: #15140f;
   --color-ink-deep: #100f0b;
   --color-ink-soft: #56534a;
-  --color-ink-faint: #6f6a5e;
-  --color-accent: #c93e1d;
+  --color-ink-faint: #686358;
+  --color-accent: #b8381a;
   --color-accent-bright: #ff6a3d;
   --color-paper-dim: #cfc9b8;
 
@@ -176,6 +176,18 @@ body {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+/* A changed value settles in rather than snapping. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.15em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 

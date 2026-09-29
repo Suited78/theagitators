@@ -6,12 +6,7 @@ export type Palette = "editorial" | "agitator";
 
 export const PALETTE_STORAGE_KEY = "agitators-palette";
 
-/** Fired on <html> whenever the palette changes — anything that can't just
- *  read the CSS custom properties via a class (e.g. a canvas) listens for
- *  this to know when to re-sample them. See SystemVisual. */
-export const PALETTE_CHANGE_EVENT = "agitators:palette-change";
-
-const CHANGE_EVENT = PALETTE_CHANGE_EVENT;
+const CHANGE_EVENT = "agitators:palette-change";
 
 /**
  * Sets `[data-palette]` on <html> before paint, so a stored "agitator"
@@ -82,7 +77,7 @@ export function PaletteSwitcher() {
     // inner role="group" separately names the toggle for the buttons.
     <aside
       aria-label="Palette preview control"
-      className="fixed bottom-5 left-1/2 z-[100] -translate-x-1/2"
+      className="fixed right-4 bottom-4 z-[100]"
     >
       <div
         role="group"

@@ -14,7 +14,6 @@ export const processSteps: ProcessStep[] = [
     title: "Understand",
     description:
       "Learn how the business really operates — the work, the workarounds, the bits nobody puts in a process document.",
-    state: "Complexity",
   },
   {
     id: "leverage",
@@ -22,7 +21,6 @@ export const processSteps: ProcessStep[] = [
     title: "Find the leverage",
     description:
       "Locate the friction that costs the most and the opportunities that would actually move the numbers.",
-    state: "Understanding",
   },
   {
     id: "prototype",
@@ -30,7 +28,6 @@ export const processSteps: ProcessStep[] = [
     title: "Prototype",
     description:
       "Test the promising ideas in weeks, with real work and real people, instead of writing a large deck about them.",
-    state: "Redesign",
   },
   {
     id: "implement",
@@ -38,7 +35,6 @@ export const processSteps: ProcessStep[] = [
     title: "Implement",
     description:
       "Turn what worked into workflows and systems people can rely on when we’re not in the room.",
-    state: "Capability",
   },
   {
     id: "embed",
@@ -46,6 +42,5 @@ export const processSteps: ProcessStep[] = [
     title: "Embed",
     description:
       "Help teams adopt the new way of working and build the internal capability to keep going.",
-    state: "Momentum",
   },
 ];

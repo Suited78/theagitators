@@ -37,7 +37,6 @@ export const hero = {
     "We work with agencies, media companies and ambitious smaller organisations to redesign how work actually gets done — deciding where AI earns its place, and building the capability to keep going without us.",
   primaryCta: { label: "Explore our approach", href: "#how" },
   secondaryCta: { label: "View our work", href: "#work" },
-  scrollCue: "Scroll",
 } as const;
 
 export const finalCta = {
