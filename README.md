@@ -139,6 +139,26 @@ strength and line spacing are the numbers to adjust in the component.
 
 ---
 
+## Holding page
+
+`holding/` is a standalone, single-file holding page for the live domain
+while the full site is still in review: plain HTML and CSS, no build step,
+Manrope self-hosted, logo and favicons from the brand export pack. It is
+deployed as its **own Vercel project**, so the domain can never show the
+unfinished concept site by accident.
+
+1. In Vercel: **Add New → Project**, import this repository again.
+2. Set **Root Directory** to `holding` and **Framework Preset** to *Other*.
+   Leave the build and output settings empty.
+3. Deploy, then add your domain under **Settings → Domains** and follow the
+   DNS instructions Vercel shows.
+
+To launch the full site later, remove the domain from the holding project and
+add it to the main project. Moving it back is equally quick.
+
+Before it goes live, replace the placeholder email address in
+`holding/index.html` (it appears twice, in the two `mailto:` links).
+
 ## Deploying to Vercel
 
 The project is zero-config for Vercel — no `vercel.json` is needed. From the
