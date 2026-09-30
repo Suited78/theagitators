@@ -156,8 +156,8 @@ unfinished concept site by accident.
 To launch the full site later, remove the domain from the holding project and
 add it to the main project. Moving it back is equally quick.
 
-Before it goes live, replace the placeholder email address in
-`holding/index.html` (it appears twice, in the two `mailto:` links).
+The contact address appears twice in `holding/index.html`, in the two
+`mailto:` links.
 
 ## Deploying to Vercel
 
@@ -191,4 +191,4 @@ this is a concept site. Remove it before any real launch.
 - No CMS. Content is TypeScript modules.
 - No real imagery. The agitation field is drawn in code and the case study
   visuals are generated SVG, so nothing needs licensing or art direction yet.
-- The email address, LinkedIn links and every case study are placeholders.
+- The LinkedIn links and every case study are placeholders.

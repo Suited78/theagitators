@@ -38,7 +38,6 @@ export function ContactSection() {
               <a href={mailto} className="text-link">
                 {site.email}
               </a>
-              <p className="mt-1.5 text-sm text-paper/80">{finalCta.note}</p>
             </div>
           </div>
         </Reveal>

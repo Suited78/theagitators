@@ -8,9 +8,9 @@ export const site = {
     "A small consultancy helping smaller organisations redesign how they work — with AI as the lever, not the point.",
   description:
     "The Agitators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
-  email: "hello@theagitators.example",
+  email: "info@theagitators.com.au",
   linkedin: "https://www.linkedin.com/",
-  url: "https://theagitators.example",
+  url: "https://theagitators.com.au",
 } as const;
 
 export const nav: NavItem[] = [
@@ -45,5 +45,4 @@ export const finalCta = {
     "Tell us what’s slow, expensive or stuck. If we’re not the right people, we’ll say so and point you somewhere better.",
   action: { label: "Start a conversation", subject: "Starting a conversation" },
   alternates: ["Let’s find the leverage.", "Start a conversation.", "Where would you start?"],
-  note: "Prototype site — this address is a placeholder.",
 } as const;
