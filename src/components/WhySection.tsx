@@ -1,4 +1,5 @@
 import { why } from "@/content/why";
+import { AdoptionGapChart } from "./AdoptionGapChart";
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 
@@ -53,9 +54,28 @@ export function WhySection() {
           </ol>
         </div>
 
+        {/* The adoption gap: the picture behind the closer below. */}
+        <figure className="mt-16 grid gap-x-12 gap-y-8 border-t border-[var(--rule)] pt-10 lg:mt-24 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Reveal>
+              <p className="label text-purple">{why.gap.label}</p>
+            </Reveal>
+            <Reveal index={1}>
+              <h3 className="display-m mt-4 text-balance">{why.gap.headline}</h3>
+            </Reveal>
+            <Reveal index={2}>
+              <p className="body-copy mt-4">{why.gap.body}</p>
+            </Reveal>
+          </div>
+          <div className="lg:col-span-8">
+            <AdoptionGapChart />
+            <figcaption className="mt-4 text-sm text-muted">{why.gap.caption}</figcaption>
+          </div>
+        </figure>
+
         {/* Mint callout, after the guidelines' "voice in practice" panel. */}
         <Reveal>
-          <div className="mt-16 rounded-[var(--radius-card)] bg-mint px-6 py-8 sm:px-10 sm:py-10 lg:mt-24">
+          <div className="mt-10 rounded-[var(--radius-card)] bg-mint px-6 py-8 sm:px-10 sm:py-10 lg:mt-12">
             <p className="display-m max-w-[40ch] text-balance">{why.closer}</p>
           </div>
         </Reveal>
