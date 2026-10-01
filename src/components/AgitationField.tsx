@@ -5,8 +5,23 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 type Tone = "light" | "dark";
 
+/**
+ * How the field is drawn. All three share the same stir-and-settle motion.
+ * - classic: fine hairlines with sharp ridges (the contact band)
+ * - hills: fewer, heavier lines with rounded peaks, moving more slowly
+ * - crowd: the hills drawn as rows of dots, a few in the brand accents
+ */
+export type FieldVariant = "classic" | "hills" | "crowd";
+
+const VARIANT_DEFAULTS: Record<FieldVariant, { spacing: number; speed: number }> = {
+  classic: { spacing: 9, speed: 1 },
+  hills: { spacing: 16, speed: 0.6 },
+  crowd: { spacing: 18, speed: 0.6 },
+};
+
 export type AgitationFieldProps = {
   tone?: Tone;
+  variant?: FieldVariant;
   /**
    * Custom property for the colour behind the canvas. Each ridge is filled
    * with it, so nearer lines hide the ones behind them — that occlusion is
@@ -17,7 +32,7 @@ export type AgitationFieldProps = {
   progressRef?: React.RefObject<number>;
   /** The pointer stirs the lines, and the field stirs itself when left alone. */
   interactive?: boolean;
-  /** Distance between lines, in CSS pixels. */
+  /** Distance between lines, in CSS pixels. Defaults per variant. */
   spacing?: number;
   className?: string;
 };
@@ -25,6 +40,8 @@ export type AgitationFieldProps = {
 const MAX_LINES = 160;
 const STEP = 5;
 const MAX_DISTURBANCES = 16;
+/** Horizontal distance between people in the crowd. */
+const DOT_STEP = 11;
 const DISTURBANCE_LIFE_MS = 2600;
 
 type Wave = { freq: number; phase: number; speed: number; amp: number };
@@ -39,6 +56,17 @@ function mulberry32(seed: number) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+// Which dots in the crowd carry an accent: 0 plain, 1 purple, 2 mint. Seeded, like the waves.
+const dotKinds: Uint8Array[] = (() => {
+  const rand = mulberry32(5);
+  return Array.from({ length: MAX_LINES }, () =>
+    Uint8Array.from({ length: 512 }, () => {
+      const r = rand();
+      return r < 0.05 ? 1 : r < 0.08 ? 2 : 0;
+    }),
+  );
+})();
 
 // Seeded, so the landscape is the same on every visit and every machine.
 const lineWaves: Wave[][] = (() => {
@@ -68,6 +96,7 @@ function readColours(tone: Tone, background: string) {
     return {
       line: triplet(token("--color-paper"), "250, 248, 243"),
       accent: triplet(token("--color-mint"), "190, 232, 204"),
+      second: triplet(token("--color-mint"), "190, 232, 204"),
       fill: `rgb(${triplet(token(background), "45, 22, 59")})`,
       lineAlpha: 0.42,
     };
@@ -75,6 +104,8 @@ function readColours(tone: Tone, background: string) {
   return {
     line: triplet(token("--color-aubergine"), "45, 22, 59"),
     accent: triplet(token("--color-purple"), "123, 49, 155"),
+    // Brand mint, deepened so a dot still reads on paper or white.
+    second: "120, 196, 150",
     fill: `rgb(${triplet(token(background), "250, 248, 243")})`,
     lineAlpha: 0.5,
   };
@@ -82,14 +113,18 @@ function readColours(tone: Tone, background: string) {
 
 export function AgitationField({
   tone = "light",
+  variant = "classic",
   background,
   progressRef,
   interactive = false,
-  spacing = 9,
+  spacing: spacingProp,
   className,
 }: AgitationFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const spacing = spacingProp ?? VARIANT_DEFAULTS[variant].spacing;
+  const speed = VARIANT_DEFAULTS[variant].speed;
+  const soft = variant !== "classic";
   const backgroundVar = background ?? (tone === "dark" ? "--color-aubergine" : "--color-paper");
 
   useEffect(() => {
@@ -105,7 +140,8 @@ export function AgitationField({
     let height = 0;
     let lines = 0;
     // Headroom above the first line, so its peaks aren't clipped.
-    const top = spacing * 5;
+    const top = spacing * (soft ? 3.5 : 5);
+    const step = variant === "crowd" ? DOT_STEP : STEP;
     let xs = new Float32Array(0);
     let ys = new Float32Array(0);
 
@@ -127,18 +163,30 @@ export function AgitationField({
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       lines = Math.min(MAX_LINES, Math.max(4, Math.floor((height - top - spacing) / spacing) + 1));
-      xs = new Float32Array(Math.ceil(width / STEP) + 2);
+      xs = new Float32Array(Math.ceil(width / step) + 2);
       ys = new Float32Array(xs.length);
       dirty = true;
     };
 
     const displacement = (i: number, u: number, t: number, p: number, now: number) => {
       // Turbulent: each line its own ridges, peaking towards the middle.
-      let n = 0;
-      for (const wave of lineWaves[i]) n += wave.amp * Math.sin(u * wave.freq * Math.PI * 2 + wave.phase + t * wave.speed);
-      n /= 1.63;
-      const turbulentEnvelope = 0.12 + 0.88 * Math.exp(-(((u - 0.5) / 0.26) ** 2));
-      const turbulent = -Math.pow(Math.max(0, n), 1.3) * turbulentEnvelope * spacing * 4.2;
+      const waves = lineWaves[i];
+      let turbulent: number;
+      if (soft) {
+        // Two slow waves, squared into rounded hills: no spikes, no jitter.
+        const n =
+          (Math.sin(u * waves[0].freq * Math.PI * 2 + waves[0].phase + t * waves[0].speed) +
+            0.4 * Math.sin(u * waves[1].freq * 0.6 * Math.PI * 2 + waves[1].phase + t * waves[1].speed * 0.6)) /
+          1.4;
+        const envelope = 0.2 + 0.8 * Math.exp(-(((u - 0.5) / 0.3) ** 2));
+        turbulent = -((n * 0.5 + 0.5) ** 2) * envelope * spacing * 2.6;
+      } else {
+        let n = 0;
+        for (const wave of waves) n += wave.amp * Math.sin(u * wave.freq * Math.PI * 2 + wave.phase + t * wave.speed);
+        n /= 1.63;
+        const envelope = 0.12 + 0.88 * Math.exp(-(((u - 0.5) / 0.26) ** 2));
+        turbulent = -Math.pow(Math.max(0, n), 1.3) * envelope * spacing * 4.2;
+      }
 
       // Aligned: every line rides the same slow swell, each a beat behind the last.
       const aligned = -Math.sin(u * Math.PI * 2 * 1.3 - i * 0.16 + t * 0.7) * Math.sin(Math.PI * u) * spacing * 1.1;
@@ -152,21 +200,40 @@ export function AgitationField({
         if (gx < 0.01) continue;
         const gl = Math.exp(-(((i - d.line) / (2.6 + age * 4)) ** 2));
         if (gl < 0.01) continue;
-        const ripple = 0.55 + 0.45 * Math.cos(age * 8 - Math.abs(dx) * 0.045);
-        y -= d.amp * spacing * 4.6 * Math.exp(-age * 1.1) * gx * gl * ripple;
+        if (soft) {
+          // A slower, rounder swell.
+          const ripple = 0.75 + 0.25 * Math.cos(age * 5 - Math.abs(dx) * 0.03);
+          y -= d.amp * spacing * 2.6 * Math.exp(-age * 0.9) * gx * gl * ripple;
+        } else {
+          const ripple = 0.55 + 0.45 * Math.cos(age * 8 - Math.abs(dx) * 0.045);
+          y -= d.amp * spacing * 4.6 * Math.exp(-age * 1.1) * gx * gl * ripple;
+        }
       }
       return y;
     };
 
+    // Hills are drawn as smooth curves through the samples; the classic field keeps its hard ridges.
+    const trace = (count: number) => {
+      ctx.moveTo(xs[0], ys[0]);
+      if (!soft) {
+        for (let k = 1; k < count; k++) ctx.lineTo(xs[k], ys[k]);
+        return;
+      }
+      for (let k = 1; k < count - 1; k++) {
+        ctx.quadraticCurveTo(xs[k], ys[k], (xs[k] + xs[k + 1]) / 2, (ys[k] + ys[k + 1]) / 2);
+      }
+      ctx.lineTo(xs[count - 1], ys[count - 1]);
+    };
+
     const draw = (now: number) => {
       if (startTime < 0) startTime = now;
-      const t = reduced ? 0 : now / 1000;
+      const t = reduced ? 0 : (now / 1000) * speed;
       const p = progressRef ? eased : 0;
       // Lines draw in from the left the first time the field is seen.
       const reveal = reduced ? 1 : 1 - Math.pow(1 - clamp01((now - startTime) / 1600), 3);
       const drawWidth = width * reveal;
-      const count = Math.min(xs.length, Math.ceil(drawWidth / STEP) + 1);
-      for (let k = 0; k < count; k++) xs[k] = Math.min(drawWidth, k * STEP);
+      const count = Math.min(xs.length, Math.ceil(drawWidth / step) + 1);
+      for (let k = 0; k < count; k++) xs[k] = Math.min(drawWidth, k * step);
 
       ctx.clearRect(0, 0, width, height);
       if (count < 2) return;
@@ -177,20 +244,38 @@ export function AgitationField({
         for (let k = 0; k < count; k++) ys[k] = base + displacement(i, xs[k] / width, t, p, now);
 
         ctx.beginPath();
-        ctx.moveTo(xs[0], ys[0]);
-        for (let k = 1; k < count; k++) ctx.lineTo(xs[k], ys[k]);
+        trace(count);
         ctx.lineTo(xs[count - 1], height);
         ctx.lineTo(xs[0], height);
         ctx.closePath();
         ctx.fillStyle = colours.fill;
         ctx.fill();
 
+        if (variant === "crowd") {
+          const kinds = dotKinds[i];
+          for (let k = 0; k < count; k++) {
+            const kind = kinds[k % kinds.length];
+            ctx.beginPath();
+            ctx.arc(xs[k], ys[k], kind === 0 ? 1.9 : 2.8, 0, Math.PI * 2);
+            ctx.fillStyle =
+              kind === 1
+                ? `rgba(${colours.accent}, 0.9)`
+                : kind === 2
+                  ? `rgb(${colours.second})`
+                  : `rgba(${colours.line}, ${colours.lineAlpha + 0.1})`;
+            ctx.fill();
+          }
+          continue;
+        }
+
         ctx.beginPath();
-        ctx.moveTo(xs[0], ys[0]);
-        for (let k = 1; k < count; k++) ctx.lineTo(xs[k], ys[k]);
+        trace(count);
         const isAccent = i === accentLine;
-        ctx.lineWidth = isAccent ? 1.5 : 1;
-        ctx.strokeStyle = isAccent ? `rgba(${colours.accent}, 0.95)` : `rgba(${colours.line}, ${colours.lineAlpha})`;
+        const weight = variant === "hills" ? 2 : 1;
+        ctx.lineWidth = isAccent ? weight * 1.5 : weight;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = isAccent ? `rgba(${colours.accent}, 0.95)` : `rgba(${colours.line}, ${variant === "hills" ? colours.lineAlpha + 0.05 : colours.lineAlpha})`;
         ctx.stroke();
       }
     };
@@ -267,7 +352,7 @@ export function AgitationField({
       window.removeEventListener("pointermove", onPointer);
       window.removeEventListener("pointerdown", onPointer);
     };
-  }, [tone, backgroundVar, progressRef, interactive, spacing, reduced]);
+  }, [tone, variant, soft, speed, backgroundVar, progressRef, interactive, spacing, reduced]);
 
   return <canvas ref={canvasRef} className={className} aria-hidden="true" />;
 }

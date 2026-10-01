@@ -80,6 +80,7 @@ export function ProcessSection() {
           <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-white pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pb-0">
             <div className="relative h-[24vh] min-h-[150px] lg:h-[min(60vh,540px)]">
               <AgitationField
+                variant="crowd"
                 progressRef={progressRef}
                 background="--color-white"
                 className="absolute inset-0 h-full w-full"

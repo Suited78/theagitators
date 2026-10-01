@@ -110,13 +110,17 @@ The pre-brand editorial design is preserved on the `design/editorial-v1` branch.
 The page's one visual device (`src/components/AgitationField.tsx`): stacked
 ridgelines, drawn to a canvas, that the visitor stirs as the pointer
 passes through, then settle. It's the brand name made literal, and it's
-there for atmosphere rather than explanation. It appears three times:
+there for atmosphere rather than explanation. The `variant` prop sets how
+it's drawn; the motion is the same in all three:
 
-- **Hero**: restless on its own, stirred by the pointer (or a tap), bleeding
-  off the right edge.
-- **How we work**: pinned beside the steps (a band above them on small
-  screens), going from turbulent to one coordinated swell as you scroll.
-- **Contact**: a full-width band on the dark panel to close the page.
+- **Hero** (`hills`): fewer, heavier lines with rounded peaks, moving
+  slowly. Restless on its own, stirred by the pointer (or a tap).
+- **How we work** (`crowd`): the same hills drawn as rows of dots, a few in
+  purple and mint: a team rather than a signal. Pinned beside the steps (a
+  band above them on small screens), going from turbulent to one
+  coordinated swell as you scroll.
+- **Contact** (`classic`): the original fine hairlines with sharp ridges, as
+  a full-width band on the dark panel to close the page.
 
 Each ridge is filled with the section's background colour, so nearer lines
 hide the ones behind them; that is what gives the field its depth, and why

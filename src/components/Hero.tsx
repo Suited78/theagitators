@@ -67,7 +67,7 @@ export function Hero() {
         </motion.div>
 
         <div className="relative -mx-[var(--gutter)] h-[clamp(240px,40vh,440px)] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] lg:col-span-7 lg:col-start-6 lg:ml-0 lg:[mask-image:linear-gradient(to_right,transparent,black_18%)]">
-          <AgitationField interactive className="absolute inset-0 h-full w-full" />
+          <AgitationField variant="hills" interactive className="absolute inset-0 h-full w-full" />
         </div>
       </div>
     </section>
