@@ -69,7 +69,6 @@ export function WhySection() {
           </div>
           <div className="lg:col-span-8">
             <AdoptionGapChart />
-            <figcaption className="mt-4 text-sm text-muted">{why.gap.caption}</figcaption>
           </div>
         </figure>
 

@@ -20,7 +20,6 @@ export const why = {
     label: "The adoption gap",
     headline: "Capability compounds. Absorption doesn’t.",
     body: "Every year the tools can do more. What an organisation can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.",
-    caption: "Conceptual, not measured. After a chart by Suhit Anantula, 2025.",
   },
   closer: "That gap — between knowing something is happening and knowing what to do on Monday — is the whole of our work.",
 } as const;

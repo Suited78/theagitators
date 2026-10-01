@@ -50,20 +50,20 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
           transition: { duration: 1, delay, ease },
         };
 
-  const gapLabelT = 0.64;
   const nowX = xOf(NOW);
 
   return (
     <div className={className}>
       <div
         role="img"
-        aria-label="Conceptual chart, 2023 to 2030. AI capability starts moderate and rises ever faster. What organisations can absorb starts low and barely rises. The space between them, the adoption gap, widens every year."
+        aria-label="Conceptual chart, 2023 to 2030. AI capability starts between low and medium and rises ever faster, to very high. What organisations can absorb starts very low and barely rises. The space between them, the adoption gap, widens every year; by 2030 that distance is the real challenge."
         className="grid grid-cols-[auto_minmax(0,1fr)] grid-rows-[minmax(0,1fr)_auto] gap-x-3 gap-y-2"
       >
-        {/* Y axis: qualitative, two anchors only. */}
-        <div aria-hidden="true" className="label flex flex-col justify-between py-1 text-right text-muted">
-          <span>High</span>
-          <span>Low</span>
+        {/* Y axis: qualitative, three anchors on the gridlines. */}
+        <div aria-hidden="true" className="label relative w-[5rem] whitespace-nowrap text-right leading-tight text-muted sm:w-[5.5rem]">
+          <span className="absolute right-0 top-0">Very high</span>
+          <span className="absolute right-0 top-1/2 -translate-y-1/2">Medium</span>
+          <span className="absolute bottom-0 right-0">Very low</span>
         </div>
 
         <div aria-hidden="true" className="relative aspect-[4/3] sm:aspect-[16/8]">
@@ -73,7 +73,7 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
               {years.map((year) => (
                 <line key={year} x1={xOf(year)} x2={xOf(year)} y1="0" y2="100" vectorEffect="non-scaling-stroke" />
               ))}
-              {[0, 33.33, 66.67].map((y) => (
+              {[0, 25, 50, 75].map((y) => (
                 <line key={y} x1="0" x2="100" y1={y} y2={y} vectorEffect="non-scaling-stroke" />
               ))}
             </g>
@@ -133,31 +133,45 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
             />
           </svg>
 
-          {/* Direct labels. Text wears text tokens; a swatch carries identity. */}
+          {/* Direct labels sit on their own lines, coloured to match. */}
           <span
-            className="absolute flex -translate-y-1/2 items-center gap-2 text-sm font-bold sm:text-base"
-            style={{ right: "6%", top: `${(1 - capability(0.86)) * 100}%` }}
+            className="absolute left-[1%] -translate-y-full pb-1.5 text-sm font-extrabold text-purple sm:text-base"
+            style={{ top: `${(1 - capability(0.4)) * 100}%` }}
           >
-            <span className="h-1 w-5 rounded-full bg-purple" />
             AI capability
           </span>
           <span
-            className="absolute flex items-center gap-2 text-sm font-bold sm:text-base"
-            style={{ left: "2%", bottom: "2%" }}
+            className="absolute left-[1%] mt-1 bg-paper pr-1.5 text-sm font-extrabold text-aubergine sm:text-base"
+            style={{ top: `${(1 - absorption(0)) * 100}%` }}
           >
-            <span className="h-1 w-5 rounded-full bg-aubergine" />
             What organisations absorb
           </span>
+
+          {/* The gap, named; its background hides the Now rule behind it. */}
           <motion.span
-            className="display-s absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
-            style={{
-              left: `${gapLabelT * 100}%`,
-              top: `${(1 - (capability(gapLabelT) + absorption(gapLabelT)) / 2) * 100}%`,
-            }}
+            className="absolute left-[40%] top-[68%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-mint px-1.5 text-base font-extrabold tracking-tight sm:left-[58%] sm:top-[60.5%] sm:text-[1.75rem]"
             {...fade(1.2)}
           >
             The adoption gap
           </motion.span>
+
+          {/* The real challenge: the distance at the far end, made explicit. */}
+          <motion.span
+            className="absolute right-[3%] w-0.5 bg-aubergine"
+            style={{ top: `calc(${(1 - capability(0.97)) * 100}% + 0.5rem)`, bottom: `calc(${absorption(0.97) * 100}% + 0.5rem)` }}
+            {...fade(1.6)}
+          >
+            <span className="absolute -bottom-px left-1/2 h-0 w-0 -translate-x-1/2 border-x-[6px] border-t-[9px] border-x-transparent border-t-aubergine" />
+          </motion.span>
+          <motion.span
+            className="absolute right-[calc(3%+0.875rem)] top-[52%] sm:top-[44%] -translate-y-1/2 text-right text-sm leading-tight font-extrabold sm:text-lg"
+            {...fade(1.6)}
+          >
+            The real
+            <br />
+            challenge
+          </motion.span>
+
           <span
             className="label absolute top-1 -translate-x-1/2 rounded-[4px] bg-aubergine px-2 py-0.5 text-paper"
             style={{ left: `${nowX}%` }}
