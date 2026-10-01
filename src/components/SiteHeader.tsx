@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { nav, site } from "@/content/site";
 import { Logo } from "./Logo";
@@ -9,7 +10,10 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
+  const [spied, setActive] = useState<string | null>(null);
+  // Case study pages belong to Work; scroll-spy only runs on the homepage.
+  const onCaseStudy = usePathname().startsWith("/work/");
+  const active = onCaseStudy ? "work" : spied;
   const [menuOpen, setMenuOpen] = useState(false);
   const reduced = usePrefersReducedMotion();
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -23,6 +27,7 @@ export function SiteHeader() {
 
   // Highlight whichever section currently owns the upper third of the viewport.
   useEffect(() => {
+    if (onCaseStudy) return;
     const sections = nav
       .map((item) => document.getElementById(item.id))
       .filter((el): el is HTMLElement => el !== null);
@@ -39,7 +44,7 @@ export function SiteHeader() {
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [onCaseStudy]);
 
   // Lock the page behind the mobile menu and restore focus on close.
   useEffect(() => {
