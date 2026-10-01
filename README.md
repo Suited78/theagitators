@@ -43,7 +43,7 @@ messaging can be rewritten without touching layout. Types are in
 | `outcomes.ts` | "What changes" index |
 | `capabilities.ts` | The six capability areas |
 | `process.ts` | The five-step way of working |
-| `caseStudies.ts` | Case studies, including the standing "illustrative" notice |
+| `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) and the held third slot |
 | `team.ts` | The three founders |
 | `manifesto.ts` | Point-of-view statements |
 
@@ -56,10 +56,14 @@ Some specifics worth knowing:
   `src/app/page.tsx`.
 - **Capabilities and audiences** are plain arrays. Adding a seventh capability or
   a fourth audience needs no layout changes.
-- **Case studies** support `image` (swaps out the generated glyph), `metric`,
-  `tags` and a multi-paragraph `detail`. Set `illustrative: false` once an entry
-  describes real, cleared work — that removes the "Illustrative" chip. The
-  standing notice above the list is `workIntro.notice`.
+- **Case studies** share one format, whatever the source material looks like:
+  sector, outcome-led headline, one-line summary and a single headline
+  result for the homepage card; then at a glance, the situation (with an
+  optional quote), the approach with a Discover / Design / Deliver / What's
+  next table, what the work exposed, where the line sits between the system
+  and a person, results (stats are optional, an evidence note is not) and
+  what transfers. Each gets a static page at `/work/[slug]`. Until a third
+  study is cleared, `workPlaceholder` holds the slot.
 - **Team members** support `photo`, `linkedin` and `expertise`. Without a photo
   they render a numbered "portrait pending" plate.
 
@@ -187,8 +191,9 @@ this is a concept site. Remove it before any real launch.
 
 ## Known scope of this build
 
-- One page, no routes. Case studies expand in place rather than on their own pages.
+- One main page, plus a static page per case study under `/work/`.
 - No CMS. Content is TypeScript modules.
-- No real imagery. The agitation field is drawn in code and the case study
-  visuals are generated SVG, so nothing needs licensing or art direction yet.
-- The LinkedIn links and every case study are placeholders.
+- No real imagery. The agitation field is drawn in code, so nothing needs
+  licensing or art direction yet.
+- The LinkedIn links are placeholders. Case study clients are de-identified;
+  the travel and tourism study is pending partner sign-off.

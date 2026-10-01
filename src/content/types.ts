@@ -32,25 +32,49 @@ export type ProcessStep = {
   title: string;
   description: string;
 };
+export type CaseStudyStage = {
+  stage: "Discover" | "Design" | "Deliver" | "What’s next";
+  happened: string;
+  /** What the client keeps from this stage, whether or not we stay involved. */
+  keeps: string;
+};
+
+/**
+ * One format for every case study, whatever shape the source material
+ * arrives in. Optional fields render nothing when absent, so a study with
+ * no hard numbers still sits beside one that has them.
+ */
 export type CaseStudy = {
-  id: string;
-  /** Client or organisation name. Placeholder until real work is cleared. */
-  client: string;
+  /** URL segment: /work/[slug]. */
+  slug: string;
   sector: string;
-  /** Short teaser shown before the card is expanded. */
-  teaser: string;
-  challenge: string;
-  whatWeDid: string;
-  outcome: string;
-  /** Optional headline result. Kept deliberately unquantified while illustrative. */
-  metric?: { value: string; label: string };
-  tags: string[];
-  /** Longer expanded description, rendered as paragraphs. */
-  detail: string[];
-  /** Optional image; when absent the card renders a generated visual. */
-  image?: { src: string; alt: string };
-  /** Marks the entry as prototype content rather than a real engagement. */
-  illustrative: boolean;
+  /** Outcome-led, short enough for the homepage card. */
+  headline: string;
+  /** One sentence: who, what changed. */
+  summary: string;
+  /** The single result shown on the homepage card and the page hero. */
+  result: { value: string; label: string };
+  glance: {
+    client: string;
+    engagement: string;
+    stages: string;
+    reached: string;
+  };
+  situation: string[];
+  quote?: { text: string; attribution: string };
+  approach: string[];
+  stageTable: CaseStudyStage[];
+  /** What surfaced once the work started. */
+  exposed: { headline: string; body: string[] };
+  /** Where the system's authority stops and a person's starts. */
+  line: { system: { item: string; note: string }[]; person: { item: string; note: string }[] };
+  results: {
+    stats: { value: string; label: string }[];
+    outcomes: string[];
+    /** How the numbers were produced, and what the study does not claim. */
+    evidence: string;
+  };
+  insight: { headline: string; body: string };
 };
 
 export type TeamMember = {

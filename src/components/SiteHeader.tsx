@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { nav, site } from "@/content/site";
 import { Logo } from "./Logo";
@@ -69,9 +70,9 @@ export function SiteHeader() {
     >
       <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
         {/* Guidelines minimum for the full horizontal lockup: 180px. */}
-        <a href="#top" className="-m-1 rounded-sm p-1" aria-label={`${site.name} — back to top`}>
+        <Link href="/#top" className="-m-1 rounded-sm p-1" aria-label={`${site.name} — home`}>
           <Logo className="w-[180px] lg:w-[196px]" />
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-7">
@@ -80,7 +81,7 @@ export function SiteHeader() {
               return (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={`/#${item.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className="group relative block py-1 text-[0.9375rem] font-semibold text-muted transition-colors duration-300 hover:text-aubergine aria-[current]:text-aubergine"
                   >
@@ -154,7 +155,7 @@ export function SiteHeader() {
                     className="border-b border-[var(--rule)]"
                   >
                     <a
-                      href={`#${item.id}`}
+                      href={`/#${item.id}`}
                       onClick={() => setMenuOpen(false)}
                       className="display-s flex items-baseline justify-between py-4"
                     >

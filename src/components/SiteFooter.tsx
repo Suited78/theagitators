@@ -19,7 +19,7 @@ export function SiteFooter() {
               {nav.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={`/#${item.id}`}
                     className="inline-flex min-h-10 items-center text-base text-paper/80 transition-colors duration-300 hover:text-paper"
                   >
                     {item.label}
