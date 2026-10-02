@@ -5,7 +5,7 @@ export const site = {
   name: "The Agitators",
   tagline: "Change is happening. Agitate accordingly.",
   positioningLine:
-    "A small consultancy helping smaller organisations redesign how they work — with AI as the lever, not the point.",
+    "A transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
   description:
     "The Agitators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
   email: "info@theagitators.com.au",

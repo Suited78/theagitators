@@ -1,6 +1,6 @@
 # The Agitators — concept website
 
-A single-page concept site for a prospective consultancy, built as both a design
+A single-page concept site for a prospective transformation agency, built as both a design
 prototype and a strategic conversation artefact. It is deliberately opinionated:
 the point is to have something specific enough to argue with.
 
