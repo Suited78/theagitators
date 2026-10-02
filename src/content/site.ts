@@ -24,7 +24,7 @@ export const nav: NavItem[] = [
 ];
 
 export const hero = {
-  eyebrow: "Transformation consultancy for the AI era",
+  eyebrow: "Transformation agency for the AI era",
   headline: ["Change is happening.", "Agitate accordingly."],
   /** Swap-in alternates the founders can argue about. */
   headlineAlternates: [
