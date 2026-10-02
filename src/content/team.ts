@@ -14,6 +14,8 @@ export const team: TeamMember[] = [
     role: "Creative & communications",
     bio: "Placeholder bio. Two decades inside creative and communications businesses, mostly on the side of the work that gets made and the teams who make it.",
     expertise: ["Agency operations", "Client service", "Creative production"],
+    // Treatment B in purple: natural colour, brand-colour backdrop. Rendered from the original, not live.
+    photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson" },
     linkedin: "https://www.linkedin.com/",
   },
   {

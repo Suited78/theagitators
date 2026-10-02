@@ -53,6 +53,8 @@ export function TeamSection() {
                 <img
                   src={member.photo.src}
                   alt={member.photo.alt}
+                  width={960}
+                  height={1200}
                   className="aspect-[4/5] w-full rounded-[var(--radius-card)] object-cover"
                 />
               ) : (
