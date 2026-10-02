@@ -10,7 +10,7 @@ type LogoProps = {
 };
 
 /**
- * The supplied master artwork (logo exports v1.1), used as-is: the
+ * The supplied master artwork (logo exports v1.2), used as-is: the
  * guidelines forbid redrawing, recolouring or rebuilding it in live type.
  * Minimum width for the full horizontal lockup is 180px.
  */
@@ -20,7 +20,7 @@ export function Logo({ variant = "primary", className = "" }: LogoProps) {
     <img
       src={`/brand/the-agitators-${variant}-web.svg`}
       alt={site.name}
-      width={627}
+      width={701}
       height={137}
       className={`block h-auto ${className}`}
       draggable={false}

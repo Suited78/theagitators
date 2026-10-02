@@ -76,7 +76,7 @@ export function SiteHeader() {
       <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
         {/* Guidelines minimum for the full horizontal lockup: 180px. */}
         <Link href="/#top" className="-m-1 rounded-sm p-1" aria-label={`${site.name} — home`}>
-          <Logo className="w-[180px] lg:w-[196px]" />
+          <Logo className="w-[201px] lg:w-[219px]" />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">

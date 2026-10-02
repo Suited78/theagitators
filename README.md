@@ -80,10 +80,12 @@ The pre-brand editorial design is preserved on the `design/editorial-v1` branch.
 - **Name.** "The Agitators", standard title case. Never "AGI" in capitals and
   never a recoloured "Agi": the only nod to AGI is the three-part underline
   built into the logo.
-- **Logo.** The supplied master artwork in `public/brand/`, used untouched via
-  `Logo.tsx`: primary on paper (header), reversed on aubergine (footer). The
-  full horizontal lockup is kept at or above its 180px minimum. Favicons in
-  `src/app/` come from the same export pack.
+- **Logo.** The supplied master artwork in `public/brand/` (logo pack v1.2,
+  with the enlarged wordmark), used untouched via `Logo.tsx`: primary on
+  paper (header), reversed on aubergine (footer). The full horizontal lockup
+  is kept above its 180px minimum, sized so the symbol matches its earlier
+  height. Favicons in `src/app/` come from the same export pack. The holding
+  page has its own copy in `holding/logo.svg`.
 - **Colour.** Aubergine `#2D163B` (text, structure, dark sections), purple
   `#7B319B` (buttons, emphasis), mint `#BEE8CC` (fills, signals on dark), paper
   `#FAF8F3` (canvas), muted `#625469` (secondary text). White is a utility

@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="shell">
         <div className="grid gap-x-10 gap-y-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Logo variant="reversed" className="w-[220px]" />
+            <Logo variant="reversed" className="w-[246px]" />
             <p className="mt-6 max-w-[36ch] text-base leading-relaxed text-paper/80">{site.positioningLine}</p>
           </div>
 
