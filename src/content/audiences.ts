@@ -2,9 +2,9 @@ import type { Audience } from "./types";
 
 export const audienceIntro = {
   eyebrow: "Who we help",
-  headline: "Organisations small enough to move, big enough for it to matter.",
+  headline: "Organisations ready to move, at a scale where it matters.",
   supporting:
-    "Our sweet spot is roughly ten to a hundred people — where a decision can still change the whole company, and where nobody has a spare transformation department.",
+    "We do our best work with leadership teams who want to change how the whole organisation works, whether or not they have a transformation team of their own.",
 } as const;
 
 export const audiences: Audience[] = [
@@ -27,10 +27,10 @@ export const audiences: Audience[] = [
     signals: ["Search and referral traffic shifting", "Archive and rights value", "Newsroom capacity"],
   },
   {
-    id: "smaller",
-    title: "Ambitious smaller organisations",
+    id: "ambitious",
+    title: "Ambitious organisations ready to change",
     description:
-      "Teams under a hundred people who want real change, delivered by people who will actually do the work — not a pyramid of consultants.",
-    signals: ["No internal transformation team", "Tool sprawl", "Ideas outrunning implementation"],
+      "Leadership teams who want real change, delivered by senior people who do the work themselves. No pyramid of consultants.",
+    signals: ["Transformation team stretched or missing", "Tool sprawl", "Ideas outrunning implementation"],
   },
 ];

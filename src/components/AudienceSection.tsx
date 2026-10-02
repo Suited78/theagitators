@@ -42,7 +42,7 @@ export function AudienceSection() {
         <Reveal>
           <p className="body-copy mt-8 max-w-[60ch] text-base">
             Sectors are a starting point, not a boundary. If the work is interesting and the
-            organisation is small enough to actually change, we&rsquo;re interested.
+            organisation is ready to change, we&rsquo;re interested.
           </p>
         </Reveal>
       </div>

@@ -4,7 +4,7 @@ export const teamIntro = {
   eyebrow: "Who we are",
   headline: "Three practitioners, three angles on the same problem.",
   supporting:
-    "Not a pyramid. The people you meet are the people who do the work — which is also the reason we stay small and turn things down.",
+    "Not a pyramid. The people you meet are the people who do the work — which is why we choose our engagements carefully.",
 } as const;
 
 export const team: TeamMember[] = [

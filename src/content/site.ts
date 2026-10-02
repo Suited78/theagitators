@@ -33,7 +33,7 @@ export const hero = {
     ["Most companies don’t need", "more AI. They need", "a better way to work."],
   ],
   supporting:
-    "We work with agencies, media companies and ambitious smaller organisations to redesign how work actually gets done — deciding where AI earns its place, and building the capability to keep going without us.",
+    "We work with agencies, media companies and ambitious organisations to redesign how work actually gets done: deciding where AI earns its place, and building the capability to keep going without us.",
   primaryCta: { label: "Explore our approach", href: "#how" },
   secondaryCta: { label: "View our work", href: "#work" },
 } as const;

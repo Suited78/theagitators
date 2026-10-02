@@ -4,7 +4,7 @@ export const why = {
   lede:
     "AI is not arriving as a product you buy. It’s arriving as a change in what work costs, who does it, how fast clients expect it, and which of your advantages still hold.",
   body: [
-    "Most leaders of smaller organisations have worked this out already. They’ve read the same articles, run the same trials, and watched a competitor announce something that may or may not be real.",
+    "The leaders we talk to have worked this out already. They’ve read the same articles, run the same trials, and watched a competitor announce something that may or may not be real.",
     "What they don’t have is a spare quarter to figure out where to focus.",
   ],
   /** The unanswered questions, rendered as an editorial list. */
