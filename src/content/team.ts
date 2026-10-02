@@ -10,13 +10,13 @@ export const teamIntro = {
 export const team: TeamMember[] = [
   {
     id: "founder-one",
-    name: "Founder One",
-    role: "Creative & communications",
-    bio: "Placeholder bio. Two decades inside creative and communications businesses, mostly on the side of the work that gets made and the teams who make it.",
+    name: "Lee Robson",
+    role: "Co-Founder",
+    bio: "A passion for building AI-driven solutions to human problems informed by 25 years with startups and major brands.",
     expertise: ["Agency operations", "Client service", "Creative production"],
     // Treatment B in purple: natural colour, brand-colour backdrop. Rendered from the original, not live.
     photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson" },
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/lee-robson-pr/",
   },
   {
     id: "founder-two",
