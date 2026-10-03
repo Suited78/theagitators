@@ -85,5 +85,9 @@ export type TeamMember = {
   expertise: string[];
   linkedin?: string;
   /** Optional headshot; falls back to an initials plate. */
-  photo?: { src: string; alt: string };
+  /**
+   * `offset` sets the photo over a block of that brand colour, offset down
+   * and to the right (portrait treatment C).
+   */
+  photo?: { src: string; alt: string; offset?: "aubergine" | "purple" | "mint" };
 };

@@ -48,7 +48,23 @@ export function TeamSection() {
         <ul className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-3 lg:mt-16">
           {team.map((member, index) => (
             <Reveal as="li" key={member.id} index={index} className="flex flex-col">
-              {member.photo ? (
+              {member.photo?.offset ? (
+                <div className="relative aspect-[4/5] w-full">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 top-3.5 left-3.5 rounded-[var(--radius-card)]"
+                    style={{ backgroundColor: `var(--color-${member.photo.offset})` }}
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={member.photo.src}
+                    alt={member.photo.alt}
+                    width={960}
+                    height={1200}
+                    className="absolute inset-0 right-3.5 bottom-3.5 h-[calc(100%-0.875rem)] w-[calc(100%-0.875rem)] rounded-[var(--radius-card)] object-cover"
+                  />
+                </div>
+              ) : member.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={member.photo.src}

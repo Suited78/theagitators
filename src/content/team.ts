@@ -24,6 +24,8 @@ export const team: TeamMember[] = [
     role: "Media & transformation",
     bio: "Placeholder bio. A background in media businesses and organisational change, with a habit of asking what a process is actually for before improving it.",
     expertise: ["Operating models", "Editorial & content", "Change programmes"],
+    // Comparison only: Lee's photo in treatment A (mint duotone) until this founder's photo arrives.
+    photo: { src: "/team/founder-two.webp", alt: "Portrait of Lee Robson, mint duotone version" },
     linkedin: "https://www.linkedin.com/",
   },
   {
@@ -32,6 +34,8 @@ export const team: TeamMember[] = [
     role: "AI strategy & implementation",
     bio: "Placeholder bio. Builds the things. Spends most of the week close enough to the technology to know what it can’t do yet.",
     expertise: ["AI strategy", "Prototyping", "Internal tooling"],
+    // Comparison only: Lee's photo in treatment C (black and white on an aubergine block).
+    photo: { src: "/team/founder-three.webp", alt: "Portrait of Lee Robson, black and white version", offset: "aubergine" },
     linkedin: "https://www.linkedin.com/",
   },
 ];
