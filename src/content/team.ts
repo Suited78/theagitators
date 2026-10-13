@@ -14,28 +14,26 @@ export const team: TeamMember[] = [
     role: "Co-Founder",
     bio: "A passion for building AI-driven solutions to human problems informed by 25 years with startups and major brands.",
     expertise: ["Agency operations", "Client service", "Creative production"],
-    // Treatment B in purple: natural colour, brand-colour backdrop. Rendered from the original, not live.
-    photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson" },
+    // Treatment C: black and white on an offset block of the founder's colour. Rendered once from the original.
+    photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson", offset: "purple" },
     linkedin: "https://www.linkedin.com/in/lee-robson-pr/",
   },
   {
     id: "founder-two",
-    name: "Founder Two",
+    name: "James",
     role: "Media & transformation",
     bio: "Placeholder bio. A background in media businesses and organisational change, with a habit of asking what a process is actually for before improving it.",
     expertise: ["Operating models", "Editorial & content", "Change programmes"],
-    // Comparison only: Lee's photo in treatment A (mint duotone) until this founder's photo arrives.
-    photo: { src: "/team/founder-two.webp", alt: "Portrait of Lee Robson, mint duotone version" },
+    photo: { src: "/team/founder-two.webp", alt: "Portrait of James", offset: "mint" },
     linkedin: "https://www.linkedin.com/",
   },
   {
     id: "founder-three",
-    name: "Founder Three",
+    name: "Harris",
     role: "AI strategy & implementation",
     bio: "Placeholder bio. Builds the things. Spends most of the week close enough to the technology to know what it can’t do yet.",
     expertise: ["AI strategy", "Prototyping", "Internal tooling"],
-    // Comparison only: Lee's photo in treatment C (black and white on an aubergine block).
-    photo: { src: "/team/founder-three.webp", alt: "Portrait of Lee Robson, black and white version", offset: "aubergine" },
+    photo: { src: "/team/founder-three.webp", alt: "Portrait of Harris", offset: "aubergine" },
     linkedin: "https://www.linkedin.com/",
   },
 ];
