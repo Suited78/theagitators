@@ -13,7 +13,7 @@ export const site = {
   positioningLine:
     "A transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
   description:
-    "The Agitators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
+    "The Agitators is a transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
   email: "info@theagitators.com.au",
   /** Company page. Leave as the bare domain until it exists; links and structured data skip it. */
   linkedin: "https://www.linkedin.com/",
