@@ -1,0 +1,21 @@
+# Cloudflare Pages response headers (https://developers.cloudflare.com/pages/configuration/headers/).
+# Copied into out/ by the build; ignored by other hosts.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Build output with a content hash in its name never changes, so cache it for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images and fonts can change under the same name; cache for a day.
+/og/*
+  Cache-Control: public, max-age=86400
+/team/*
+  Cache-Control: public, max-age=86400
+/brand/*
+  Cache-Control: public, max-age=86400

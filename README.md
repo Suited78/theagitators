@@ -169,26 +169,31 @@ add it to the main project. Moving it back is equally quick.
 The contact address appears twice in `holding/index.html`, in the two
 `mailto:` links.
 
-## Deploying to Vercel
+## Deploying to Cloudflare Pages
 
-The project is zero-config for Vercel — no `vercel.json` is needed. From the
-repository root:
+The site is a static export (`output: "export"` in `next.config.ts`): `npm run
+build` writes the finished site to `out/`, and `npm start` serves that folder
+locally. Production runs on Cloudflare Pages, which serves static sites on its
+free plan.
 
-```bash
-npm i -g vercel
-vercel login
-vercel link          # create or link the project
-vercel               # deploy a preview build
-vercel --prod        # promote to production
-```
+1. Cloudflare dashboard: **Workers & Pages → Create application → Pages →
+   Import an existing Git repository**, and choose this repository.
+2. Framework preset **Next.js (Static HTML Export)**: build command
+   `npx next build`, build output directory `out`. Set the production branch
+   to the branch you launch from.
+3. Under **Settings → Variables**, add `NODE_VERSION` = `22` (matches
+   `.nvmrc`).
+4. Deploy. Every push rebuilds; other branches get their own preview URLs.
+5. On launch day, add `theagitators.com.au` under **Custom domains**. The DNS
+   is already on Cloudflare, so it creates the record itself; delete the old
+   Vercel records. Add a redirect rule sending `www.theagitators.com.au` to
+   `https://theagitators.com.au`. Leave the email (MX, SPF, DKIM, DMARC)
+   records alone.
 
-Or from the dashboard: **Add New → Project → import this repository**. Vercel
-detects Next.js and needs no build settings. Framework preset `Next.js`, build
-command `next build`, install command `npm install`, output handled
-automatically.
-
-There are no environment variables and no external services — the contact CTA is
-a `mailto:` link built from `site.email` in `src/content/site.ts`.
+Security and caching headers live in `public/_headers`. There are no
+environment variables, server functions or external services: the contact CTA
+is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
+`out/` folder would deploy unchanged to any other static host, Vercel included.
 
 ## Launch switch, search and AI visibility
 
