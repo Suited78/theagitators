@@ -204,9 +204,35 @@ body {
 }
 
 /* ---------------- motion ---------------- */
+/* Hero entrance. Transform-led so the text is painted (and counted as
+   content) from the first frame; only the small eyebrow fades. */
+@keyframes hero-line-in {
+  from { transform: translateY(0.42em); }
+}
+@keyframes hero-rise-in {
+  from { transform: translateY(16px); }
+}
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+}
+.hero-line {
+  animation: hero-line-in 1s var(--ease-out-quint) var(--hero-delay, 0s) both;
+}
+.hero-rise {
+  animation: hero-rise-in 0.9s var(--ease-out-quint) var(--hero-delay, 0s) both;
+}
+.hero-fade {
+  animation: hero-fade-in 0.8s ease-out var(--hero-delay, 0s) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .hero-line,
+  .hero-rise,
+  .hero-fade {
+    animation: none;
   }
   *,
   *::before,

@@ -1,5 +1,11 @@
 import type { NavItem } from "./types";
 
+/**
+ * The launch switch. While true, every page asks search engines not to index
+ * it and the footer carries a prelaunch notice. Set to false on cutover day.
+ */
+export const prelaunch = true;
+
 export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
@@ -9,6 +15,7 @@ export const site = {
   description:
     "The Agitators help creative, communications and media businesses turn AI-era disruption into practical advantage: clearer priorities, better workflows, stronger internal capability.",
   email: "info@theagitators.com.au",
+  /** Company page. Leave as the bare domain until it exists; links and structured data skip it. */
   linkedin: "https://www.linkedin.com/",
   url: "https://theagitators.com.au",
 } as const;

@@ -190,14 +190,29 @@ automatically.
 There are no environment variables and no external services — the contact CTA is
 a `mailto:` link built from `site.email` in `src/content/site.ts`.
 
-Note that `metadata.robots` in `src/app/layout.tsx` is set to `noindex` while
-this is a concept site. Remove it before any real launch.
+## Launch switch, search and AI visibility
+
+- **`prelaunch`** in `src/content/site.ts` is the launch switch. While `true`,
+  every page carries `noindex` and the footer shows a prelaunch notice. Set it
+  to `false` on cutover day; nothing else needs to change.
+- **Metadata.** Each page has a canonical URL, title, description and a
+  1200×630 share image from `public/og/`. Regenerate the images after changing
+  a case study headline or adding one:
+  `npx -y -p playwright@1 node --experimental-strip-types scripts/generate-og-images.mjs`
+- **Structured data** (`src/lib/structuredData.ts`): Organization with the
+  founders on every page, WebSite on the home page, Article on each case study.
+  LinkedIn URLs are only included once they're real profile or company links.
+- **`/sitemap.xml`, `/robots.txt` and `/llms.txt`** are generated from the
+  content at build time. robots.txt admits all crawlers, AI answer engines
+  included.
+- **`/privacy`** is a plain-language statement. Update it if analytics, forms
+  or cookies are ever added.
 
 ---
 
 ## Known scope of this build
 
-- One main page, plus a static page per case study under `/work/`.
+- One main page, a static page per case study under `/work/`, a privacy page and a branded 404.
 - No CMS. Content is TypeScript modules.
 - No real imagery. The agitation field is drawn in code, so nothing needs
   licensing or art direction yet.

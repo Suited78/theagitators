@@ -10,6 +10,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { TeamSection } from "@/components/TeamSection";
 import { WhySection } from "@/components/WhySection";
 import { WorkSection } from "@/components/WorkSection";
+import { JsonLd } from "@/components/JsonLd";
+import { websiteSchema } from "@/lib/structuredData";
 
 /**
  * Single-page narrative. The order is the argument:
@@ -25,6 +27,7 @@ export default function Page() {
       >
         Skip to content
       </a>
+      <JsonLd data={websiteSchema()} />
       <SiteHeader />
       <main>
         <Hero />

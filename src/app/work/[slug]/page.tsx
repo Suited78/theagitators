@@ -8,7 +8,9 @@ import { Motif } from "@/components/Motif";
 import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { JsonLd } from "@/components/JsonLd";
 import { caseStudies } from "@/content/caseStudies";
+import { caseStudySchema } from "@/lib/structuredData";
 
 type Params = { slug: string };
 
@@ -22,9 +24,19 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const study = caseStudies.find((entry) => entry.slug === slug);
   if (!study) return {};
+  const title = `${study.headline} · ${study.sector}`;
+  const url = `/work/${study.slug}`;
   return {
-    title: `${study.headline} · ${study.sector}`,
+    title,
     description: study.summary,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description: study.summary,
+      type: "article",
+      url,
+      images: [{ url: `/og/${study.slug}.png`, width: 1200, height: 630, alt: study.headline }],
+    },
   };
 }
 
@@ -72,6 +84,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
       >
         Skip to content
       </a>
+      <JsonLd data={caseStudySchema(study)} />
       <SiteHeader />
       <main id="case-study">
         <header className="shell pt-[calc(var(--header-h)+clamp(2rem,5vw,4rem))] pb-12 lg:pb-16">

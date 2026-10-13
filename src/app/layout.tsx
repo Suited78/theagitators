@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
-import { site } from "@/content/site";
+import { JsonLd } from "@/components/JsonLd";
+import { prelaunch, site } from "@/content/site";
+import { organisationSchema } from "@/lib/structuredData";
 import "./globals.css";
 
 // The brand typeface: one family, weights 400–800.
@@ -17,14 +19,19 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
     type: "website",
-    url: site.url,
+    url: "/",
     siteName: site.name,
+    locale: "en_AU",
+    images: [{ url: "/og/default.png", width: 1200, height: 630, alt: `${site.name}: ${site.tagline}` }],
   },
-  robots: { index: false, follow: false },
+  twitter: { card: "summary_large_image" },
+  // Flipped by `prelaunch` in src/content/site.ts.
+  robots: prelaunch ? { index: false, follow: false } : { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -35,7 +42,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-AU" className={manrope.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <JsonLd data={organisationSchema()} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -108,9 +108,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#contact" className="btn btn-primary hidden sm:inline-flex">
+          <Link href="/#contact" className="btn btn-primary hidden sm:inline-flex">
             Start a conversation
-          </a>
+          </Link>
           <button
             ref={menuButtonRef}
             type="button"
@@ -170,9 +170,9 @@ export function SiteHeader() {
                   </motion.li>
                 ))}
               </ul>
-              <a href="#contact" onClick={() => setMenuOpen(false)} className="btn btn-primary mt-10 w-full">
+              <Link href="/#contact" onClick={() => setMenuOpen(false)} className="btn btn-primary mt-10 w-full">
                 Start a conversation
-              </a>
+              </Link>
             </nav>
           </motion.div>
         ) : null}
