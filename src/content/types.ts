@@ -32,7 +32,11 @@ export type ProcessStep = {
   id: string;
   step: string;
   title: string;
+  /** Short name for the route map's stop. */
+  stop: string;
   description: string;
+  /** What the client leaves with if they stop after this stage. */
+  keep?: string;
 };
 export type CaseStudyStage = {
   stage: "Discover" | "Design" | "Deliver" | "What’s next";

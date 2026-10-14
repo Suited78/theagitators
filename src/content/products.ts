@@ -53,17 +53,10 @@ export const products: Product[] = [
   },
 ];
 
-/** How far any product can go. Internally: core, Prove, Scale. */
-export const depths = {
-  label: "How far each one goes",
-  steps: [
-    { id: "advice", title: "Advice", description: "A plan you can act on, whether or not we stay involved." },
-    { id: "prove", title: "See it working", description: "Running on your own work, with your own people." },
-    {
-      id: "scale",
-      title: "Across the business",
-      description: "Rolled out, built properly and handed to the teams who use it.",
-    },
-  ],
-  note: "Products can run side by side, each at its own depth.",
+/** Shown under the chooser; the route itself is drawn in "How we work". */
+export const productNote = {
+  text: "However you start, the route is the same: advice first, and further only when you’re ready.",
+  link: { label: "See how we work", href: "#how" },
+  prompt: "Which sounds most like you?",
+  unsure: "Not sure? That’s what the first conversation is for.",
 } as const;

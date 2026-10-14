@@ -9,14 +9,12 @@ type Tone = "light" | "dark";
  * How the field is drawn. All three share the same stir-and-settle motion.
  * - classic: fine hairlines with sharp ridges (the contact band)
  * - hills: fewer, heavier lines with rounded peaks, moving more slowly
- * - crowd: the hills drawn as rows of dots, a few in the brand accents
  */
-export type FieldVariant = "classic" | "hills" | "crowd";
+export type FieldVariant = "classic" | "hills";
 
 const VARIANT_DEFAULTS: Record<FieldVariant, { spacing: number; speed: number }> = {
   classic: { spacing: 9, speed: 1 },
   hills: { spacing: 16, speed: 0.6 },
-  crowd: { spacing: 18, speed: 0.6 },
 };
 
 export type AgitationFieldProps = {
@@ -40,8 +38,7 @@ export type AgitationFieldProps = {
 const MAX_LINES = 160;
 const STEP = 5;
 const MAX_DISTURBANCES = 16;
-/** Horizontal distance between people in the crowd. */
-const DOT_STEP = 11;
+
 const DISTURBANCE_LIFE_MS = 2600;
 
 type Wave = { freq: number; phase: number; speed: number; amp: number };
@@ -56,17 +53,6 @@ function mulberry32(seed: number) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-
-// Which dots in the crowd carry an accent: 0 plain, 1 purple, 2 mint. Seeded, like the waves.
-const dotKinds: Uint8Array[] = (() => {
-  const rand = mulberry32(5);
-  return Array.from({ length: MAX_LINES }, () =>
-    Uint8Array.from({ length: 512 }, () => {
-      const r = rand();
-      return r < 0.05 ? 1 : r < 0.08 ? 2 : 0;
-    }),
-  );
-})();
 
 // Seeded, so the landscape is the same on every visit and every machine.
 const lineWaves: Wave[][] = (() => {
@@ -96,7 +82,6 @@ function readColours(tone: Tone, background: string) {
     return {
       line: triplet(token("--color-paper"), "250, 248, 243"),
       accent: triplet(token("--color-mint"), "190, 232, 204"),
-      second: triplet(token("--color-mint"), "190, 232, 204"),
       fill: `rgb(${triplet(token(background), "45, 22, 59")})`,
       lineAlpha: 0.42,
     };
@@ -104,8 +89,6 @@ function readColours(tone: Tone, background: string) {
   return {
     line: triplet(token("--color-aubergine"), "45, 22, 59"),
     accent: triplet(token("--color-purple"), "123, 49, 155"),
-    // Brand mint, deepened so a dot still reads on paper or white.
-    second: "120, 196, 150",
     fill: `rgb(${triplet(token(background), "250, 248, 243")})`,
     lineAlpha: 0.5,
   };
@@ -141,7 +124,7 @@ export function AgitationField({
     let lines = 0;
     // Headroom above the first line, so its peaks aren't clipped.
     const top = spacing * (soft ? 3.5 : 5);
-    const step = variant === "crowd" ? DOT_STEP : STEP;
+    const step = STEP;
     let xs = new Float32Array(0);
     let ys = new Float32Array(0);
 
@@ -250,23 +233,6 @@ export function AgitationField({
         ctx.closePath();
         ctx.fillStyle = colours.fill;
         ctx.fill();
-
-        if (variant === "crowd") {
-          const kinds = dotKinds[i];
-          for (let k = 0; k < count; k++) {
-            const kind = kinds[k % kinds.length];
-            ctx.beginPath();
-            ctx.arc(xs[k], ys[k], kind === 0 ? 1.9 : 2.8, 0, Math.PI * 2);
-            ctx.fillStyle =
-              kind === 1
-                ? `rgba(${colours.accent}, 0.9)`
-                : kind === 2
-                  ? `rgb(${colours.second})`
-                  : `rgba(${colours.line}, ${colours.lineAlpha + 0.1})`;
-            ctx.fill();
-          }
-          continue;
-        }
 
         ctx.beginPath();
         trace(count);

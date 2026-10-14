@@ -113,16 +113,25 @@ The page's one visual device (`src/components/AgitationField.tsx`): stacked
 ridgelines, drawn to a canvas, that the visitor stirs as the pointer
 passes through, then settle. It's the brand name made literal, and it's
 there for atmosphere rather than explanation. The `variant` prop sets how
-it's drawn; the motion is the same in all three:
+it's drawn; the motion is the same in both:
 
 - **Hero** (`hills`): fewer, heavier lines with rounded peaks, moving
   slowly. Restless on its own, stirred by the pointer (or a tap).
-- **How we work** (`crowd`): the same hills drawn as rows of dots, a few in
-  purple and mint: a team rather than a signal. Pinned beside the steps (a
-  band above them on small screens), going from turbulent to one
-  coordinated swell as you scroll.
 - **Contact** (`classic`): the original fine hairlines with sharp ridges, as
   a full-width band on the dark panel to close the page.
+
+## What we do and how we work
+
+- **What we do** (`ProductsSection.tsx`) asks "Which sounds most like you?":
+  three of the client's own sentences, each opening its product beneath it.
+  All three panels are in the page from the start, so search engines and AI
+  tools read them even when collapsed.
+- **How we work** (`ProcessSection.tsx`, `RouteMap.tsx`) pins a route map
+  beside the five stages: every product starts at the same conversation,
+  passes the same stops and ends with ongoing support. The stage being read
+  lights up as you scroll, and each stage says what you leave with if you stop
+  there. Choosing a product in What we do (or on the map's own buttons)
+  highlights its route; the shared choice lives in `src/lib/productSelection.ts`.
 
 Each ridge is filled with the section's background colour, so nearer lines
 hide the ones behind them; that is what gives the field its depth, and why

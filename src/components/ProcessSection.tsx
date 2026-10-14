@@ -2,16 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { processIntro, processSteps } from "@/content/process";
-import { AgitationField } from "./AgitationField";
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
+import { RouteMap } from "./RouteMap";
 
 export function ProcessSection() {
   const stepsRef = useRef<HTMLOListElement | null>(null);
-  const progressRef = useRef(0);
   const [active, setActive] = useState(0);
 
-  // One reading of the scroll position drives both the field and the
+  // One reading of the scroll position drives both the route map and the
   // highlighted step, so the two can't drift apart.
   useEffect(() => {
     const list = stepsRef.current;
@@ -27,7 +26,6 @@ export function ProcessSection() {
         1,
         Math.max(0, (raw * processSteps.length - 0.5) / (processSteps.length - 1)),
       );
-      progressRef.current = stepped;
       const index = Math.min(
         processSteps.length - 1,
         Math.max(0, Math.round(stepped * (processSteps.length - 1))),
@@ -72,20 +70,13 @@ export function ProcessSection() {
         </div>
 
         {/*
-          The field and the steps share this wrapper, so the field can stay
-          pinned while the steps pass it — beside them on large screens, as a
-          band above them on small ones.
+          The map and the steps share this wrapper, so the map can stay pinned
+          while the steps pass it: beside them on large screens, as a band
+          above them on small ones.
         */}
         <div className="mt-12 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-x-10">
-          <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-white pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pb-0">
-            <div className="relative h-[24vh] min-h-[150px] lg:h-[min(60vh,540px)]">
-              <AgitationField
-                variant="crowd"
-                progressRef={progressRef}
-                background="--color-white"
-                className="absolute inset-0 h-full w-full"
-              />
-            </div>
+          <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-white pt-2 pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pt-0 lg:pb-0">
+            <RouteMap active={active} />
             <div className="mt-3 flex items-center justify-between gap-4">
               <p className="label text-muted">
                 {current.step} — <span className="text-aubergine">{current.title}</span>
@@ -130,6 +121,12 @@ export function ProcessSection() {
                         {step.title}
                       </h3>
                       <p className="body-copy mt-4 max-w-[44ch]">{step.description}</p>
+                      {step.keep ? (
+                        <div className="mt-6 max-w-[44ch] border-l-4 border-mint pl-4">
+                          <p className="label text-muted">If you stop here, you leave with</p>
+                          <p className="mt-1 text-base font-semibold text-aubergine">{step.keep}</p>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </Reveal>
