@@ -40,9 +40,9 @@ messaging can be rewritten without touching layout. Types are in
 | `site.ts` | Brand name and wordmark split, nav items, hero headline (plus alternates), final CTA, email |
 | `why.ts` | The opening argument and the list of unanswered questions |
 | `audiences.ts` | Who we help — add, remove or rename sectors freely |
-| `outcomes.ts` | "What changes" index |
-| `capabilities.ts` | The six capability areas |
-| `process.ts` | The five-step way of working |
+| `outcomes.ts` | "What changes": the three outcomes every product aims at |
+| `products.ts` | "What we do": the three products, led by the client's own words, and how far each goes |
+| `process.ts` | "How we work": the client journey, from first conversation to ongoing support |
 | `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) and the held third slot |
 | `team.ts` | The three founders |
 | `manifesto.ts` | Point-of-view statements |
@@ -54,8 +54,8 @@ Some specifics worth knowing:
 - **Navigation.** `nav` in `site.ts` drives the header, the mobile menu, the
   footer and the scroll-spy. Each `id` must match a section `id` in
   `src/app/page.tsx`.
-- **Capabilities and audiences** are plain arrays. Adding a seventh capability or
-  a fourth audience needs no layout changes.
+- **Products and audiences** are plain arrays. Adding a product or an audience
+  needs no layout changes.
 - **Case studies** share one format, whatever the source material looks like:
   sector, outcome-led headline, one-line summary and a single headline
   result for the homepage card; then at a glance, the situation (with an

@@ -1,5 +1,6 @@
 import { caseStudies } from "@/content/caseStudies";
-import { capabilities } from "@/content/capabilities";
+import { outcomes } from "@/content/outcomes";
+import { products } from "@/content/products";
 import { hero, site } from "@/content/site";
 import { team } from "@/content/team";
 
@@ -15,7 +16,11 @@ export function GET() {
     hero.supporting,
     "",
     "## What we do",
-    ...capabilities.map((c) => `- ${c.title}: ${c.summary}`),
+    "Three products. Each starts with advice and can go further: proven on the client's own work, then taken across the business.",
+    ...products.map((p) => `- ${p.name} ("${p.quote}"): ${p.summary}`),
+    "",
+    "## Outcomes",
+    ...outcomes.map((o) => `- ${o.title}: ${o.description}`),
     "",
     "## Case studies",
     ...caseStudies.map((s) => `- [${s.headline}](${site.url}/work/${s.slug}): ${s.summary}`),

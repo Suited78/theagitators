@@ -2,45 +2,43 @@ import type { ProcessStep } from "./types";
 
 export const processIntro = {
   eyebrow: "How we work",
-  headline: "Five moves, roughly in this order.",
+  headline: "From first conversation to lasting change.",
   supporting:
-    "It’s a way of working, not a methodology. Engagements skip steps, loop back, and occasionally stop early because the answer turned out to be simple.",
+    "Every stage ends with the next one scoped, so you always know what comes next and why. Stop whenever the answer is clear.",
 } as const;
 
 export const processSteps: ProcessStep[] = [
   {
-    id: "understand",
+    id: "start",
     step: "01",
-    title: "Understand",
+    title: "Start with a conversation",
     description:
-      "Learn how the business really operates — the work, the workarounds, the bits nobody puts in a process document.",
+      "A short questionnaire and a discovery conversation show us where you are, and point you to the right way in.",
   },
   {
-    id: "leverage",
+    id: "advise",
     step: "02",
-    title: "Find the leverage",
-    description:
-      "Locate the friction that costs the most and the opportunities that would actually move the numbers.",
+    title: "Get advice you can act on",
+    description: "A clear plan for your situation: what to do first, what to leave alone, and what it’s worth.",
   },
   {
-    id: "prototype",
+    id: "prove",
     step: "03",
-    title: "Prototype",
+    title: "See it working",
     description:
-      "Test the promising ideas in weeks, with real work and real people, instead of writing a large deck about them.",
+      "We get it running on your own work, with your own people, so you can judge the value before going further.",
   },
   {
-    id: "implement",
+    id: "scale",
     step: "04",
-    title: "Implement",
-    description:
-      "Turn what worked into workflows and systems people can rely on when we’re not in the room.",
+    title: "Take it across the business",
+    description: "We roll out what worked, build what’s needed and train the teams who’ll use it every day.",
   },
   {
-    id: "embed",
+    id: "stay",
     step: "05",
-    title: "Embed",
+    title: "Stay ahead",
     description:
-      "Help teams adopt the new way of working and build the internal capability to keep going.",
+      "Ongoing support once the work is done: an annual check-up, quarterly reviews, courses and practical tips as the tools change.",
   },
 ];

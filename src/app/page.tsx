@@ -1,5 +1,5 @@
 import { AudienceSection } from "@/components/AudienceSection";
-import { CapabilitiesSection } from "@/components/CapabilitiesSection";
+import { ProductsSection } from "@/components/ProductsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Hero } from "@/components/Hero";
 import { ManifestoSection } from "@/components/ManifestoSection";
@@ -34,7 +34,7 @@ export default function Page() {
         <WhySection />
         <AudienceSection />
         <OutcomesSection />
-        <CapabilitiesSection />
+        <ProductsSection />
         <ProcessSection />
         <WorkSection />
         <ManifestoSection />

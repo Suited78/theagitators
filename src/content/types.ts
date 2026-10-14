@@ -18,12 +18,14 @@ export type Outcome = {
   description: string;
 };
 
-export type Capability = {
+export type Product = {
   id: string;
-  /** Two-digit index rendered as an editorial marker. */
-  title: string;
+  /** The client's own words: how they'd describe needing this. */
+  quote: string;
+  name: string;
   summary: string;
-  detail: string[];
+  /** Three short lines on what's typically involved. */
+  includes: string[];
 };
 
 export type ProcessStep = {
