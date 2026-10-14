@@ -1,18 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { productIntro, productNote, products } from "@/content/products";
-import { selectProduct, useSelectedProduct } from "@/lib/productSelection";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
 /**
  * Visitors pick the sentence closest to their situation and that product opens
  * beneath it. Every panel is in the page from the start (hidden, not absent),
- * so search engines and AI tools read all three. The choice is shared with the
- * route map in "How we work".
+ * so search engines and AI tools read all three.
  */
 export function ProductsSection() {
-  const selected = useSelectedProduct();
+  const [selected, setSelected] = useState<string | null>(null);
 
   return (
     <section id="what" className="section-pad scroll-mt-[var(--header-h)]">
@@ -43,7 +42,7 @@ export function ProductsSection() {
                     id={`product-${product.id}-button`}
                     aria-expanded={open}
                     aria-controls={`product-${product.id}`}
-                    onClick={() => selectProduct(open ? null : product.id)}
+                    onClick={() => setSelected(open ? null : product.id)}
                     className={[
                       "flex h-full min-h-28 w-full flex-col justify-between gap-4 rounded-[var(--radius-card)] border-2 p-5 text-left transition-colors duration-300 lg:p-6",
                       open

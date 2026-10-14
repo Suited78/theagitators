@@ -1,13 +1,10 @@
-"use client";
-
 import { products } from "@/content/products";
 import { processSteps } from "@/content/process";
-import { selectProduct, useSelectedProduct } from "@/lib/productSelection";
 
 /**
  * Every product follows the same route: one shared conversation, the same
  * three stops, then ongoing support. Drawn like a transit map. The stage the
- * reader has scrolled to lights up; a chosen product highlights its line.
+ * reader has scrolled to lights up, and all three routes advance together.
  *
  * Vertical beside the steps on large screens, horizontal (no labels, the
  * caption names the stage) in the pinned band on small ones.
@@ -44,7 +41,7 @@ function segments(g: Geometry, lane: number) {
   ];
 }
 
-function Map({ g, active, selected }: { g: Geometry; active: number; selected: string | null }) {
+function Map({ g, active }: { g: Geometry; active: number }) {
   const stationFill = (stage: number) =>
     stage < active ? "var(--color-aubergine)" : stage === active ? "var(--color-purple)" : "#fff";
   const stationStroke = (stage: number) => (stage === active ? "var(--color-purple)" : "var(--color-aubergine)");
@@ -66,9 +63,8 @@ function Map({ g, active, selected }: { g: Geometry; active: number; selected: s
   return (
     <>
       {products.map((product, lane) => {
-        const dimmed = selected !== null && selected !== product.id;
         return (
-          <g key={product.id} className="transition-opacity duration-500" opacity={dimmed ? 0.12 : 1}>
+          <g key={product.id}>
             {segments(g, lane).map((d, index) => {
               const travelled = index < active;
               const last = index === 3;
@@ -125,30 +121,17 @@ function Map({ g, active, selected }: { g: Geometry; active: number; selected: s
 }
 
 export function RouteMap({ active }: { active: number }) {
-  const selected = useSelectedProduct();
-
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5" role="group" aria-label="Highlight a route">
-        {products.map((product) => {
-          const on = selected === product.id;
-          return (
-            <button
-              key={product.id}
-              type="button"
-              aria-pressed={on}
-              onClick={() => selectProduct(on ? null : product.id)}
-              className={[
-                "inline-flex min-h-9 items-center gap-2 rounded-full border-2 bg-white px-3 text-sm font-bold transition-colors duration-300",
-                on ? "border-aubergine" : "border-divider hover:border-[var(--rule-strong)]",
-              ].join(" ")}
-            >
-              <span aria-hidden="true" className="h-1.5 w-4 rounded-full" style={{ backgroundColor: ROUTE_COLOURS[product.id] }} />
-              {product.name}
-            </button>
-          );
-        })}
-      </div>
+      {/* A key, not controls: one line per product. */}
+      <ul className="flex flex-wrap gap-x-5 gap-y-1.5" aria-label="Routes">
+        {products.map((product) => (
+          <li key={product.id} className="inline-flex items-center gap-2 text-sm font-bold">
+            <span aria-hidden="true" className="h-1.5 w-4 rounded-full" style={{ backgroundColor: ROUTE_COLOURS[product.id] }} />
+            {product.name}
+          </li>
+        ))}
+      </ul>
 
       {/* The steps beside the map carry the words; the map is a picture of them. */}
       <svg
@@ -157,10 +140,10 @@ export function RouteMap({ active }: { active: number }) {
         role="img"
         aria-label="Route map: all three products start with the same conversation, pass the same stops (advice, seeing it working, across the business) and end with ongoing support. You can stop at any point."
       >
-        <Map g={VERTICAL} active={active} selected={selected} />
+        <Map g={VERTICAL} active={active} />
       </svg>
       <svg viewBox="0 0 1000 180" className="mt-3 block h-auto w-full overflow-visible lg:hidden" aria-hidden="true">
-        <Map g={HORIZONTAL} active={active} selected={selected} />
+        <Map g={HORIZONTAL} active={active} />
       </svg>
     </div>
   );

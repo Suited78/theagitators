@@ -130,8 +130,8 @@ it's drawn; the motion is the same in both:
   beside the five stages: every product starts at the same conversation,
   passes the same stops and ends with ongoing support. The stage being read
   lights up as you scroll, and each stage says what you leave with if you stop
-  there. Choosing a product in What we do (or on the map's own buttons)
-  highlights its route; the shared choice lives in `src/lib/productSelection.ts`.
+  there. All three routes advance together: product-specific stops can be
+  added once the contents of each core and pack are settled.
 
 Each ridge is filled with the section's background colour, so nearer lines
 hide the ones behind them; that is what gives the field its depth, and why
