@@ -1,30 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { productIntro, productNote, products } from "@/content/products";
+import { productNote, products } from "@/content/products";
 import { Reveal } from "./Reveal";
-import { SectionHeading } from "./SectionHeading";
 
 /**
  * Visitors pick the sentence closest to their situation and that product opens
  * beneath it. Every panel is in the page from the start (hidden, not absent),
  * so search engines and AI tools read all three.
  */
-export function ProductsSection() {
+export function ProductChooser() {
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
-    <section id="what" className="section-pad scroll-mt-[var(--header-h)]">
-      <div className="shell">
-        <SectionHeading
-          eyebrow={productIntro.eyebrow}
-          headline={productIntro.headline}
-          supporting={productIntro.supporting}
-          align="wide"
-        />
-
+    <div>
         <Reveal>
-          <p id="product-prompt" className="label mt-12 text-muted lg:mt-16">
+          <p id="product-prompt" className="label text-muted">
             {productNote.prompt}
           </p>
         </Reveal>
@@ -44,12 +35,23 @@ export function ProductsSection() {
                     aria-controls={`product-${product.id}`}
                     onClick={() => setSelected(open ? null : product.id)}
                     className={[
-                      "flex h-full min-h-28 w-full flex-col justify-between gap-4 rounded-[var(--radius-card)] border-2 p-5 text-left transition-colors duration-300 lg:p-6",
+                      "group relative flex h-full min-h-28 w-full cursor-pointer flex-col justify-between gap-4 rounded-[var(--radius-card)] border-2 p-5 pr-14 text-left transition-[background-color,border-color,transform] duration-300 lg:p-6 lg:pr-16",
                       open
                         ? "border-aubergine bg-aubergine text-paper"
-                        : "border-divider bg-white hover:border-purple",
+                        : "border-divider bg-white hover:-translate-y-0.5 hover:border-purple",
                     ].join(" ")}
                   >
+                    {/* A plus that turns to a minus: the card opens, it isn't just a label. */}
+                    <span
+                      aria-hidden="true"
+                      className={[
+                        "absolute top-5 right-5 flex h-8 w-8 items-center justify-center rounded-full border-2 transition-colors duration-300",
+                        open ? "border-mint text-mint" : "border-aubergine text-aubergine group-hover:border-purple group-hover:text-purple",
+                      ].join(" ")}
+                    >
+                      <span className="absolute h-0.5 w-3 bg-current" />
+                      <span className={`absolute h-0.5 w-3 bg-current transition-transform duration-300 ${open ? "rotate-0" : "rotate-90"}`} />
+                    </span>
                     <span className="display-s text-balance">“{product.quote}”</span>
                     <span className={`label ${open ? "text-mint" : "text-purple"}`}>{product.name}</span>
                   </button>
@@ -82,18 +84,7 @@ export function ProductsSection() {
           })}
         </div>
 
-        <Reveal>
-          <div className="mt-8 flex flex-col gap-3 border-t border-[var(--rule)] pt-6 sm:flex-row sm:items-baseline sm:justify-between">
-            <p className="body-copy text-aubergine">
-              {selected ? null : `${productNote.unsure} `}
-              {productNote.text}
-            </p>
-            <a href={productNote.link.href} className="text-link shrink-0 text-base font-semibold text-purple">
-              {productNote.link.label}
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+        {selected ? null : <p className="body-copy mt-5 text-base">{productNote.unsure}</p>}
+    </div>
   );
 }

@@ -7,11 +7,11 @@ import type { Product } from "./types";
  * client names or partner firms. The pack names (Prove, Scale) stay off the
  * site until they're settled; the depths are described in plain words.
  */
-export const productIntro = {
-  eyebrow: "What we do",
-  headline: "Three ways in. Start with advice, go further when you’re ready.",
+export const engageIntro = {
+  eyebrow: "How we engage",
+  headline: "Wherever you are with AI, there’s a way in.",
   supporting:
-    "Pick the one that sounds like you. Each starts with advice you can act on and goes as far as you want to take it. Many clients combine them.",
+    "We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. Advice is where we start. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.",
 } as const;
 
 export const products: Product[] = [
@@ -53,10 +53,8 @@ export const products: Product[] = [
   },
 ];
 
-/** Shown under the chooser; the route itself is drawn in "How we work". */
+/** The chooser's prompt. */
 export const productNote = {
-  text: "However you start, the route is the same: advice first, and further only when you’re ready.",
-  link: { label: "See how we work", href: "#how" },
-  prompt: "Which sounds most like you?",
+  prompt: "Which sounds most like you? Tap one to see what’s involved.",
   unsure: "Not sure? That’s what the first conversation is for.",
 } as const;

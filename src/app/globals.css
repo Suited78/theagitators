@@ -42,8 +42,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* White leads; cream (paper) marks alternate sections (founders' review, October 2026). */
 body {
-  background-color: var(--color-paper);
+  background-color: var(--color-white);
   color: var(--color-aubergine);
   font-family: var(--font-sans);
   font-size: 1.125rem;

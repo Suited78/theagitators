@@ -9,7 +9,7 @@ export const prelaunch = true;
 export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
-  tagline: "Change is happening. Agitate accordingly.",
+  tagline: "Change is happening. Agitate appropriately.",
   positioningLine:
     "A transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
   description:
@@ -21,10 +21,7 @@ export const site = {
 } as const;
 
 export const nav: NavItem[] = [
-  { id: "why", label: "Why" },
-  { id: "who", label: "Who" },
-  { id: "what", label: "What" },
-  { id: "how", label: "How" },
+  { id: "engage", label: "How we engage" },
   { id: "work", label: "Work" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
@@ -32,16 +29,16 @@ export const nav: NavItem[] = [
 
 export const hero = {
   eyebrow: "Transformation agency for the AI era",
-  headline: ["Change is happening.", "Agitate accordingly."],
-  /** Swap-in alternates the founders can argue about. */
+  headline: ["Change is happening.", "Agitate appropriately."],
+  /** Options for the founders to choose between (October 2026 review). */
   headlineAlternates: [
-    ["AI is changing the way", "businesses work.", "We help you change with it."],
-    ["Turn AI disruption", "into business advantage."],
-    ["Most companies don’t need", "more AI. They need", "a better way to work."],
+    ["Make AI work for you."],
+    ["Change is happening.", "Let’s make it work for you."],
+    ["Agitating for", "better work."],
   ],
   supporting:
-    "We work with agencies, media companies and ambitious organisations to redesign how work actually gets done: deciding where AI earns its place, and building the capability to keep going without us.",
-  primaryCta: { label: "Explore our approach", href: "#how" },
+    "We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.",
+  primaryCta: { label: "See how we engage", href: "#engage" },
   secondaryCta: { label: "View our work", href: "#work" },
 } as const;
 

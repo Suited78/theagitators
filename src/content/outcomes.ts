@@ -1,26 +1,28 @@
 import type { Outcome } from "./types";
 
-/** The three outcomes every product is aimed at (product construct, Part 1). */
+/**
+ * Efficiency AI and Opportunity AI: the two outcomes every product is aimed at
+ * (founders’ review, 15 October 2026). Guardrails sit under both rather than
+ * being a third outcome.
+ */
 export const outcomeIntro = {
-  eyebrow: "What changes",
-  headline: "Whichever way in, three things change.",
-  supporting: "Every engagement is aimed at the same three outcomes, and judged by them.",
+  eyebrow: "Two kinds of AI",
+  headline: "Do what you do now, better. Then do what wasn’t possible before.",
+  supporting: "Most businesses start with efficiency. The bigger prize is usually opportunity. We help with both.",
+  guardrails: "Both come with clear rules for how AI is used, so your data, clients and reputation stay safe.",
 } as const;
 
 export const outcomes: Outcome[] = [
   {
-    id: "time",
-    title: "Save time",
-    description: "Hours back from the repeatable work, so people spend the week on what they’re good at.",
+    id: "efficiency",
+    title: "Efficiency AI",
+    description:
+      "The work you already do, faster and with less effort. Hours back from the repeatable tasks, so people spend the week on what they’re good at.",
   },
   {
-    id: "growth",
-    title: "Grow the business",
-    description: "Better client work, delivered faster, and room for services that weren’t practical before.",
-  },
-  {
-    id: "protection",
-    title: "Protect yourself",
-    description: "Clear rules for how AI is used, so your data, clients and reputation stay safe as use grows.",
+    id: "opportunity",
+    title: "Opportunity AI",
+    description:
+      "Better client work, delivered faster, and room for services that weren’t practical, or even imagined, until now.",
   },
 ];

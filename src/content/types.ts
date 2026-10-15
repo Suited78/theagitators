@@ -4,14 +4,6 @@ export type NavItem = {
   label: string;
 };
 
-export type Audience = {
-  id: string;
-  title: string;
-  description: string;
-  /** Short signals of the kind of pressure this audience is under. */
-  signals: string[];
-};
-
 export type Outcome = {
   id: string;
   title: string;

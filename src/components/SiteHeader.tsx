@@ -69,7 +69,7 @@ export function SiteHeader() {
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
         "[transition-timing-function:var(--ease-out-quint)]",
         scrolled && !menuOpen
-          ? "border-b border-[var(--rule)] bg-paper/90 backdrop-blur-md"
+          ? "border-b border-[var(--rule)] bg-white/90 backdrop-blur-md"
           : "border-b border-transparent",
       ].join(" ")}
     >
@@ -147,7 +147,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={reduced ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 top-[var(--header-h)] z-40 bg-paper lg:hidden"
+            className="fixed inset-0 top-[var(--header-h)] z-40 bg-white lg:hidden"
           >
             <nav aria-label="Mobile" className="shell flex h-full flex-col justify-between py-8">
               <ul className="flex flex-col">

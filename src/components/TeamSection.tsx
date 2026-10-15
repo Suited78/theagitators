@@ -83,7 +83,7 @@ export function TeamSection() {
 
               <ul className="mt-5 flex flex-wrap gap-1.5">
                 {member.expertise.map((item) => (
-                  <li key={item} className="rounded-[var(--radius-control)] bg-white px-3 py-1.5 text-sm font-semibold text-muted">
+                  <li key={item} className="rounded-[var(--radius-control)] bg-paper px-3 py-1.5 text-sm font-semibold text-muted">
                     {item}
                   </li>
                 ))}

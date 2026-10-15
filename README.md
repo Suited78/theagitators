@@ -39,13 +39,11 @@ messaging can be rewritten without touching layout. Types are in
 | --- | --- |
 | `site.ts` | Brand name and wordmark split, nav items, hero headline (plus alternates), final CTA, email |
 | `why.ts` | The opening argument and the list of unanswered questions |
-| `audiences.ts` | Who we help — add, remove or rename sectors freely |
-| `outcomes.ts` | "What changes": the three outcomes every product aims at |
-| `products.ts` | "What we do": the three products, led by the client's own words, and how far each goes |
-| `process.ts` | "How we work": the client journey, from first conversation to ongoing support |
+| `outcomes.ts` | "Two kinds of AI": Efficiency AI and Opportunity AI, plus the guardrails line |
+| `products.ts` | "How we engage": the section intro and the three products, led by the client's own words |
+| `process.ts` | "How we engage": the route every engagement follows, from first conversation to ongoing support |
 | `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) and the held third slot |
 | `team.ts` | The three founders |
-| `manifesto.ts` | Point-of-view statements |
 
 Some specifics worth knowing:
 
@@ -67,7 +65,18 @@ Some specifics worth knowing:
 - **Team members** support `photo`, `linkedin` and `expertise`. Without a photo
   they render a numbered "portrait pending" plate.
 
-Section order is the argument the page makes, and lives in `src/app/page.tsx`.
+Section order is the argument the page makes, and lives in `src/app/page.tsx`:
+the change, the two kinds of AI, how we engage, work, team, contact.
+
+**Copy for review.** `docs/site-copy.md` holds every word on the site in page
+order, generated from the content files. Regenerate it after any copy change
+with `node --experimental-strip-types scripts/export-copy.mjs`, and share that
+file (or a Google Doc made from it) for review instead of a hand-kept copy.
+
+**Earlier versions.** The site as it stood before the V2 restructure (October
+2026, with separate Who, What and How sections and the point-of-view list) is
+preserved on the `archive/v1` branch. Cloudflare Pages builds a preview of it
+at `archive-v1.theagitators.pages.dev` if branch previews are enabled.
 
 ---
 
@@ -120,19 +129,6 @@ it's drawn; the motion is the same in both:
 - **Contact** (`classic`): the original fine hairlines with sharp ridges, as
   a full-width band on the dark panel to close the page.
 
-## What we do and how we work
-
-- **What we do** (`ProductsSection.tsx`) asks "Which sounds most like you?":
-  three of the client's own sentences, each opening its product beneath it.
-  All three panels are in the page from the start, so search engines and AI
-  tools read them even when collapsed.
-- **How we work** (`ProcessSection.tsx`, `RouteMap.tsx`) pins a route map
-  beside the five stages: every product starts at the same conversation,
-  passes the same stops and ends with ongoing support. The stage being read
-  lights up as you scroll, and each stage says what you leave with if you stop
-  there. All three routes advance together: product-specific stops can be
-  added once the contents of each core and pack are settled.
-
 Each ridge is filled with the section's background colour, so nearer lines
 hide the ones behind them; that is what gives the field its depth, and why
 the `background` prop must match the section it sits in. Colours come from
@@ -140,6 +136,21 @@ the brand tokens: aubergine lines with a purple accent on light sections,
 paper lines with a mint accent on aubergine. The shapes are
 seeded, so the landscape is the same on every visit. Amplitude, stir
 strength and line spacing are the numbers to adjust in the component.
+
+## How we engage
+
+One section (`EngageSection.tsx`) in place of the old Who, What and How:
+
+- **The chooser** (`ProductChooser.tsx`) asks "Which sounds most like you?":
+  three of the client's own sentences, each opening its product beneath it.
+  All three panels are in the page from the start, so search engines and AI
+  tools read them even when collapsed.
+- **The route** (`ProcessRoute.tsx`, `RouteMap.tsx`) pins a route map beside
+  the five stages: every product starts at the same conversation, passes the
+  same stops and ends with ongoing support. The stage being read lights up as
+  you scroll, and each stage says what you leave with if you stop there. All
+  three routes advance together: product-specific stops can be added once the
+  contents of each core and pack are settled.
 
 ## Accessibility and motion
 

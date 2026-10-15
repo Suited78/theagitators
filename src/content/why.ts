@@ -2,24 +2,21 @@ export const why = {
   eyebrow: "The change",
   headline: ["Everyone can see it moving.", "Almost nobody knows where to stand."],
   lede:
-    "AI is not arriving as a product you buy. It’s arriving as a change in what work costs, who does it, how fast clients expect it, and which of your advantages still hold.",
+    "AI isn’t arriving as a product you buy. It’s changing what work costs, who does it, how fast clients and customers expect it, and which of your advantages still hold.",
   body: [
-    "The leaders we talk to have worked this out already. They’ve read the same articles, run the same trials, and watched a competitor announce something that may or may not be real.",
-    "What they don’t have is a spare quarter to figure out where to focus.",
+    "Most business owners have worked this out already. They’ve read the articles and tried the tools. What’s missing is the time and know-how to get from experiments to AI that’s part of how the business runs.",
   ],
   /** The unanswered questions, rendered as an editorial list. */
   questions: [
-    "Where to focus first, out of a hundred plausible options",
     "Which opportunities actually matter to this business",
-    "How to get from experiments to something in production",
-    "How to bring people with you rather than around them",
-    "How to redesign a process instead of bolting AI onto it",
-    "How to build capability that outlasts the current tools",
+    "How to get from experiments to something in everyday use",
+    "How to redesign a process with AI at its core",
+    "How to build team capability that outlasts the current tools",
   ],
   gap: {
     label: "The adoption gap",
     headline: "Capability compounds. Absorption doesn’t.",
-    body: "Every year the tools can do more. What an organisation can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.",
+    body: "Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.",
   },
-  closer: "That gap — between knowing something is happening and knowing what to do on Monday — is the whole of our work.",
+  closer: "That gap, between knowing something can be done and knowing what to do on Monday, is where we work.",
 } as const;

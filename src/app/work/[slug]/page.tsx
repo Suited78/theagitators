@@ -229,7 +229,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 </li>
               ))}
             </ul>
-            <div className="mt-10 rounded-[var(--radius-card)] bg-white p-6">
+            <div className="mt-10 rounded-[var(--radius-card)] bg-paper p-6">
               <p className="label text-muted">How we measured this</p>
               <p className="mt-2 max-w-[70ch] text-base leading-relaxed text-muted">{study.results.evidence}</p>
             </div>

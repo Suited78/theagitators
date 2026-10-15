@@ -108,7 +108,7 @@ export function AgitationField({
   const spacing = spacingProp ?? VARIANT_DEFAULTS[variant].spacing;
   const speed = VARIANT_DEFAULTS[variant].speed;
   const soft = variant !== "classic";
-  const backgroundVar = background ?? (tone === "dark" ? "--color-aubergine" : "--color-paper");
+  const backgroundVar = background ?? (tone === "dark" ? "--color-aubergine" : "--color-white");
 
   useEffect(() => {
     const canvas = canvasRef.current;

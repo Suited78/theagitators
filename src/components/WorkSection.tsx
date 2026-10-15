@@ -10,7 +10,7 @@ const row = "grid items-start gap-x-8 gap-y-5 py-8 md:grid-cols-12 lg:py-10";
 
 export function WorkSection() {
   return (
-    <section id="work" className="section-pad scroll-mt-[var(--header-h)]">
+    <section id="work" className="section-pad scroll-mt-[var(--header-h)] bg-paper">
       <div className="shell">
         <div className="grid gap-x-10 gap-y-8 lg:grid-cols-12">
           <SectionHeading

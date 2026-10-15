@@ -1,10 +1,9 @@
 import type { ProcessStep } from "./types";
 
 export const processIntro = {
-  eyebrow: "How we work",
-  headline: "From first conversation to lasting change.",
+  headline: "One route, however you start.",
   supporting:
-    "Every stage ends with the next one scoped, so you always know what comes next and why. Stop whenever the answer is clear.",
+    "Every stage ends with the next one scoped, so you always know what comes next. Stop whenever the answer is clear.",
 } as const;
 
 export const processSteps: ProcessStep[] = [
@@ -31,7 +30,7 @@ export const processSteps: ProcessStep[] = [
     title: "See it working",
     stop: "See it working",
     description:
-      "We get it running on your own work, with your own people, so you can judge the value before going further.",
+      "We build it: a proof of concept, a first use case or the tool that solves the problem, running on your own work with your own people.",
     keep: "Something running on your own work, with your own people.",
   },
   {
@@ -39,7 +38,8 @@ export const processSteps: ProcessStep[] = [
     step: "04",
     title: "Take it across the business",
     stop: "Across the business",
-    description: "We roll out what worked, build what’s needed and train the teams who’ll use it every day.",
+    description:
+      "A full rollout: piloting, refining, training, and the change and communications work that gets people using it every day.",
     keep: "The change rolled out, built properly and handed to your teams.",
   },
   {

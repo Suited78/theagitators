@@ -1,22 +1,20 @@
-import { AudienceSection } from "@/components/AudienceSection";
-import { ProductsSection } from "@/components/ProductsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { EngageSection } from "@/components/EngageSection";
 import { Hero } from "@/components/Hero";
-import { ManifestoSection } from "@/components/ManifestoSection";
+import { JsonLd } from "@/components/JsonLd";
 import { OutcomesSection } from "@/components/OutcomesSection";
-import { ProcessSection } from "@/components/ProcessSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TeamSection } from "@/components/TeamSection";
 import { WhySection } from "@/components/WhySection";
 import { WorkSection } from "@/components/WorkSection";
-import { JsonLd } from "@/components/JsonLd";
 import { websiteSchema } from "@/lib/structuredData";
 
 /**
  * Single-page narrative. The order is the argument:
- * the change → who feels it → what's different afterwards → what we do →
- * how we work → proof → what we think → who we are → talk to us.
+ * the change → the two kinds of AI → how we engage → proof → who we are →
+ * talk to us. Backgrounds alternate white and cream; aubergine is kept for
+ * the contact section and footer.
  */
 export default function Page() {
   return (
@@ -32,12 +30,9 @@ export default function Page() {
       <main>
         <Hero />
         <WhySection />
-        <AudienceSection />
         <OutcomesSection />
-        <ProductsSection />
-        <ProcessSection />
+        <EngageSection />
         <WorkSection />
-        <ManifestoSection />
         <TeamSection />
         <ContactSection />
       </main>

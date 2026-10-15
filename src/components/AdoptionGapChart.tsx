@@ -141,7 +141,7 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
             AI capability
           </span>
           <span
-            className="absolute left-[1%] mt-1 bg-paper pr-1.5 text-sm font-extrabold text-aubergine sm:text-base"
+            className="absolute left-[1%] mt-1 bg-white pr-1.5 text-sm font-extrabold text-aubergine sm:text-base"
             style={{ top: `${(1 - absorption(0)) * 100}%` }}
           >
             What organisations absorb

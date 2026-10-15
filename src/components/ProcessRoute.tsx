@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { processIntro, processSteps } from "@/content/process";
-import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 import { RouteMap } from "./RouteMap";
 
-export function ProcessSection() {
+export function ProcessRoute() {
   const stepsRef = useRef<HTMLOListElement | null>(null);
   const [active, setActive] = useState(0);
 
@@ -51,19 +50,15 @@ export function ProcessSection() {
   const current = processSteps[active];
 
   return (
-    <section id="how" className="section-pad scroll-mt-[var(--header-h)] bg-white">
-      <div className="shell">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-x-10">
+    <div id="route" className="scroll-mt-[var(--header-h)]">
+        <div className="border-t border-[var(--rule)] pt-12 lg:grid lg:grid-cols-12 lg:gap-x-10 lg:pt-16">
           <div className="lg:col-span-6">
             <Reveal>
-              <Eyebrow>{processIntro.eyebrow}</Eyebrow>
-            </Reveal>
-            <Reveal index={1}>
-              <h2 className="display-l mt-5 max-w-[14ch] text-balance">{processIntro.headline}</h2>
+              <h3 className="display-m max-w-[18ch] text-balance">{processIntro.headline}</h3>
             </Reveal>
           </div>
-          <div className="mt-6 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
-            <Reveal index={2}>
+          <div className="mt-4 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
+            <Reveal index={1}>
               <p className="body-copy max-w-[44ch]">{processIntro.supporting}</p>
             </Reveal>
           </div>
@@ -111,7 +106,7 @@ export function ProcessSection() {
                       {step.step}
                     </span>
                     <div>
-                      <h3
+                      <h4
                         className={[
                           "display-m text-balance transition-colors duration-700",
                           // Dimmed by colour, not opacity, so it stays above contrast minimums.
@@ -119,7 +114,7 @@ export function ProcessSection() {
                         ].join(" ")}
                       >
                         {step.title}
-                      </h3>
+                      </h4>
                       <p className="body-copy mt-4 max-w-[44ch]">{step.description}</p>
                       {step.keep ? (
                         <div className="mt-6 max-w-[44ch] border-l-4 border-mint pl-4">
@@ -134,7 +129,6 @@ export function ProcessSection() {
             })}
           </ol>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
