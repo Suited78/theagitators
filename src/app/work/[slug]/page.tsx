@@ -90,7 +90,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
         <header className="shell pt-[calc(var(--header-h)+clamp(2rem,5vw,4rem))] pb-12 lg:pb-16">
           <Reveal>
             <Link href="/#work" className="text-link label inline-flex min-h-10 items-center text-muted hover:text-aubergine">
-              ← Selected work
+              ← All case studies
             </Link>
           </Reveal>
           <div className="mt-8 grid gap-x-10 gap-y-10 lg:grid-cols-12">

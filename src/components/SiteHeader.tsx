@@ -28,8 +28,11 @@ export function SiteHeader() {
   // Highlight whichever section currently owns the upper third of the viewport.
   useEffect(() => {
     if (onCaseStudy) return;
-    const sections = nav
-      .map((item) => document.getElementById(item.id))
+    // A nav item can own more than one section (How we engage covers two).
+    const owner = new Map<string, string>();
+    nav.forEach((item) => [item.id, ...(item.sections ?? [])].forEach((id) => owner.set(id, item.id)));
+    const sections = [...owner.keys()]
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
@@ -38,7 +41,7 @@ export function SiteHeader() {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
+        if (visible[0]) setActive(owner.get(visible[0].target.id) ?? null);
       },
       { rootMargin: "-20% 0px -68% 0px", threshold: 0 },
     );

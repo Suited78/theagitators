@@ -1,10 +1,10 @@
 import type { CaseStudy } from "./types";
 
 export const workIntro = {
-  eyebrow: "Selected work",
-  headline: "What changed, and how we know.",
+  eyebrow: "Case studies",
+  headline: "Past work, and what it changed.",
   supporting:
-    "Recent engagements, written up in the same shape so they can be compared. Clients are de-identified. Every figure comes with a note on where it came from, and what we can’t claim is said plainly.",
+    "Case studies from engagements we’ve delivered, each written up the same way so they can be compared. Clients are de-identified, and every figure says where it came from.",
 } as const;
 
 /**

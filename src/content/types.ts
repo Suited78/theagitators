@@ -2,12 +2,16 @@ export type NavItem = {
   /** Anchor target, without the leading "#". */
   id: string;
   label: string;
+  /** Further section ids that keep this item highlighted while in view. */
+  sections?: string[];
 };
 
 export type Outcome = {
   id: string;
   title: string;
   description: string;
+  /** Labels for the two parts of the section's illustration. */
+  legend?: [string, string];
 };
 
 export type Product = {

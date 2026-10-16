@@ -1,10 +1,10 @@
 # The Agitators: website copy
 
-_Generated from the site’s content files on 2026-10-15. Edit the content files, not this document._
+_Generated from the site’s content files on 2026-10-16. Edit the content files, not this document._
 
 ## Navigation
 
-**Links:** How we engage · Work · Team · Contact
+**Links:** How we engage · Case studies · Team · Contact
 
 **Header button:** Start a conversation
 
@@ -16,7 +16,7 @@ _Generated from the site’s content files on 2026-10-15. Edit the content files
 
 **Supporting line:** We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.
 
-**Buttons:** See how we engage · View our work
+**Buttons:** See how we engage · See our case studies
 
 **Headline options under discussion:**
 
@@ -102,11 +102,11 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 
 **05 Stay ahead.** Ongoing support once the work is done: an annual check-up, quarterly reviews, courses and practical tips as the tools change.
 
-## Selected work
+## Case studies
 
-**Headline:** What changed, and how we know.
+**Headline:** Past work, and what it changed.
 
-**Supporting line:** Recent engagements, written up in the same shape so they can be compared. Clients are de-identified. Every figure comes with a note on where it came from, and what we can’t claim is said plainly.
+**Supporting line:** Case studies from engagements we’ve delivered, each written up the same way so they can be compared. Clients are de-identified, and every figure says where it came from.
 
 ### Hours handed back, with the judgement kept human (Creative agency)
 

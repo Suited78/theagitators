@@ -44,7 +44,7 @@ field(why.gap.label, `${why.gap.headline} ${why.gap.body}`);
 field("Closing line", why.closer);
 
 h(2, outcomeIntro.eyebrow);
-field("Headline", outcomeIntro.headline);
+field("Headline", outcomeIntro.headline.join(" "));
 field("Supporting line", outcomeIntro.supporting);
 list(outcomes.map((o) => `**${o.title}:** ${o.description}`));
 field("Guardrails", outcomeIntro.guardrails);

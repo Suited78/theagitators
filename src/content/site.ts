@@ -21,8 +21,9 @@ export const site = {
 } as const;
 
 export const nav: NavItem[] = [
-  { id: "engage", label: "How we engage" },
-  { id: "work", label: "Work" },
+  // Starts at the two kinds of AI, which open the how-we-engage story.
+  { id: "ai", label: "How we engage", sections: ["engage"] },
+  { id: "work", label: "Case studies" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
@@ -38,8 +39,8 @@ export const hero = {
   ],
   supporting:
     "We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.",
-  primaryCta: { label: "See how we engage", href: "#engage" },
-  secondaryCta: { label: "View our work", href: "#work" },
+  primaryCta: { label: "See how we engage", href: "#ai" },
+  secondaryCta: { label: "See our case studies", href: "#work" },
 } as const;
 
 export const finalCta = {

@@ -7,7 +7,8 @@ import type { Outcome } from "./types";
  */
 export const outcomeIntro = {
   eyebrow: "Two kinds of AI",
-  headline: "Do what you do now, better. Then do what wasn’t possible before.",
+  /** One statement per line. */
+  headline: ["Do what you do now, better.", "Then do what wasn’t possible before."],
   supporting: "Most businesses start with efficiency. The bigger prize is usually opportunity. We help with both.",
   guardrails: "Both come with clear rules for how AI is used, so your data, clients and reputation stay safe.",
 } as const;
@@ -18,11 +19,13 @@ export const outcomes: Outcome[] = [
     title: "Efficiency AI",
     description:
       "The work you already do, faster and with less effort. Hours back from the repeatable tasks, so people spend the week on what they’re good at.",
+    legend: ["Repeatable tasks", "Work people are good at"],
   },
   {
     id: "opportunity",
     title: "Opportunity AI",
     description:
       "Better client work, delivered faster, and room for services that weren’t practical, or even imagined, until now.",
+    legend: ["What you offer today", "Newly possible"],
   },
 ];
