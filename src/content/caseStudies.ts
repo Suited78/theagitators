@@ -12,8 +12,9 @@ export const workIntro = {
  * its own page at /work/[slug].
  *
  * Sources: the agency program write-up (June–September 2026) and the
- * travel and tourism case study draft. The travel study is pending partner
- * sign-off; confirm before launch.
+ * travel and tourism and television distribution case study drafts. Both
+ * drafts are pending partner sign-off, and the television quote needs the
+ * client's approval of its trimmed wording; confirm before launch.
  */
 export const caseStudies: CaseStudy[] = [
   {
@@ -197,11 +198,93 @@ export const caseStudies: CaseStudy[] = [
       body: "The unglamorous work came first: one topic per document, an owner and a review date on each. It’s why the answers can be trusted. At handover the team had a pilot batch live from a planned library of about seventy documents, and the runbooks to keep publishing on their own.",
     },
   },
+  {
+    slug: "television-sales-team-ai-tools",
+    sector: "Television distribution",
+    headline: "A sales team trained, then tooled",
+    summary:
+      "A multinational television sales team gained new AI skills and fixes across creative, sales activity and finance automation, several of them already delivered.",
+    result: {
+      value: "3 weeks",
+      label: "of on-site discovery, so the team raised problems a single day would have missed",
+    },
+    glance: {
+      client: "International television producer and distributor, sales team of nine",
+      engagement: "AI upskilling and tools development, across workflow automation and knowledge management",
+      stages: "Discover and Design. Build and handover in progress",
+      reached: "Ongoing. One prototype and several automations delivered to date",
+    },
+    situation: [
+      "A sales team of nine sits inside an international television producer and distributor, selling programmes and formats to broadcasters and streamers.",
+      "Most of their manual work could already be fixed with the productivity suite they paid for. What they lacked was someone to set those tools up and train the team to use them. Pipeline reporting ran off a spreadsheet kept by hand as a copy of the CRM. Sales admins looked up trailers and imagery by hand. Availability windows lived in tracking sheets, with nothing to tell the team when a title opened up. Format pitches went out as plain text documents.",
+    ],
+    quote: {
+      text: "…accelerated our AI learning, leading to really tangible optimisations for our workflow… we’re using the tools we co-created every day now.",
+      attribution: "Executive vice president of distribution",
+    },
+    approach: [
+      "Capability first, build second. Three on-site sessions ran across three weeks rather than one day, so they caught the team at different points in its fortnightly reporting cycle and gave people time to bring up problems they wouldn’t have thought of on the day. The sessions worked on whatever the team brought.",
+      "The work falls into workflow automation (alerts, change monitoring, pulling data out of PDFs) and knowledge management (contract queries, and a short context file for each person on the team).",
+    ],
+    stageTable: [
+      {
+        stage: "Discover",
+        happened:
+          "Three on-site sessions. Requirements captured across creative, sales activity and finance automation, each traced to the person who raised it, in two priorities",
+        keeps: "A ranked list of problems in the team’s own words",
+      },
+      {
+        stage: "Design",
+        happened:
+          "Specifications for the highest-priority builds, including hardening the alerting prototype. Scope trimmed where the team could do the work themselves",
+        keeps: "Specifications and a delivery plan: two build drops, then an on-site install day",
+      },
+      {
+        stage: "Deliver",
+        happened: "In progress. One prototype and several automations delivered to date",
+        keeps: "New, automated ways of running what were entrenched manual processes",
+      },
+      {
+        stage: "What’s next",
+        happened:
+          "Further build drops, then a fourth day on site installing each tool in each person’s environment and testing it on live data",
+        keeps: "Tools with plain-language documentation, maintainable without outside help",
+      },
+    ],
+    exposed: {
+      headline: "A working demo isn’t a year of running unattended",
+      body: [
+        "The alerting prototype worked as a demo. It also showed what a year on its own would take: it treated every territory as one list, its lead time was fixed in the code, and it would have failed silently if someone moved a column. So the specification now routes alerts by territory, keeps its settings on a tab anyone can read, and emails the owner when the sheet changes shape.",
+        "The scope moved too. One build stopped being separate because it falls out of two others. One became a free specification, because the team could build it themselves. Two builds are waiting on a single missing identifier in a client export.",
+      ],
+    },
+    line: {
+      system: [
+        { item: "An alert when a title’s availability window opens", note: "Sent by email from the team’s own tracking sheet" },
+        { item: "Which territory an alert goes to", note: "Routed by rules on a tab anyone can read" },
+        { item: "Noticing the sheet has changed shape", note: "The owner is emailed, instead of the alert failing silently" },
+        { item: "Dates pulled from a contract", note: "Extracted from the PDF for the team to use" },
+      ],
+      person: [
+        { item: "What goes on the list", note: "Nothing without a named person who has the problem" },
+        { item: "What’s worth paying to build", note: "Some work became a specification the team builds itself" },
+        { item: "Lead times and settings", note: "Held where the team can read and change them" },
+        { item: "Each tool, once installed", note: "Tested on live data and run by the team" },
+      ],
+    },
+    results: {
+      stats: [],
+      outcomes: [
+        "A prototype sends scheduled availability alerts by email from the team’s own tracking sheet.",
+        "Contract date extraction goes to the team as a specification they can build from, rather than a paid build.",
+        "Requirements across creative, sales activity and finance automation are specified with plain-language documentation and a handover day on live data, so someone other than the builder can run each one.",
+      ],
+      evidence:
+        "Nothing has been measured, so this study reports no figures. It claims only what has been specified and delivered so far, in an engagement that is still running.",
+    },
+    insight: {
+      headline: "Run discovery longer than a day",
+      body: "A team only raises the problems it meets that week. Spreading the sessions over three weeks found what one day would have missed, and nothing went on the list without a named person who had the problem. The team now holds a ranked list, a prototype, several automations and specifications for the rest, and can extend contract extraction themselves. Build and handover continue.",
+    },
+  },
 ];
-
-/** Held slot shown after the published studies until a third is cleared. */
-export const workPlaceholder = {
-  sector: "Next case study",
-  headline: "In preparation",
-  summary: "A third engagement is being written up in the same format and will appear here once the client has signed it off.",
-} as const;

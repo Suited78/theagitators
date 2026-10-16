@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { caseStudies, workIntro, workPlaceholder } from "@/content/caseStudies";
+import { caseStudies, workIntro } from "@/content/caseStudies";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
 const number = (index: number) => String(index + 1).padStart(2, "0");
 
-/** Shared row grid, so published studies and the held slot line up exactly. */
+/** Shared row grid, so every study lines up. */
 const row = "grid items-start gap-x-8 gap-y-5 py-8 md:grid-cols-12 lg:py-10";
 
 export function WorkSection() {
@@ -25,7 +25,7 @@ export function WorkSection() {
           </div>
         </div>
 
-        <ul className="mt-12">
+        <ul className="mt-12 border-b border-[var(--rule)]">
           {caseStudies.map((study, index) => (
             <Reveal as="li" key={study.slug} index={index} className="border-t border-[var(--rule)]">
               <Link href={`/work/${study.slug}`} className="group block">
@@ -63,24 +63,6 @@ export function WorkSection() {
             </Reveal>
           ))}
 
-          <Reveal as="li" index={caseStudies.length} className="border-y border-[var(--rule)]">
-            <div className={row}>
-              <p className="label text-muted tabular-nums md:col-span-2 md:pt-2">
-                {number(caseStudies.length)}
-                <span className="mt-1 block">{workPlaceholder.sector}</span>
-              </p>
-              <div className="md:col-span-6">
-                <h3 className="display-m text-muted">{workPlaceholder.headline}</h3>
-                <p className="body-copy mt-3 max-w-[48ch] text-pretty">{workPlaceholder.summary}</p>
-              </div>
-              <div className="border-l-4 border-divider pl-4 md:col-span-3">
-                <p className="display-m text-muted" aria-hidden="true">
-                  —
-                </p>
-                <p className="mt-1.5 text-base leading-snug text-muted">Result to follow</p>
-              </div>
-            </div>
-          </Reveal>
         </ul>
       </div>
     </section>

@@ -42,7 +42,7 @@ messaging can be rewritten without touching layout. Types are in
 | `outcomes.ts` | "Two kinds of AI": Efficiency AI and Opportunity AI, plus the guardrails line |
 | `products.ts` | "How we engage": the section intro and the three products, led by the client's own words |
 | `process.ts` | "How we engage": the route every engagement follows, from first conversation to ongoing support |
-| `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) and the held third slot |
+| `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) |
 | `team.ts` | The three founders |
 
 Some specifics worth knowing:
@@ -60,8 +60,7 @@ Some specifics worth knowing:
   optional quote), the approach with a Discover / Design / Deliver / What's
   next table, what the work exposed, where the line sits between the system
   and a person, results (stats are optional, an evidence note is not) and
-  what transfers. Each gets a static page at `/work/[slug]`. Until a third
-  study is cleared, `workPlaceholder` holds the slot.
+  what transfers. Each gets a static page at `/work/[slug]`.
 - **Team members** support `photo`, `linkedin` and `expertise`. Without a photo
   they render a numbered "portrait pending" plate.
 
@@ -242,4 +241,4 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
 - No real imagery. The agitation field is drawn in code, so nothing needs
   licensing or art direction yet.
 - The LinkedIn links are placeholders. Case study clients are de-identified;
-  the travel and tourism study is pending partner sign-off.
+  the travel and tourism and television distribution studies are pending partner sign-off, and the television quote needs client approval.

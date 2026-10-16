@@ -220,9 +220,59 @@ So we restructured the knowledge into single-topic documents, made only approved
 
 **What transfers: Refuse to scale the assistant past its knowledge:** The unglamorous work came first: one topic per document, an owner and a review date on each. It’s why the answers can be trusted. At handover the team had a pilot batch live from a planned library of about seventy documents, and the runbooks to keep publishing on their own.
 
-### Next case study: In preparation
+### A sales team trained, then tooled (Television distribution)
 
-A third engagement is being written up in the same format and will appear here once the client has signed it off.
+A multinational television sales team gained new AI skills and fixes across creative, sales activity and finance automation, several of them already delivered.
+
+**Headline result:** 3 weeks of on-site discovery, so the team raised problems a single day would have missed
+
+**At a glance:** International television producer and distributor, sales team of nine · AI upskilling and tools development, across workflow automation and knowledge management · Discover and Design. Build and handover in progress · Ongoing. One prototype and several automations delivered to date
+
+**The situation**
+
+A sales team of nine sits inside an international television producer and distributor, selling programmes and formats to broadcasters and streamers.
+
+Most of their manual work could already be fixed with the productivity suite they paid for. What they lacked was someone to set those tools up and train the team to use them. Pipeline reporting ran off a spreadsheet kept by hand as a copy of the CRM. Sales admins looked up trailers and imagery by hand. Availability windows lived in tracking sheets, with nothing to tell the team when a title opened up. Format pitches went out as plain text documents.
+
+> …accelerated our AI learning, leading to really tangible optimisations for our workflow… we’re using the tools we co-created every day now. (Executive vice president of distribution)
+
+**The approach**
+
+Capability first, build second. Three on-site sessions ran across three weeks rather than one day, so they caught the team at different points in its fortnightly reporting cycle and gave people time to bring up problems they wouldn’t have thought of on the day. The sessions worked on whatever the team brought.
+
+The work falls into workflow automation (alerts, change monitoring, pulling data out of PDFs) and knowledge management (contract queries, and a short context file for each person on the team).
+
+- **Discover:** Three on-site sessions. Requirements captured across creative, sales activity and finance automation, each traced to the person who raised it, in two priorities. _Keeps:_ A ranked list of problems in the team’s own words
+- **Design:** Specifications for the highest-priority builds, including hardening the alerting prototype. Scope trimmed where the team could do the work themselves. _Keeps:_ Specifications and a delivery plan: two build drops, then an on-site install day
+- **Deliver:** In progress. One prototype and several automations delivered to date. _Keeps:_ New, automated ways of running what were entrenched manual processes
+- **What’s next:** Further build drops, then a fourth day on site installing each tool in each person’s environment and testing it on live data. _Keeps:_ Tools with plain-language documentation, maintainable without outside help
+
+**What it exposed: A working demo isn’t a year of running unattended**
+
+The alerting prototype worked as a demo. It also showed what a year on its own would take: it treated every territory as one list, its lead time was fixed in the code, and it would have failed silently if someone moved a column. So the specification now routes alerts by territory, keeps its settings on a tab anyone can read, and emails the owner when the sheet changes shape.
+
+The scope moved too. One build stopped being separate because it falls out of two others. One became a free specification, because the team could build it themselves. Two builds are waiting on a single missing identifier in a client export.
+
+**Where we drew the line**
+
+- System: An alert when a title’s availability window opens (Sent by email from the team’s own tracking sheet)
+- System: Which territory an alert goes to (Routed by rules on a tab anyone can read)
+- System: Noticing the sheet has changed shape (The owner is emailed, instead of the alert failing silently)
+- System: Dates pulled from a contract (Extracted from the PDF for the team to use)
+- Person: What goes on the list (Nothing without a named person who has the problem)
+- Person: What’s worth paying to build (Some work became a specification the team builds itself)
+- Person: Lead times and settings (Held where the team can read and change them)
+- Person: Each tool, once installed (Tested on live data and run by the team)
+
+**Results**
+
+- A prototype sends scheduled availability alerts by email from the team’s own tracking sheet.
+- Contract date extraction goes to the team as a specification they can build from, rather than a paid build.
+- Requirements across creative, sales activity and finance automation are specified with plain-language documentation and a handover day on live data, so someone other than the builder can run each one.
+
+**How we measured this:** Nothing has been measured, so this study reports no figures. It claims only what has been specified and delivered so far, in an engagement that is still running.
+
+**What transfers: Run discovery longer than a day:** A team only raises the problems it meets that week. Spreading the sessions over three weeks found what one day would have missed, and nothing went on the list without a named person who had the problem. The team now holds a ranked list, a prototype, several automations and specifications for the rest, and can extend contract extraction themselves. Build and handover continue.
 
 ## Who we are
 

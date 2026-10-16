@@ -6,7 +6,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { caseStudies, workIntro, workPlaceholder } from "../src/content/caseStudies.ts";
+import { caseStudies, workIntro } from "../src/content/caseStudies.ts";
 import { outcomeIntro, outcomes } from "../src/content/outcomes.ts";
 import { processIntro, processSteps } from "../src/content/process.ts";
 import { engageIntro, productNote, products } from "../src/content/products.ts";
@@ -85,8 +85,6 @@ for (const study of caseStudies) {
   field("How we measured this", study.results.evidence);
   field(`What transfers: ${study.insight.headline}`, study.insight.body);
 }
-h(3, `${workPlaceholder.sector}: ${workPlaceholder.headline}`);
-p(workPlaceholder.summary);
 
 h(2, teamIntro.eyebrow);
 field("Headline", teamIntro.headline);
