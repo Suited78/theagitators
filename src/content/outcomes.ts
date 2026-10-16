@@ -8,7 +8,7 @@ import type { Outcome } from "./types";
 export const outcomeIntro = {
   eyebrow: "Two kinds of AI",
   /** One statement per line. */
-  headline: ["Do what you do now, better.", "Then do what wasn’t possible before."],
+  headline: ["Do what you do now, better.", "Do what wasn’t possible before."],
   supporting: "Most businesses start with efficiency. The bigger prize is usually opportunity. We help with both.",
   guardrails: "Both come with clear rules for how AI is used, so your data, clients and reputation stay safe.",
 } as const;

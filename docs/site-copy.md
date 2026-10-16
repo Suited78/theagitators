@@ -45,7 +45,7 @@ Most business owners have worked this out already. They’ve read the articles a
 
 ## Two kinds of AI
 
-**Headline:** Do what you do now, better. Then do what wasn’t possible before.
+**Headline:** Do what you do now, better. Do what wasn’t possible before.
 
 **Supporting line:** Most businesses start with efficiency. The bigger prize is usually opportunity. We help with both.
 
