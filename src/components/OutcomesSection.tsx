@@ -147,13 +147,13 @@ export function OutcomesSection() {
             <p className="body-copy mt-4 max-w-[44ch] text-aubergine">{efficiency.description}</p>
           </Reveal>
 
-          {/* "Then": the order the headline promises, drawn between the two:
-              in the middle side by side, in the gap when stacked. */}
+          {/* "And": both kinds, not a choice between them. Sits in the middle
+              side by side, in the gap when stacked. */}
           <span
             aria-hidden="true"
             className="label relative z-10 mx-auto -my-9 flex h-16 w-16 items-center justify-center rounded-full border-4 border-paper bg-purple text-white md:absolute md:top-1/2 md:left-1/2 md:m-0 md:-translate-x-1/2 md:-translate-y-1/2"
           >
-            Then
+            And
           </span>
 
           <Reveal index={1} className="aubergine-panel flex flex-col rounded-[var(--radius-card)] p-7 sm:p-9 lg:p-12">
