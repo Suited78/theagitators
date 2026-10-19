@@ -37,15 +37,16 @@ export function WhySection() {
           <Reveal>
             <p className="label text-purple">What nobody has time to work out</p>
           </Reveal>
-          <ol className="mt-6 grid gap-x-12 md:grid-cols-2">
+          {/* Three questions, three equal columns; they stack on phones. */}
+          <ol className="mt-6 grid gap-x-10 md:grid-cols-3">
             {why.questions.map((question, index) => (
               <Reveal
                 as="li"
                 key={question}
-                index={index % 3}
-                className="flex items-start gap-5 border-t border-[var(--rule)] py-5"
+                index={index}
+                className="flex items-start gap-5 border-t-2 border-aubergine py-5 md:flex-col md:gap-3 md:pt-5 md:pb-0"
               >
-                <span className="label mt-1 shrink-0 text-purple tabular-nums">
+                <span className="shrink-0 text-[1.25rem] leading-snug font-extrabold text-purple tabular-nums md:text-[2rem] md:leading-none">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="text-pretty text-[1.25rem] leading-snug font-semibold">{question}</span>
