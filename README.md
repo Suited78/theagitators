@@ -158,7 +158,7 @@ One section (`EngageSection.tsx`) in place of the old Who, What and How:
 
 ## The Field Guide
 
-`/field-guide` (`src/content/fieldGuide.ts`, `src/components/fieldguide/`) is
+`/ai-field-guide` (`src/content/fieldGuide.ts`, `src/components/fieldguide/`) is
 The Field Guide to Getting Ahead with AI: thirteen habits sorted into Ask,
 Assist and Act, built from the shared tips repository. It isn't linked from
 the nav; it's shared by link and QR code, but it is in the sitemap and

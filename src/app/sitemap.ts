@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly" as const,
       priority: 0.7,
     })),
-    { url: `${site.url}/field-guide`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${site.url}/ai-field-guide`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

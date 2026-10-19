@@ -11,8 +11,8 @@ const description =
 export const metadata: Metadata = {
   title: guideIntro.title,
   description,
-  alternates: { canonical: "/field-guide" },
-  openGraph: { title: guideIntro.title, description, url: "/field-guide" },
+  alternates: { canonical: "/ai-field-guide" },
+  openGraph: { title: guideIntro.title, description, url: "/ai-field-guide" },
 };
 
 export default function FieldGuidePage() {

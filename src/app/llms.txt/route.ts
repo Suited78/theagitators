@@ -27,7 +27,7 @@ export function GET() {
     ...caseStudies.map((s) => `- [${s.headline}](${site.url}/work/${s.slug}): ${s.summary}`),
     "",
     "## Guides",
-    `- [${guideIntro.title}](${site.url}/field-guide): ${guideIntro.subtitle}`,
+    `- [${guideIntro.title}](${site.url}/ai-field-guide): ${guideIntro.subtitle}`,
     "",
     "## Founders",
     ...team.map((m) => `- ${m.name}, ${m.role}${m.linkedin && /linkedin\.com\/in\//.test(m.linkedin) ? ` (${m.linkedin})` : ""}`),

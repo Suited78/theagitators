@@ -1,5 +1,5 @@
 /**
- * The Field Guide to Getting Ahead with AI (/field-guide).
+ * The Field Guide to Getting Ahead with AI (/ai-field-guide).
  *
  * Source: the shared tips repository (3 October 2026). Not linked from the
  * nav; handed out by link and QR code, but crawlable. Every tip is still
