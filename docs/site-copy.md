@@ -287,9 +287,9 @@ The scope moved too. One build stopped being separate because it falls out of tw
 
 ### Lee Robson, Co-Founder
 
-A passion for building AI-driven solutions to human problems, informed by 25 years with startups and major brands including Foxtel and MullenLowe.
+A passion for building AI-driven solutions to human problems, informed by 25 years with startups, big brands, and agencies, including Foxtel and MullenLowe.
 
-**Tags:** Agency operations · Client service · Creative production
+**Tags:** Agency operations · Change communications · Creative production
 
 ### James Bridges, Co-Founder
 
