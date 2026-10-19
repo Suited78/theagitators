@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, type TargetAndTransition } from "motion/react";
 import { outcomeIntro, outcomes } from "@/content/outcomes";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { Eyebrow } from "./Eyebrow";
@@ -50,57 +50,58 @@ function EfficiencyPicture({ legend }: { legend: [string, string] }) {
 }
 
 /**
- * Opportunity AI: what you offer today sits inside the frame; new things grow
- * beyond it. Again conceptual: no counts implied.
+ * Opportunity AI: the same three bars as Efficiency, making a braver move.
+ * They lift into a staircase, two new steps grow beyond them, and a spark
+ * lands on the top one. Conceptual: no axis, no counts, no growth figures.
  */
 function OpportunityPicture({ legend }: { legend: [string, string] }) {
   const reduced = usePrefersReducedMotion();
+  // Start stacked like the efficiency bars, end as the first three steps.
   const today = [
-    [70, 70],
-    [110, 60],
-    [80, 112],
-    [122, 104],
+    { y: 66, dx: 0, dy: 110 },
+    { y: 96, dx: 70, dy: 50 },
+    { y: 126, dx: 140, dy: -10 },
   ];
   const grown = [
-    [250, 34],
-    [312, 72],
-    [236, 126],
-    [330, 140],
-    [282, 104],
+    { x: 230, y: 86 },
+    { x: 300, y: 56 },
   ];
+  const motionProps = (from: TargetAndTransition, to: TargetAndTransition, delay: number, duration = 0.9) =>
+    reduced
+      ? {}
+      : { initial: from, whileInView: to, viewport: inView, transition: { duration, delay, ease } };
   return (
     <div aria-hidden="true">
-      <svg viewBox="0 0 380 176" className="h-auto w-full overflow-visible">
-        <rect x="36" y="30" width="124" height="116" rx="14" fill="none" stroke="var(--color-paper)" strokeOpacity="0.45" strokeWidth="2" strokeDasharray="5 6" />
-        {today.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r="9" fill="var(--color-paper)" fillOpacity="0.55" />
+      {/* Keyed on the preference, which is only known after the first render,
+          so a reduced-motion visitor gets the end state rather than a half-start. */}
+      <svg key={reduced ? "still" : "animated"} viewBox="0 0 420 200" className="h-auto w-full overflow-visible">
+        {today.map(({ y, dx, dy }, index) => (
+          <motion.g
+            key={y}
+            style={reduced ? { transform: `translate(${dx}px, ${dy}px)` } : undefined}
+            {...motionProps({ x: 0, y: 0 }, { x: dx, y: dy }, 0.15 + index * 0.1, 1)}
+          >
+            <rect x="20" y={y} width="100" height="22" rx="6" fill="var(--color-paper)" fillOpacity="0.55" />
+          </motion.g>
         ))}
-        {grown.map(([x, y], index) => (
-          <g key={`${x}-${y}`}>
-            <motion.path
-              d={`M160 ${88} C ${200} ${88}, ${x - 40} ${y}, ${x} ${y}`}
-              fill="none"
-              stroke="var(--color-mint)"
-              strokeOpacity="0.7"
-              strokeWidth="2"
-              initial={reduced ? false : { pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={inView}
-              transition={{ duration: 0.9, delay: 0.3 + index * 0.18, ease }}
-            />
-            <motion.circle
-              cx={x}
-              cy={y}
-              r="11"
-              fill="var(--color-mint)"
-              initial={reduced ? false : { scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={inView}
-              transition={{ duration: 0.6, delay: 0.9 + index * 0.18, ease }}
-              style={{ transformOrigin: `${x}px ${y}px` }}
-            />
-          </g>
+        {grown.map(({ x, y }, index) => (
+          <motion.rect
+            key={x}
+            x={x}
+            y={y}
+            width="100"
+            height="22"
+            rx="6"
+            fill="var(--color-mint)"
+            style={{ originX: 0 }}
+            {...motionProps({ scaleX: 0 }, { scaleX: 1 }, 1.05 + index * 0.2, 0.7)}
+          />
         ))}
+        <motion.path
+          d="M404 26 L408 38 L420 42 L408 46 L404 58 L400 46 L388 42 L400 38 Z"
+          fill="var(--color-mint)"
+          {...motionProps({ scale: 0, rotate: -45 }, { scale: 1, rotate: 0 }, 1.6, 0.6)}
+        />
       </svg>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm font-semibold text-paper/80">
         <span className="inline-flex items-center gap-2">

@@ -26,6 +26,6 @@ export const outcomes: Outcome[] = [
     title: "Opportunity AI",
     description:
       "Better client work, delivered faster, and room for services that weren’t practical, or even imagined, until now.",
-    legend: ["What you offer today", "Newly possible"],
+    legend: ["What you offer today", "Where it can take you"],
   },
 ];
