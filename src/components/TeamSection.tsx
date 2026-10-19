@@ -45,9 +45,10 @@ export function TeamSection() {
           align="wide"
         />
 
-        <ul className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-3 lg:mt-16">
+        {/* Each founder spans six shared rows (photo, name, role, bio, tags, link), so the columns line up whatever the bio length. */}
+        <ul className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-3 md:gap-y-0 lg:mt-16">
           {team.map((member, index) => (
-            <Reveal as="li" key={member.id} index={index} className="flex flex-col">
+            <Reveal as="li" key={member.id} index={index} className="flex flex-col md:row-span-6 md:grid md:grid-rows-subgrid">
               {member.photo?.offset ? (
                 <div className="relative aspect-[4/5] w-full">
                   <span
@@ -79,9 +80,9 @@ export function TeamSection() {
 
               <h3 className="display-s mt-6">{member.name}</h3>
               <p className="label mt-1.5 text-purple">{member.role}</p>
-              <p className="body-copy mt-4 flex-1 text-base">{member.bio}</p>
+              <p className="body-copy mt-4 text-base">{member.bio}</p>
 
-              <ul className="mt-5 flex flex-wrap gap-1.5">
+              <ul className="mt-5 flex flex-wrap content-start gap-1.5">
                 {member.expertise.map((item) => (
                   <li key={item} className="rounded-[var(--radius-control)] bg-paper px-3 py-1.5 text-sm font-semibold text-muted">
                     {item}
@@ -99,7 +100,12 @@ export function TeamSection() {
                 >
                   LinkedIn
                 </a>
-              ) : null}
+              ) : (
+                // Holds the link's space, so tags line up across the row until the profile arrives.
+                <span aria-hidden="true" className="invisible mt-6 text-base font-semibold">
+                  LinkedIn
+                </span>
+              )}
             </Reveal>
           ))}
         </ul>
