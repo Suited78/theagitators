@@ -17,7 +17,7 @@ import {
 } from "@/content/fieldGuide";
 import { Eyebrow } from "../Eyebrow";
 import { copyText } from "./copy";
-import { TipCard } from "./TipCard";
+import { HabitEntry } from "./HabitEntry";
 
 const STORE_KEY = "field-guide-industry";
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -114,10 +114,17 @@ function WhereAreYou() {
 
   return (
     <section aria-labelledby="where" className="rounded-[var(--radius-card)] border border-[var(--rule)] bg-white p-6 sm:p-8">
-      <Eyebrow>Where are you now?</Eyebrow>
-      <h2 id="where" className="display-s mt-4 max-w-[28ch] text-balance">
-        Three questions to find your level, and the habit to start with.
+      <Eyebrow>Optional · Where are you now?</Eyebrow>
+      <h2 id="where" className="display-s mt-4 max-w-[30ch] text-balance">
+        Find where to start, or just scroll on.
       </h2>
+      <p className="body-copy mt-3 max-w-[60ch]">
+        Answer three quick questions and we’ll point you to the habit that will make the most difference now. Or skip them:
+        the guide reads top to bottom, from your first question to AI that works on its own.
+      </p>
+      <a href="#level-ask" className="text-link mt-3 inline-block text-base font-bold text-purple">
+        Skip to the first habit ↓
+      </a>
       <ol className="mt-6 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
         {quiz.map((question, index) => (
           <li key={question.q} className="flex flex-wrap items-center justify-between gap-3 py-4">
@@ -241,6 +248,7 @@ function BriefBuilder({ industry }: { industry: Industry }) {
 export function FieldGuide() {
   const [industry, setIndustry] = useState<Industry>("cinema");
   const [active, setActive] = useState<LevelId>("ask");
+  const [activeTip, setActiveTip] = useState<number | null>(null);
 
   // Remember the reader's audience, and let a link choose it: ?for=health.
   useEffect(() => {
@@ -268,7 +276,44 @@ export function FieldGuide() {
       { rootMargin: "-30% 0px -60% 0px" },
     );
     sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+
+    // Which habit is being read, for the level index.
+    const entries = tips.map((tip) => document.getElementById(`tip-${tip.n}`)).filter((el): el is HTMLElement => !!el);
+    const reading = new IntersectionObserver(
+      (items) => {
+        const visible = items.filter((item) => item.isIntersecting);
+        if (visible[0]) setActiveTip(Number(visible[0].target.id.replace("tip-", "")));
+      },
+      { rootMargin: "-35% 0px -55% 0px" },
+    );
+    entries.forEach((entry) => reading.observe(entry));
+
+    // Arm each before-and-after that hasn't been seen, then play it on arrival.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const contrasts = [...document.querySelectorAll<HTMLElement>("[data-contrast]")];
+    let play: IntersectionObserver | undefined;
+    if (!reduced) {
+      play = new IntersectionObserver(
+        (items) =>
+          items.forEach((item) => {
+            if (!item.isIntersecting) return;
+            (item.target as HTMLElement).dataset.contrast = "play";
+            play?.unobserve(item.target);
+          }),
+        { rootMargin: "0px 0px -20% 0px" },
+      );
+      contrasts.forEach((el) => {
+        if (el.getBoundingClientRect().top > window.innerHeight * 0.8) {
+          el.dataset.contrast = "armed";
+          play?.observe(el);
+        }
+      });
+    }
+    return () => {
+      observer.disconnect();
+      reading.disconnect();
+      play?.disconnect();
+    };
   }, []);
 
   return (
@@ -305,34 +350,45 @@ export function FieldGuide() {
             key={level.id}
             id={`level-${level.id}`}
             aria-labelledby={`level-${level.id}-title`}
-            className={`scroll-mt-[calc(var(--header-h)+3.5rem)] py-[clamp(3rem,7vw,5.5rem)] ${index % 2 ? "bg-paper" : "bg-white"}`}
+            className={`scroll-mt-[calc(var(--header-h)+3.5rem)] pt-[clamp(3rem,7vw,5.5rem)] pb-[clamp(1rem,3vw,2rem)] ${index % 2 ? "bg-paper" : "bg-white"}`}
           >
-            <div className="shell">
-              <div className="grid gap-x-10 gap-y-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-end">
-                <p className="text-[clamp(4rem,10vw,7.5rem)] leading-[0.85] font-extrabold tracking-tight text-purple" aria-hidden="true">
+            <div className="shell grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+              {/* The level's index: sticks beside its habits on wide screens. */}
+              <div className="lg:sticky lg:top-[calc(var(--header-h)+5.5rem)] lg:self-start">
+                <p className="text-[clamp(4.5rem,11vw,8rem)] leading-[0.82] font-extrabold tracking-tighter text-purple" aria-hidden="true">
                   {level.name}
                 </p>
-                <div>
-                  <h2 id={`level-${level.id}-title`} className="display-m text-balance">
-                    <span className="sr-only">{level.name}: </span>
-                    {level.line}
-                  </h2>
-                  <p className="body-copy mt-3 max-w-[60ch]">{level.scene}</p>
-                </div>
+                <h2 id={`level-${level.id}-title`} className="display-s mt-5 text-balance">
+                  <span className="sr-only">{level.name}: </span>
+                  {level.line}
+                </h2>
+                <p className="body-copy mt-3 max-w-[40ch]">{level.scene}</p>
+                <ol className="mt-6 hidden border-t border-[var(--rule)] lg:block">
+                  {levelTips.map((tip) => (
+                    <li key={tip.n} className="border-b border-[var(--rule)]">
+                      <a
+                        href={`#tip-${tip.n}`}
+                        aria-current={activeTip === tip.n ? "true" : undefined}
+                        className="flex gap-3 py-2.5 text-[0.95rem] leading-snug font-bold text-muted transition-colors hover:text-aubergine aria-[current]:text-aubergine"
+                      >
+                        <span className="text-purple tabular-nums">{pad(tip.n)}</span>
+                        {tip.title}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
               </div>
 
-              {/* Three across when the count fills rows of three; otherwise two, so no card sits alone. */}
-              <div className={`mt-10 grid gap-5 md:grid-cols-2 ${levelTips.length % 3 === 0 ? "xl:grid-cols-3" : ""}`}>
+              <div>
                 {levelTips.map((tip) => (
-                  <TipCard key={tip.n} tip={tip} industry={industry} />
+                  <HabitEntry key={tip.n} tip={tip} industry={industry} />
                 ))}
+                {level.id === "ask" ? (
+                  <div className="mb-14 lg:mb-20">
+                    <BriefBuilder industry={industry} />
+                  </div>
+                ) : null}
               </div>
-
-              {level.id === "ask" ? (
-                <div className="mt-10">
-                  <BriefBuilder industry={industry} />
-                </div>
-              ) : null}
             </div>
           </section>
         );

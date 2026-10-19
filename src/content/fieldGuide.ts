@@ -71,7 +71,7 @@ export type Tip = {
   note?: Record<Industry, string>;
   /** Where the setting lives, for tips that depend on one. */
   settings?: ToolSetting[];
-  /** The before-and-after picture on the card front. */
+  /** The old way, struck through, then the habit in practice: each entry's typographic moment. */
   before: string;
   after: string;
 };
@@ -93,8 +93,8 @@ export const tips: Tip[] = [
       health:
         "About us: we’re a physiotherapy and Pilates studio with two clinics. Most of our clients are active people in their 30s to 60s getting back from an injury. Our tone is encouraging and clear, never preachy. Here’s a client email we were proud of: [paste it]. Keep all of this in mind for everything I ask today.",
     },
-    before: "Smart. Knows nothing about you.",
-    after: "The same smart new starter, after a proper induction.",
+    before: "Write me a newsletter.",
+    after: "Write our newsletter. Here’s who we are, who reads it, and one we were proud of.",
   },
   {
     n: 2,
@@ -111,8 +111,8 @@ export const tips: Tip[] = [
       health:
         "So I need a one-page report by Friday. It’s for the practice partners. They mostly want to know whether the new Pilates classes are filling, and they’ll read it on their phones, so keep it short and tell them what we should change next term.",
     },
-    before: "Typed like a telegram: keywords only.",
-    after: "A minute of talking, with all the detail left in.",
+    before: "report friday owners summary",
+    after: "So the report’s for the owners on Friday, and what they really care about is…",
   },
   {
     n: 3,
@@ -129,8 +129,8 @@ export const tips: Tip[] = [
       health:
         "Draft a welcome email for new Pilates clients. It’s for people who have never done Pilates, it should take under a minute to read, and it mustn’t sound like a sales pitch. Before you start, ask me any questions you need answered.",
     },
-    before: "“Got it.” Nods, walks off, writes nothing down.",
-    after: "Reads the order back before it goes to the kitchen.",
+    before: "Draft the roster.",
+    after: "Draft the roster. Before you start, ask me anything you need to know.",
   },
   {
     n: 4,
@@ -147,8 +147,8 @@ export const tips: Tip[] = [
       health:
         "You’re an experienced practice manager for allied health clinics. I own a two-clinic physio practice with no admin team. What should I look at first to bring our no-show rate down?",
     },
-    before: "A casting call for anyone at all.",
-    after: "A casting call for exactly who you need.",
+    before: "What should I look at every Monday?",
+    after: "You’re a seasoned analyst. I’m an owner with no data team. What should I look at every Monday?",
   },
   {
     n: 5,
@@ -173,8 +173,8 @@ export const tips: Tip[] = [
         note: "May still be labelled “Gemini Apps Activity”. Chats are kept for up to 72 hours even when it’s off.",
       },
     ],
-    before: "A postcard. Anyone who handles it can read it.",
-    after: "A sealed envelope.",
+    before: "Anything I paste in can train the next model.",
+    after: "Training is off. My conversations stay mine.",
   },
   {
     n: 6,
@@ -194,8 +194,8 @@ export const tips: Tip[] = [
       health:
         "Check every health claim. Advertising rules for health services are strict, and the tool doesn’t know which ones apply to you.",
     },
-    before: "“In 50 metres, turn left.” Straight into the lake.",
-    after: "The driver glances up at the road.",
+    before: "Looks right. Send.",
+    after: "Every name, number and date checked. Then send.",
   },
   {
     n: 7,
@@ -216,8 +216,8 @@ export const tips: Tip[] = [
       cinema: "Start with the jobs only one person knows how to do.",
       health: "Keep it to how the practice runs. Clinical decisions stay with clinicians, and client details stay out.",
     },
-    before: "The old chef who “just knows” how much salt.",
-    after: "The recipe card, written down for the next cook.",
+    before: "Ask Sue. She’s the only one who knows how it works.",
+    after: "It’s written down, so anyone can do it, and so can AI.",
   },
   {
     n: 8,
@@ -238,8 +238,8 @@ export const tips: Tip[] = [
       cinema: "Sales by product and week is enough. Leave out anything that identifies a customer.",
       health: "Bookings by service and week is enough. Leave out names, contact details and anything clinical.",
     },
-    before: "A finger held up to test the wind.",
-    after: "A forecast that shows its reasons.",
+    before: "Feels like a big week. Order extra?",
+    after: "Here’s what to expect each week, and why.",
   },
   {
     n: 9,
@@ -260,8 +260,8 @@ export const tips: Tip[] = [
       cinema: "Start with your two biggest audiences and see which version gets more replies.",
       health: "Check the health claims in every version, not just the first.",
     },
-    before: "One megaphone, aimed at the whole crowd.",
-    after: "Five conversations at five small tables.",
+    before: "One newsletter for everyone.",
+    after: "One newsletter, five versions, each for the people reading it.",
   },
   {
     n: 10,
@@ -278,8 +278,8 @@ export const tips: Tip[] = [
       health:
         "Attached is a spreadsheet of our weekly bookings by clinician, with client details removed. Build me a simple page that shows how full each clinician’s week was, with a chart I can read on my phone.",
     },
-    before: "A quote, then a three-month wait.",
-    after: "Built by the person who needs it, in an afternoon.",
+    before: "We’ll get a quote. Twelve weeks, minimum.",
+    after: "I built it this afternoon.",
   },
   {
     n: 11,
@@ -301,8 +301,8 @@ export const tips: Tip[] = [
       health:
         "Never let it give health advice. Keep it to bookings, opening hours and directions, and hand anything clinical to a person.",
     },
-    before: "A new starter, alone on the busiest night of the year.",
-    after: "The same new starter, shadowing on a quiet Tuesday.",
+    before: "Switch it on for customers on Saturday.",
+    after: "Run it behind the counter first. Go live when every answer is one you’d send.",
   },
   {
     n: 12,
@@ -319,8 +319,8 @@ export const tips: Tip[] = [
       health:
         "Every Monday at 7am, summarise last week’s news for allied health practices, including any regulation changes, and tell me the three things I should know.",
     },
-    before: "Walking to the newsagent for the paper.",
-    after: "The paper lands on the front lawn.",
+    before: "Must remember to check the news on Monday.",
+    after: "Monday, 7am: the briefing is already waiting.",
   },
   {
     n: 13,
@@ -337,8 +337,8 @@ export const tips: Tip[] = [
       health:
         "Research how allied health practices in Australia have reduced appointment no-shows in the last three years. I’m deciding what to trial across our two clinics. Give me the five approaches with the best evidence, with sources.",
     },
-    before: "A day of open browser tabs.",
-    after: "A cited report, ready when your meeting ends.",
+    before: "I’ll look into it when I get a spare day.",
+    after: "Researched over lunch, with sources.",
   },
 ];
 

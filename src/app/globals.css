@@ -243,3 +243,28 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/*
+ * Field Guide: each habit's "instead of" line is struck through as it
+ * scrolls into view, then the habit in practice rises in under it. At rest
+ * (no script, reduced motion, or already played) both show in their final
+ * state; the script only arms entries that haven't been seen yet.
+ */
+.contrast-strike {
+  background-image: linear-gradient(var(--color-purple), var(--color-purple));
+  background-repeat: no-repeat;
+  background-position: 0 58%;
+  background-size: 100% 0.12em;
+  transition: background-size 0.9s var(--ease-out-quint), color 0.6s ease;
+}
+.contrast-after {
+  transition: opacity 0.8s var(--ease-out-quint) 0.55s, transform 0.8s var(--ease-out-quint) 0.55s;
+}
+[data-contrast="armed"] .contrast-strike {
+  background-size: 0% 0.12em;
+  color: var(--color-aubergine);
+}
+[data-contrast="armed"] .contrast-after {
+  opacity: 0;
+  transform: translateY(0.6em);
+}
