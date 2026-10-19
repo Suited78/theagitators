@@ -17,7 +17,7 @@ import {
 } from "@/content/fieldGuide";
 import { Eyebrow } from "../Eyebrow";
 import { copyText } from "./copy";
-import { TipCard, TipPreview } from "./TipCard";
+import { TipCard } from "./TipCard";
 
 const STORE_KEY = "field-guide-industry";
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -49,22 +49,24 @@ function Climb() {
   );
 }
 
+/** Compact, always to hand in the sticky bar. Short labels on phones. */
 function IndustrySwitch({ industry, onChange }: { industry: Industry; onChange: (value: Industry) => void }) {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <span id="industry-label" className="text-sm font-bold text-paper/80">
-        Show examples for
+    <div className="ml-auto flex shrink-0 items-center gap-2">
+      <span id="industry-label" className="hidden text-sm font-semibold text-muted md:block">
+        Examples for
       </span>
-      <div role="group" aria-labelledby="industry-label" className="flex rounded-full bg-paper/10 p-1">
+      <div role="group" aria-labelledby="industry-label" className="flex rounded-full bg-paper p-1 shadow-[inset_0_0_0_1px_var(--rule)]">
         {industries.map((option) => (
           <button
             key={option.id}
             type="button"
             aria-pressed={industry === option.id}
             onClick={() => onChange(option.id)}
-            className="min-h-10 rounded-full px-4 text-sm font-bold text-paper/80 transition-colors aria-pressed:bg-mint aria-pressed:text-aubergine"
+            className="min-h-9 rounded-full px-3 text-sm font-bold text-muted transition-colors aria-pressed:bg-purple aria-pressed:text-white"
           >
-            {option.label}
+            <span className="sm:hidden">{option.short}</span>
+            <span className="hidden sm:inline">{option.label}</span>
           </button>
         ))}
       </div>
@@ -159,23 +161,26 @@ function WhereAreYou() {
 }
 
 /** Sticky strip showing which level the reader is in. */
-function LevelBar({ active }: { active: LevelId }) {
+function LevelBar({ active, industry, onChange }: { active: LevelId; industry: Industry; onChange: (value: Industry) => void }) {
   return (
     <div className="sticky top-[var(--header-h)] z-30 border-b border-[var(--rule)] bg-white/95 backdrop-blur-md">
-      <nav aria-label="Jump to a level" className="shell flex h-14 items-center gap-1 sm:gap-2">
+      <div className="shell flex h-14 items-center gap-2">
+      <nav aria-label="Jump to a level" className="flex items-center gap-0.5 sm:gap-2">
         {levels.map((level, index) => (
           <a
             key={level.id}
             href={`#level-${level.id}`}
             aria-current={active === level.id ? "true" : undefined}
-            className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold text-muted transition-colors aria-[current]:bg-aubergine aria-[current]:text-paper"
+            className="flex items-center gap-2 rounded-full px-2.5 py-1.5 text-sm font-bold text-muted transition-colors aria-[current]:bg-aubergine aria-[current]:text-paper sm:px-3"
           >
-            <span className="tabular-nums opacity-70">{index + 1}</span>
+            <span className="hidden tabular-nums opacity-70 sm:inline">{index + 1}</span>
             {level.name}
           </a>
         ))}
-        <span className="ml-auto hidden text-sm font-semibold text-muted sm:block">{levels.find((l) => l.id === active)?.line}</span>
       </nav>
+      <span className="ml-4 hidden text-sm font-semibold text-muted lg:block">{levels.find((l) => l.id === active)?.line}</span>
+      <IndustrySwitch industry={industry} onChange={onChange} />
+      </div>
     </div>
   );
 }
@@ -279,10 +284,12 @@ export function FieldGuide() {
           <Climb />
         </div>
         <div className="shell mt-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-paper/15 pt-6">
-          <IndustrySwitch industry={industry} onChange={chooseIndustry} />
+          <p className="text-sm font-semibold text-paper/80">Pass it on to someone who should read it.</p>
           <ShareGuide />
         </div>
       </header>
+
+      <LevelBar active={active} industry={industry} onChange={chooseIndustry} />
 
       <div className="bg-paper">
         <div className="shell py-[clamp(2.5rem,6vw,4.5rem)]">
@@ -290,7 +297,6 @@ export function FieldGuide() {
         </div>
       </div>
 
-      <LevelBar active={active} />
 
       {levels.map((level, index) => {
         const levelTips = tips.filter((tip) => tip.level === level.id);
@@ -315,8 +321,11 @@ export function FieldGuide() {
                 </div>
               </div>
 
-              <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {levelTips.map((tip) => (tip.preview ? <TipPreview key={tip.n} tip={tip} /> : <TipCard key={tip.n} tip={tip} industry={industry} />))}
+              {/* Three across when the count fills rows of three; otherwise two, so no card sits alone. */}
+              <div className={`mt-10 grid gap-5 md:grid-cols-2 ${levelTips.length % 3 === 0 ? "xl:grid-cols-3" : ""}`}>
+                {levelTips.map((tip) => (
+                  <TipCard key={tip.n} tip={tip} industry={industry} />
+                ))}
               </div>
 
               {level.id === "ask" ? (

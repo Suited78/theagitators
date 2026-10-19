@@ -90,6 +90,8 @@ export function TipCard({ tip, industry }: { tip: Tip; industry: Industry }) {
           className="flex flex-col md:col-start-1 md:row-start-1 rounded-[var(--radius-card)] border border-[var(--rule)] bg-white p-6 [backface-visibility:hidden]"
         >
           <CardTop tip={tip} />
+          <h3 className="display-s mt-4 text-balance">{tip.title}</h3>
+          <p className="mt-2 text-base leading-relaxed text-aubergine">{tip.what}</p>
 
           <div className="mt-5 rounded-lg bg-paper p-4">
             <div className="flex min-h-[9.5rem] items-center justify-center" aria-hidden="true">
@@ -113,9 +115,7 @@ export function TipCard({ tip, industry }: { tip: Tip; industry: Industry }) {
             </div>
           </div>
 
-          <h3 className="display-s mt-6 text-balance">{tip.title}</h3>
-          <p className="mt-2 text-base leading-relaxed text-aubergine">{tip.what}</p>
-          {tip.pull ? <p className="mt-4 border-l-4 border-mint pl-3 text-sm leading-snug font-semibold text-muted">“{tip.pull}”</p> : null}
+          {tip.pull ? <p className="mt-5 border-l-4 border-mint pl-3 text-sm leading-snug font-semibold text-muted">“{tip.pull}”</p> : null}
 
           <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-6">
             <button ref={frontButton} type="button" onClick={() => flip(true)} aria-expanded={wide ? undefined : flipped} className={`btn btn-primary min-h-11 px-4 text-sm ${flipped ? "max-md:hidden" : ""}`}>
@@ -196,18 +196,6 @@ export function TipCard({ tip, industry }: { tip: Tip; industry: Industry }) {
           </div>
         </div>
       </div>
-    </article>
-  );
-}
-
-/** Habits not yet written up in full (prototype): title and one line. */
-export function TipPreview({ tip }: { tip: Tip }) {
-  return (
-    <article id={`tip-${tip.n}`} className="flex scroll-mt-[calc(var(--header-h)+5rem)] flex-col rounded-[var(--radius-card)] border border-dashed border-divider bg-white/60 p-6">
-      <CardTop tip={tip} />
-      <h3 className="mt-4 text-xl font-extrabold text-balance">{tip.title}</h3>
-      <p className="mt-2 text-base leading-relaxed text-muted">{tip.what}</p>
-      <p className="label mt-auto pt-5 text-muted">Full card in the next build</p>
     </article>
   );
 }

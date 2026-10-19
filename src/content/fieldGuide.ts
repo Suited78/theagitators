@@ -15,9 +15,9 @@ export type LevelId = "ask" | "assist" | "act";
 /** The same language as Two kinds of AI on the home page. */
 export type Theme = "Efficiency" | "Opportunity" | "Guardrails";
 
-export const industries: { id: Industry; label: string }[] = [
-  { id: "cinema", label: "Cinema" },
-  { id: "health", label: "Health and wellness" },
+export const industries: { id: Industry; label: string; short: string }[] = [
+  { id: "cinema", label: "Cinema", short: "Cinema" },
+  { id: "health", label: "Health and wellness", short: "Health" },
 ];
 
 /** When tool settings and features were last checked against each provider's help pages. */
@@ -74,8 +74,6 @@ export type Tip = {
   /** The before-and-after picture on the card front. */
   before: string;
   after: string;
-  /** True while only the title and line are written (prototype). */
-  preview?: boolean;
 };
 
 export const tips: Tip[] = [
@@ -206,11 +204,20 @@ export const tips: Tip[] = [
     theme: "Opportunity",
     title: "Get what’s in people’s heads written down",
     what: "Capture how your business actually runs, so AI can work from it.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "Most of what makes a business work lives in the heads of a few long-serving people. Once it’s written down, AI can induct new staff, answer their questions and draft things your way. It also protects you when those people leave.",
+    how: "Ask each manager to talk through their job for ten minutes into a voice note. Have AI turn each one into a one-page how-to. Keep them together in a project, so habit 01’s induction is already done.",
+    prompt: {
+      cinema:
+        "Here’s a transcript of our duty manager talking through how she closes the building at night: [paste it]. Turn it into a one-page how-to a new starter could follow, with a checklist at the end. Flag anything that depends on her judgement.",
+      health:
+        "Here’s a transcript of our practice manager talking through how she onboards a new clinician: [paste it]. Turn it into a one-page how-to the next person could follow, with a checklist at the end. Flag anything that depends on her judgement.",
+    },
+    note: {
+      cinema: "Start with the jobs only one person knows how to do.",
+      health: "Keep it to how the practice runs. Clinical decisions stay with clinicians, and client details stay out.",
+    },
+    before: "The old chef who “just knows” how much salt.",
+    after: "The recipe card, written down for the next cook.",
   },
   {
     n: 8,
@@ -219,11 +226,20 @@ export const tips: Tip[] = [
     theme: "Opportunity",
     title: "Forecast from your own numbers",
     what: "Use your own history to plan stock, staff and demand.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "Most businesses order and roster on gut feel and last year’s memory. Forecasting used to need an analyst. Now you can ask questions of your own numbers.",
+    how: "Export two years of weekly figures into a spreadsheet, with anything that identifies a person removed. Add what’s coming up. Then ask what to expect, and what it’s basing that on.",
+    prompt: {
+      cinema:
+        "Attached: our weekly candy bar sales for the last two years, and the release schedule for the next eight weeks. What should we expect to sell each week, and what are you basing that on? Flag the weeks you’re least sure about.",
+      health:
+        "Attached: our weekly bookings by service for the last two years, with client details removed, and the school holiday dates for next term. What should we expect each week, and what are you basing that on? Flag the weeks you’re least sure about.",
+    },
+    note: {
+      cinema: "Sales by product and week is enough. Leave out anything that identifies a customer.",
+      health: "Bookings by service and week is enough. Leave out names, contact details and anything clinical.",
+    },
+    before: "A finger held up to test the wind.",
+    after: "A forecast that shows its reasons.",
   },
   {
     n: 9,
@@ -232,11 +248,20 @@ export const tips: Tip[] = [
     theme: "Opportunity",
     title: "One newsletter becomes five",
     what: "Tailor one piece of content for each audience you serve.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "You send one version to everyone because writing five was never affordable. Now it is. Same budget, more audiences.",
+    how: "Write the newsletter once. Then ask for a version for each audience, keeping the facts the same and changing what it leads with. Read every version before it goes (habit 06).",
+    prompt: {
+      cinema:
+        "Here’s this month’s newsletter: [paste it]. Rewrite it three ways: for families with young kids, for seniors, and for film buffs. Keep the facts the same and change what each one leads with.",
+      health:
+        "Here’s this month’s newsletter: [paste it]. Rewrite it three ways: for new mums returning to exercise, for over-60s, and for weekend athletes. Keep the facts the same and change what each one leads with.",
+    },
+    note: {
+      cinema: "Start with your two biggest audiences and see which version gets more replies.",
+      health: "Check the health claims in every version, not just the first.",
+    },
+    before: "One megaphone, aimed at the whole crowd.",
+    after: "Five conversations at five small tables.",
   },
   {
     n: 10,
@@ -245,11 +270,16 @@ export const tips: Tip[] = [
     theme: "Opportunity",
     title: "Build the little tool yourself",
     what: "Describe a small tool in plain English and let AI build it for you.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "Things that used to need a developer, a quote and a wait can now be done in an afternoon by the person who needs them.",
+    how: "Attach your spreadsheet and describe the page you want: what it shows, who reads it and where. Keep it internal, and don’t connect it to customer data until someone technical has checked it.",
+    prompt: {
+      cinema:
+        "Attached is a spreadsheet of our weekly box office by site. Build me a simple page that compares each site’s week with the national top ten, with a chart I can read on my phone.",
+      health:
+        "Attached is a spreadsheet of our weekly bookings by clinician, with client details removed. Build me a simple page that shows how full each clinician’s week was, with a chart I can read on my phone.",
+    },
+    before: "A quote, then a three-month wait.",
+    after: "Built by the person who needs it, in an afternoon.",
   },
   {
     n: 11,
@@ -258,11 +288,21 @@ export const tips: Tip[] = [
     theme: "Guardrails",
     title: "Don’t put it in front of customers on day one",
     what: "Test anything customer-facing behind the scenes before it goes live.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "An AI talking to customers on its own is the highest-stakes use there is. Mistakes are public, and they cost trust.",
+    how: "Run it behind the counter first. Let staff see and check its answers for a few weeks. Only let it talk to customers once you’d be happy for any of those answers to go out.",
+    prompt: {
+      cinema:
+        "Here are this week’s 20 most common customer questions and the answers our assistant drafted for each: [paste them]. Mark each one: fine to send as is, needs a change, or must go to a person. Explain each change.",
+      health:
+        "Here are this week’s 20 most common client enquiries and the answers our assistant drafted for each: [paste them]. Mark each one: fine to send as is, needs a change, or must go to a person. Explain each change.",
+    },
+    note: {
+      cinema: "Start with the questions you answer a hundred times a week: session times, parking, access.",
+      health:
+        "Never let it give health advice. Keep it to bookings, opening hours and directions, and hand anything clinical to a person.",
+    },
+    before: "A new starter, alone on the busiest night of the year.",
+    after: "The same new starter, shadowing on a quiet Tuesday.",
   },
   {
     n: 12,
@@ -271,11 +311,16 @@ export const tips: Tip[] = [
     theme: "Efficiency",
     title: "Put it on a schedule",
     what: "Set up a task that runs every week without you asking.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "This is the first step from AI that answers to AI that works while you’re doing something else.",
+    how: "ChatGPT calls these scheduled tasks, Gemini calls them scheduled actions, and Claude offers them in Cowork. Availability depends on your plan. Ask for the task in plain words, including when it should run.",
+    prompt: {
+      cinema:
+        "Every Monday at 7am, summarise the weekend’s box office and the week’s trade news, and tell me the three things I should know.",
+      health:
+        "Every Monday at 7am, summarise last week’s news for allied health practices, including any regulation changes, and tell me the three things I should know.",
+    },
+    before: "Walking to the newsagent for the paper.",
+    after: "The paper lands on the front lawn.",
   },
   {
     n: 13,
@@ -284,11 +329,16 @@ export const tips: Tip[] = [
     theme: "Opportunity",
     title: "Send it off to do the research",
     what: "Hand it a question that would take you a day, and let it work while you do something else.",
-    why: "",
-    how: "",
-    before: "",
-    after: "",
-    preview: true,
+    why: "The research modes in the main assistants read dozens of sources and come back with a report and its citations. A question you’d never have found a spare day for gets answered over lunch.",
+    how: "Switch on the research mode (Deep Research in ChatGPT and Gemini, Research in Claude). Ask one specific question, say what you’ll use the answer for, then check the sources it cites (habit 06).",
+    prompt: {
+      cinema:
+        "Research how independent cinemas in Australia and the UK have grown midweek attendance in the last three years. I’m deciding what to trial across our three screens next year. Give me the five approaches with the best evidence, with sources.",
+      health:
+        "Research how allied health practices in Australia have reduced appointment no-shows in the last three years. I’m deciding what to trial across our two clinics. Give me the five approaches with the best evidence, with sources.",
+    },
+    before: "A day of open browser tabs.",
+    after: "A cited report, ready when your meeting ends.",
   },
 ];
 
