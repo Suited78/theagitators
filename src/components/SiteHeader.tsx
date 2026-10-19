@@ -8,7 +8,8 @@ import { nav, site } from "@/content/site";
 import { Logo } from "./Logo";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
-export function SiteHeader() {
+/** `solid` keeps the white bar from the top, for pages that open on a dark panel. */
+export function SiteHeader({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [spied, setActive] = useState<string | null>(null);
   // Case study pages belong to Work; scroll-spy only runs on the homepage.
@@ -71,7 +72,7 @@ export function SiteHeader() {
       className={[
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
         "[transition-timing-function:var(--ease-out-quint)]",
-        scrolled && !menuOpen
+        (scrolled || solid) && !menuOpen
           ? "border-b border-[var(--rule)] bg-white/90 backdrop-blur-md"
           : "border-b border-transparent",
       ].join(" ")}

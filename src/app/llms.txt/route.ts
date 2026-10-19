@@ -1,4 +1,5 @@
 import { caseStudies } from "@/content/published";
+import { guideIntro } from "@/content/fieldGuide";
 import { outcomes } from "@/content/outcomes";
 import { products } from "@/content/products";
 import { hero, site } from "@/content/site";
@@ -24,6 +25,9 @@ export function GET() {
     "",
     "## Case studies",
     ...caseStudies.map((s) => `- [${s.headline}](${site.url}/work/${s.slug}): ${s.summary}`),
+    "",
+    "## Guides",
+    `- [${guideIntro.title}](${site.url}/field-guide): ${guideIntro.subtitle}`,
     "",
     "## Founders",
     ...team.map((m) => `- ${m.name}, ${m.role}${m.linkedin && /linkedin\.com\/in\//.test(m.linkedin) ? ` (${m.linkedin})` : ""}`),

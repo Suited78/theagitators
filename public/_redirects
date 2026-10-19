@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/).
+# The guide's working name, in case the old address was shared.
+/tips-and-tricks /field-guide 301
+/tips-and-tricks/ /field-guide 301

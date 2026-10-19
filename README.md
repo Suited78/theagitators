@@ -156,6 +156,25 @@ One section (`EngageSection.tsx`) in place of the old Who, What and How:
   three routes advance together: product-specific stops can be added once the
   contents of each core and pack are settled.
 
+## The Field Guide
+
+`/field-guide` (`src/content/fieldGuide.ts`, `src/components/fieldguide/`) is
+The Field Guide to Getting Ahead with AI: thirteen habits sorted into Ask,
+Assist and Act, built from the shared tips repository. It isn't linked from
+the nav; it's shared by link and QR code, but it is in the sitemap and
+crawlable. `/tips-and-tricks` redirects to it (`public/_redirects`).
+
+- Each habit is a card: a before-and-after picture on the front, why, how
+  and a prompt to copy on the back. Cards flip on wider screens and open
+  beneath on phones. Each has its own link (`#tip-3`).
+- Examples switch between cinema and health and wellness, the first two
+  audiences. `?for=health` opens the page on health; the choice is
+  remembered in the browser.
+- "Where are you now?" places the reader at a level and points to a habit;
+  the brief builder turns habit 01 into a prompt to copy.
+- Tool settings (habit 05) were checked on the date in `checkedOn`. Recheck
+  them before each event.
+
 ## Accessibility and motion
 
 - Semantic landmarks, a skip link, and a visible focus ring throughout.
