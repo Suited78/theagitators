@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { JsonLd } from "@/components/JsonLd";
 import { caseStudies } from "@/content/published";
+import { caseStudyStageMap, processSteps } from "@/content/process";
 import { caseStudySchema } from "@/lib/structuredData";
 
 type Params = { slug: string };
@@ -41,6 +42,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 /** Label on the left, content on the right: every block on the page uses this. */
+const routeSummary = processSteps.map((step) => `${step.step} ${step.title}`).join(", ");
+
 function Block({ label, children, className = "" }: { label: string; children: ReactNode; className?: string }) {
   return (
     <section className={`grid gap-x-10 gap-y-6 border-t border-[var(--rule)] py-12 lg:grid-cols-12 lg:py-16 ${className}`}>
@@ -146,13 +149,23 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
           <Block label="The approach">
             <Paragraphs items={study.approach} />
-            <ol className="mt-10 border-t-2 border-aubergine">
+            <p className="mt-10 text-base text-muted">
+              Each stage is mapped to the five stages of{" "}
+              <Link href="/#route" className="text-link font-semibold text-aubergine">
+                our route
+              </Link>
+              : {routeSummary}.
+            </p>
+            <ol className="mt-4 border-t-2 border-aubergine">
               {study.stageTable.map((row) => (
                 <li
                   key={row.stage}
                   className="grid gap-x-6 gap-y-3 border-b border-[var(--rule)] py-5 md:grid-cols-[9rem_minmax(0,1.2fr)_minmax(0,1fr)]"
                 >
-                  <h3 className="text-base font-extrabold">{row.stage}</h3>
+                  <div>
+                    <h3 className="text-base font-extrabold">{row.stage}</h3>
+                    <p className="label mt-1 text-purple">Route {(row.route ?? caseStudyStageMap[row.stage]).join(" · ")}</p>
+                  </div>
                   <p className="text-base leading-relaxed text-muted">{row.happened}</p>
                   <p className="text-base leading-relaxed font-semibold">
                     <span className="label mb-1 block text-purple">What the client keeps</span>

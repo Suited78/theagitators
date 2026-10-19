@@ -157,12 +157,14 @@ export const caseStudies: CaseStudy[] = [
         happened:
           "Assistant live in Microsoft Teams for a pilot group. Every answer cited, and an evaluation suite run on every change",
         keeps: "A working assistant their team operates, with runbooks that train a new operator in a day",
+        route: ["03"],
       },
       {
         stage: "What’s next",
         happened:
           "Full-team rollout as content grows. Customer-facing chat and voice on the same foundation",
         keeps: "The choice of when to extend, at their own pace, without a rebuild",
+        route: ["04"],
       },
     ],
     exposed: {
@@ -247,12 +249,14 @@ export const caseStudies: CaseStudy[] = [
         stage: "Deliver",
         happened: "In progress. One prototype and several automations delivered to date",
         keeps: "New, automated ways of running what were entrenched manual processes",
+        route: ["03"],
       },
       {
         stage: "What’s next",
         happened:
           "Further build drops, then a fourth day on site installing each tool in each person’s environment and testing it on live data",
         keeps: "Tools with plain-language documentation, maintainable without outside help",
+        route: ["04"],
       },
     ],
     exposed: {

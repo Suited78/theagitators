@@ -39,6 +39,8 @@ export type CaseStudyStage = {
   happened: string;
   /** What the client keeps from this stage, whether or not we stay involved. */
   keeps: string;
+  /** Route stages this row covers, where the default map in process.ts doesn't fit. */
+  route?: string[];
 };
 
 /**

@@ -1,4 +1,4 @@
-import type { ProcessStep } from "./types";
+import type { CaseStudyStage, ProcessStep } from "./types";
 
 export const processIntro = {
   headline: "One route, however you start.",
@@ -51,3 +51,16 @@ export const processSteps: ProcessStep[] = [
       "Ongoing support as the tools change, shaped around what you need.",
   },
 ];
+
+/**
+ * Case studies are written in Discover, Design, Deliver and What's next. Each
+ * maps to the route's numbered stages above, so a case study can say where it
+ * sits on the route. The fit isn't exact (advice spans Discover and Design),
+ * so a study's row can override it with its own `route`.
+ */
+export const caseStudyStageMap: Record<CaseStudyStage["stage"], string[]> = {
+  Discover: ["01", "02"],
+  Design: ["02"],
+  Deliver: ["03", "04"],
+  "What’s next": ["05"],
+};
