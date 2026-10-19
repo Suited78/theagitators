@@ -1,6 +1,6 @@
 # The Agitators: website copy
 
-_Generated from the site’s content files on 2026-10-16. Edit the content files, not this document._
+_Generated from the site’s content files on 2026-10-19. Edit the content files, not this document._
 
 ## Navigation
 
@@ -10,7 +10,7 @@ _Generated from the site’s content files on 2026-10-16. Edit the content files
 
 ## Hero
 
-**Eyebrow:** Transformation agency for the AI era
+**Eyebrow:** Practical AI for businesses that move first.
 
 **Headline:** Change is happening. Agitate appropriately.
 
@@ -34,12 +34,11 @@ Most business owners have worked this out already. They’ve read the articles a
 
 **What nobody has time to work out:**
 
-- Which opportunities actually matter to this business
 - How to get from experiments to something in everyday use
 - How to redesign a process with AI at its core
 - How to build team capability that outlasts the current tools
 
-**The adoption gap:** Capability compounds. Absorption doesn’t. Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.
+**The adoption gap:** What AI can do is accelerating. What most teams know isn’t. Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.
 
 **Closing line:** That gap, between knowing something can be done and knowing what to do on Monday, is where we work.
 
@@ -70,9 +69,9 @@ For teams at the beginning. We set up the right tools, agree the rules for using
 - Clear rules for safe, responsible use
 - Training built on your team’s real tasks
 
-### “We’ve got one use case to get right.” (First Efficiency)
+### “We’ve got one use case to get right.” (AI Enablement)
 
-For one process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.
+For a critical process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.
 
 - The process mapped and costed
 - A redesign that uses AI where it earns its place
@@ -100,7 +99,7 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 
 **04 Take it across the business.** A full rollout: piloting, refining, training, and the change and communications work that gets people using it every day. _If you stop here, you leave with:_ The change rolled out, built properly and handed to your teams.
 
-**05 Stay ahead.** Ongoing support once the work is done: an annual check-up, quarterly reviews, courses and practical tips as the tools change.
+**05 Stay ahead.** Ongoing support as the tools change, shaped around what you need.
 
 ## Case studies
 
@@ -109,6 +108,8 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 **Supporting line:** Case studies from engagements we’ve delivered, each written up the same way so they can be compared. Clients are de-identified, and every figure says where it came from.
 
 ### Hours handed back, with the judgement kept human (Creative agency)
+
+**Sign-off:** Draft, not yet signed off (shown on the preview only)
 
 An independent creative agency brought AI into daily operations across both of its businesses in three months, and drew a hard line around the judgement its clients pay for.
 
@@ -170,6 +171,8 @@ Two senior staff raised environmental impact, creative integrity and what this m
 
 ### Enquiries answered in seconds, not minutes (Travel & tourism)
 
+**Sign-off:** Draft, not yet signed off (shown on the preview only)
+
 A cruise and travel retailer’s consultants now answer brand-specific enquiries from a governed knowledge assistant their own team runs.
 
 **Headline result:** Seconds to answer a brand-specific enquiry, down from minutes, with the source cited
@@ -195,7 +198,7 @@ About seventy per cent of the effort that followed went into the knowledge itsel
 
 **What it exposed: The first build showed how deep the problem went**
 
-The prototype failed in a useful way: perfect tone, invented facts. Retrieval over one monolithic manual can’t be trusted. The first grounded build found more. Rules duplicated with drifted wording, processes nobody had written down, and supplier passwords sitting inside searchable procedures.
+The prototype failed in a useful way: perfect tone, invented facts. Retrieval over one monolithic manual can’t be trusted. The first grounded build found more. Rules duplicated with drifted wording, processes nobody had written down, and sensitive operational details sitting inside searchable procedures.
 
 So we restructured the knowledge into single-topic documents, made only approved content answerable, and taught the assistant to say “I couldn’t find that” instead of guessing.
 
@@ -221,6 +224,8 @@ So we restructured the knowledge into single-topic documents, made only approved
 **What transfers: Refuse to scale the assistant past its knowledge:** The unglamorous work came first: one topic per document, an owner and a review date on each. It’s why the answers can be trusted. At handover the team had a pilot batch live from a planned library of about seventy documents, and the runbooks to keep publishing on their own.
 
 ### A sales team trained, then tooled (Television distribution)
+
+**Sign-off:** Draft, not yet signed off (shown on the preview only)
 
 A multinational television sales team gained new AI skills and fixes across creative, sales activity and finance automation, several of them already delivered.
 
@@ -278,29 +283,29 @@ The scope moved too. One build stopped being separate because it falls out of tw
 
 **Headline:** Three practitioners, three angles on the same problem.
 
-**Supporting line:** Not a pyramid. The people you meet are the people who do the work — which is why we choose our engagements carefully.
+**Supporting line:** Not a pyramid. The people you meet are the people who do the work, which is why we choose our engagements carefully.
 
 ### Lee Robson, Co-Founder
 
-A passion for building AI-driven solutions to human problems informed by 25 years with startups and major brands.
+A passion for building AI-driven solutions to human problems, informed by 25 years with startups and major brands including Foxtel and MullenLowe.
 
 **Tags:** Agency operations · Client service · Creative production
 
 ### James Bridges, Co-Founder
 
-Placeholder bio. A background in media businesses and organisational change, with a habit of asking what a process is actually for before improving it.
+25 years running streaming and pay-TV businesses at Amazon, iflix and Foxtel, now helping businesses make AI earn its keep.
 
-**Tags:** Operating models · Editorial & content · Change programmes
+**Tags:** Media and streaming · Operating models · Growth strategy
 
 ### Harris Hutkin, Co-Founder
 
-Placeholder bio. Builds the things. Spends most of the week close enough to the technology to know what it can’t do yet.
+Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and NRMA, now spent taking AI from idea to production and leaving the team able to run it.
 
-**Tags:** AI strategy · Prototyping · Internal tooling
+**Tags:** AI strategy · Knowledge assistants · Product and data
 
 ## Contact
 
-**Headline:** Something worth changing?
+**Headline:** Ready to put AI to work?
 
 **Supporting line:** Tell us what’s slow, expensive or stuck. If we’re not the right people, we’ll say so and point you somewhere better.
 
@@ -308,6 +313,6 @@ Placeholder bio. Builds the things. Spends most of the week close enough to the 
 
 ## Footer
 
-**Positioning line:** A transformation agency helping organisations redesign how they work, with AI as the lever, not the point.
+**Positioning line:** Practical AI for businesses that move first.
 
-**Search description:** The Agitators is a transformation agency helping organisations redesign how they work, with AI as the lever, not the point.
+**Search description:** Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.

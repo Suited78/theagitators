@@ -9,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { JsonLd } from "@/components/JsonLd";
-import { caseStudies } from "@/content/caseStudies";
+import { caseStudies } from "@/content/published";
 import { caseStudySchema } from "@/lib/structuredData";
 
 type Params = { slug: string };

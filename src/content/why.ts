@@ -8,14 +8,13 @@ export const why = {
   ],
   /** The unanswered questions, rendered as an editorial list. */
   questions: [
-    "Which opportunities actually matter to this business",
     "How to get from experiments to something in everyday use",
     "How to redesign a process with AI at its core",
     "How to build team capability that outlasts the current tools",
   ],
   gap: {
     label: "The adoption gap",
-    headline: "Capability compounds. Absorption doesn’t.",
+    headline: "What AI can do is accelerating. What most teams know isn’t.",
     body: "Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.",
   },
   closer: "That gap, between knowing something can be done and knowing what to do on Monday, is where we work.",

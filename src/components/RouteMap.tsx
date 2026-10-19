@@ -13,7 +13,7 @@ import { processSteps } from "@/content/process";
 /** Line colours, in product order. Mint is deepened so the line reads on white. */
 const ROUTE_COLOURS: Record<string, string> = {
   onboarding: "var(--color-purple)",
-  efficiency: "#3f7a5c",
+  enablement: "#3f7a5c",
   transformation: "var(--color-aubergine)",
 };
 

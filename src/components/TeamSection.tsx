@@ -89,7 +89,8 @@ export function TeamSection() {
                 ))}
               </ul>
 
-              {member.linkedin ? (
+              {/* Only real profiles get a link; a bare-domain placeholder is hidden. */}
+              {member.linkedin && /linkedin\.com\/in\/.+/.test(member.linkedin) ? (
                 <a
                   href={member.linkedin}
                   target="_blank"

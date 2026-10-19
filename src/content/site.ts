@@ -10,10 +10,9 @@ export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
   tagline: "Change is happening. Agitate appropriately.",
-  positioningLine:
-    "A transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
+  positioningLine: "Practical AI for businesses that move first.",
   description:
-    "The Agitators is a transformation agency helping organisations redesign how they work, with AI as the lever, not the point.",
+    "Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.",
   email: "info@theagitators.com.au",
   /** Company page. Leave as the bare domain until it exists; links and structured data skip it. */
   linkedin: "https://www.linkedin.com/",
@@ -29,7 +28,7 @@ export const nav: NavItem[] = [
 ];
 
 export const hero = {
-  eyebrow: "Transformation agency for the AI era",
+  eyebrow: "Practical AI for businesses that move first.",
   headline: ["Change is happening.", "Agitate appropriately."],
   /** Options for the founders to choose between (October 2026 review). */
   headlineAlternates: [
@@ -45,7 +44,7 @@ export const hero = {
 
 export const finalCta = {
   eyebrow: "Contact",
-  headline: "Something worth changing?",
+  headline: "Ready to put AI to work?",
   supporting:
     "Tell us what’s slow, expensive or stuck. If we’re not the right people, we’ll say so and point you somewhere better.",
   action: { label: "Start a conversation", subject: "Starting a conversation" },

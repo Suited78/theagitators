@@ -28,11 +28,11 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "efficiency",
+    id: "enablement",
     quote: "We’ve got one use case to get right.",
-    name: "First Efficiency",
+    name: "AI Enablement",
     summary:
-      "For one process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.",
+      "For a critical process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.",
     includes: [
       "The process mapped and costed",
       "A redesign that uses AI where it earns its place",

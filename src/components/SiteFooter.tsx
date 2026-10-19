@@ -10,7 +10,9 @@ export function SiteFooter() {
       <div className="shell">
         <div className="grid gap-x-10 gap-y-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Logo variant="reversed" className="w-[246px]" />
+            <Link href="/#top" className="-m-1 inline-block rounded-sm p-1" aria-label={`${site.name}, back to top`}>
+              <Logo variant="reversed" className="w-[246px]" />
+            </Link>
             <p className="mt-6 max-w-[36ch] text-base leading-relaxed text-paper/80">{site.positioningLine}</p>
           </div>
 

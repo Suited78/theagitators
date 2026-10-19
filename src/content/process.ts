@@ -48,6 +48,6 @@ export const processSteps: ProcessStep[] = [
     title: "Stay ahead",
     stop: "Stay ahead",
     description:
-      "Ongoing support once the work is done: an annual check-up, quarterly reviews, courses and practical tips as the tools change.",
+      "Ongoing support as the tools change, shaped around what you need.",
   },
 ];

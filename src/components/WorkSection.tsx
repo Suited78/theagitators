@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { caseStudies, workIntro } from "@/content/caseStudies";
+import { workIntro } from "@/content/caseStudies";
+import { caseStudies } from "@/content/published";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 

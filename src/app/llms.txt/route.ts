@@ -1,4 +1,4 @@
-import { caseStudies } from "@/content/caseStudies";
+import { caseStudies } from "@/content/published";
 import { outcomes } from "@/content/outcomes";
 import { products } from "@/content/products";
 import { hero, site } from "@/content/site";

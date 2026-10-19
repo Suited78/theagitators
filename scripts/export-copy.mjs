@@ -70,6 +70,7 @@ field("Headline", workIntro.headline);
 field("Supporting line", workIntro.supporting);
 for (const study of caseStudies) {
   h(3, `${study.headline} (${study.sector})`);
+  field("Sign-off", study.status === "approved" ? "Approved" : "Draft, not yet signed off (shown on the preview only)");
   p(study.summary);
   field("Headline result", `${study.result.value} ${study.result.label}`);
   field("At a glance", Object.values(study.glance).join(" · "));

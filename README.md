@@ -61,6 +61,11 @@ Some specifics worth knowing:
   next table, what the work exposed, where the line sits between the system
   and a person, results (stats are optional, an evidence note is not) and
   what transfers. Each gets a static page at `/work/[slug]`.
+- **Case study sign-off.** Each study has a `status`, `"draft"` or
+  `"approved"`. The site reads studies through `src/content/published.ts`:
+  while `prelaunch` is true it shows them all, so drafts can be reviewed on
+  the preview; once the site launches, only approved studies appear (on the
+  homepage, their pages, the sitemap and llms.txt).
 - **Team members** support `photo`, `linkedin` and `expertise`. Without a photo
   they render a numbered "portrait pending" plate.
 
@@ -241,4 +246,4 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
 - No real imagery. The agitation field is drawn in code, so nothing needs
   licensing or art direction yet.
 - The LinkedIn links are placeholders. Case study clients are de-identified;
-  the travel and tourism and television distribution studies are pending partner sign-off, and the television quote needs client approval.
+  all three studies are drafts pending sign-off, and the television quote needs client approval.

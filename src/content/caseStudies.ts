@@ -12,13 +12,15 @@ export const workIntro = {
  * its own page at /work/[slug].
  *
  * Sources: the agency program write-up (June–September 2026) and the
- * travel and tourism and television distribution case study drafts. Both
- * drafts are pending partner sign-off, and the television quote needs the
- * client's approval of its trimmed wording; confirm before launch.
+ * travel and tourism and television distribution case study drafts. All
+ * three are drafts until signed off (the television quote also needs the
+ * client's approval of its trimmed wording). Set `status: "approved"` once
+ * each is cleared; the site reads them through `published.ts`.
  */
 export const caseStudies: CaseStudy[] = [
   {
     slug: "creative-agency-ai-integration",
+    status: "draft",
     sector: "Creative agency",
     headline: "Hours handed back, with the judgement kept human",
     summary:
@@ -115,6 +117,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "travel-retailer-knowledge-assistant",
+    status: "draft",
     sector: "Travel & tourism",
     headline: "Enquiries answered in seconds, not minutes",
     summary:
@@ -165,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
     exposed: {
       headline: "The first build showed how deep the problem went",
       body: [
-        "The prototype failed in a useful way: perfect tone, invented facts. Retrieval over one monolithic manual can’t be trusted. The first grounded build found more. Rules duplicated with drifted wording, processes nobody had written down, and supplier passwords sitting inside searchable procedures.",
+        "The prototype failed in a useful way: perfect tone, invented facts. Retrieval over one monolithic manual can’t be trusted. The first grounded build found more. Rules duplicated with drifted wording, processes nobody had written down, and sensitive operational details sitting inside searchable procedures.",
         "So we restructured the knowledge into single-topic documents, made only approved content answerable, and taught the assistant to say “I couldn’t find that” instead of guessing.",
       ],
     },
@@ -200,6 +203,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "television-sales-team-ai-tools",
+    status: "draft",
     sector: "Television distribution",
     headline: "A sales team trained, then tooled",
     summary:

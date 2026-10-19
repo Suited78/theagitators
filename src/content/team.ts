@@ -4,7 +4,7 @@ export const teamIntro = {
   eyebrow: "Who we are",
   headline: "Three practitioners, three angles on the same problem.",
   supporting:
-    "Not a pyramid. The people you meet are the people who do the work — which is why we choose our engagements carefully.",
+    "Not a pyramid. The people you meet are the people who do the work, which is why we choose our engagements carefully.",
 } as const;
 
 export const team: TeamMember[] = [
@@ -12,7 +12,7 @@ export const team: TeamMember[] = [
     id: "founder-one",
     name: "Lee Robson",
     role: "Co-Founder",
-    bio: "A passion for building AI-driven solutions to human problems informed by 25 years with startups and major brands.",
+    bio: "A passion for building AI-driven solutions to human problems, informed by 25 years with startups and major brands including Foxtel and MullenLowe.",
     expertise: ["Agency operations", "Client service", "Creative production"],
     // Treatment C: black and white on an offset block of the founder's colour. Rendered once from the original.
     photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson", offset: "purple" },
@@ -22,18 +22,19 @@ export const team: TeamMember[] = [
     id: "founder-two",
     name: "James Bridges",
     role: "Co-Founder",
-    bio: "Placeholder bio. A background in media businesses and organisational change, with a habit of asking what a process is actually for before improving it.",
-    expertise: ["Operating models", "Editorial & content", "Change programmes"],
+    bio: "25 years running streaming and pay-TV businesses at Amazon, iflix and Foxtel, now helping businesses make AI earn its keep.",
+    expertise: ["Media and streaming", "Operating models", "Growth strategy"],
     photo: { src: "/team/founder-two.webp", alt: "Portrait of James Bridges", offset: "mint" },
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/jamestbridges/",
   },
   {
     id: "founder-three",
     name: "Harris Hutkin",
     role: "Co-Founder",
-    bio: "Placeholder bio. Builds the things. Spends most of the week close enough to the technology to know what it can’t do yet.",
-    expertise: ["AI strategy", "Prototyping", "Internal tooling"],
+    bio: "Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and NRMA, now spent taking AI from idea to production and leaving the team able to run it.",
+    expertise: ["AI strategy", "Knowledge assistants", "Product and data"],
     photo: { src: "/team/founder-three.webp", alt: "Portrait of Harris Hutkin", offset: "aubergine" },
+    // Placeholder until Harris sends his profile URL; the bare domain is skipped in structured data.
     linkedin: "https://www.linkedin.com/",
   },
 ];

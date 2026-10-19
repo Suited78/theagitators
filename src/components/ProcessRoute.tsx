@@ -74,7 +74,7 @@ export function ProcessRoute() {
             <RouteMap active={active} />
             <div className="mt-3 flex items-center justify-between gap-4">
               <p className="label text-muted">
-                {current.step} — <span className="text-aubergine">{current.title}</span>
+                {current.step} · <span className="text-aubergine">{current.title}</span>
               </p>
               <div className="flex items-center gap-1.5" aria-hidden="true">
                 {processSteps.map((step, index) => (

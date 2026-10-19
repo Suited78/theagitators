@@ -49,6 +49,11 @@ export type CaseStudyStage = {
 export type CaseStudy = {
   /** URL segment: /work/[slug]. */
   slug: string;
+  /**
+   * Partner and client sign-off. Drafts show on the preview while the site is
+   * prelaunch, and are left out of the live site once it launches.
+   */
+  status: "draft" | "approved";
   sector: string;
   /** Outcome-led, short enough for the homepage card. */
   headline: string;

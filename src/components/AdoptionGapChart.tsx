@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /**
- * The adoption gap: AI capability compounding while what organisations can
- * absorb barely moves. Conceptual, not plotted from data, so there are no
- * values to read off and no hover layer that would imply some.
+ * The adoption gap: what AI can do accelerating while what most teams know
+ * how to use barely moves. Conceptual, not plotted from data, so there are no
+ * axis values or years to read off, and no hover layer that would imply some.
  *
  * Curves are drawn in a 0–100 box with a stretched viewBox and non-scaling
  * strokes; labels are HTML, positioned by percentage, so text stays at
@@ -16,7 +16,6 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 const FIRST_YEAR = 2023;
 const LAST_YEAR = 2030;
 const NOW = 2026;
-const years = Array.from({ length: LAST_YEAR - FIRST_YEAR + 1 }, (_, i) => FIRST_YEAR + i);
 const xOf = (year: number) => ((year - FIRST_YEAR) / (LAST_YEAR - FIRST_YEAR)) * 100;
 
 // 0 = bottom of the plot, 1 = top.
@@ -52,27 +51,19 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
 
   const nowX = xOf(NOW);
 
+  // The reduced-motion preference is only known after the first render. Keying
+  // on it remounts the chart, so motion values already started hidden are
+  // replaced by the static end state instead of staying invisible.
   return (
-    <div className={className}>
+    <div key={reduced ? "still" : "animated"} className={className}>
       <div
         role="img"
-        aria-label="Conceptual chart, 2023 to 2030. AI capability starts between low and medium and rises ever faster, to very high. What organisations can absorb starts very low and barely rises. The space between them, the adoption gap, widens every year; by 2030 that distance is the real challenge."
-        className="grid grid-cols-[auto_minmax(0,1fr)] grid-rows-[minmax(0,1fr)_auto] gap-x-3 gap-y-2"
+        aria-label="Conceptual chart. What AI can do rises ever faster. What most teams know how to use starts low and barely rises. The space between them, the adoption gap, widens over time, and that distance is the real challenge."
       >
-        {/* Y axis: qualitative, three anchors on the gridlines. */}
-        <div aria-hidden="true" className="label relative w-[5rem] whitespace-nowrap text-right leading-tight text-muted sm:w-[5.5rem]">
-          <span className="absolute right-0 top-0">Very high</span>
-          <span className="absolute right-0 top-1/2 -translate-y-1/2">Medium</span>
-          <span className="absolute bottom-0 right-0">Very low</span>
-        </div>
-
         <div aria-hidden="true" className="relative aspect-[4/3] sm:aspect-[16/8]">
           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
-            {/* Recessive grid: one rule per year, four levels. */}
+            {/* Recessive grid: levels only, no years, so nothing reads as a measured value. */}
             <g stroke="var(--color-divider)" strokeWidth="1" vectorEffect="non-scaling-stroke">
-              {years.map((year) => (
-                <line key={year} x1={xOf(year)} x2={xOf(year)} y1="0" y2="100" vectorEffect="non-scaling-stroke" />
-              ))}
               {[0, 25, 50, 75].map((y) => (
                 <line key={y} x1="0" x2="100" y1={y} y2={y} vectorEffect="non-scaling-stroke" />
               ))}
@@ -138,13 +129,13 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
             className="absolute left-[1%] -translate-y-full pb-1.5 text-sm font-extrabold text-purple sm:text-base"
             style={{ top: `${(1 - capability(0.4)) * 100}%` }}
           >
-            AI capability
+            What AI can do
           </span>
           <span
             className="absolute left-[1%] mt-1 bg-white pr-1.5 text-sm font-extrabold text-aubergine sm:text-base"
             style={{ top: `${(1 - absorption(0)) * 100}%` }}
           >
-            What organisations absorb
+            What most teams know how to use
           </span>
 
           {/* The gap, named; its background hides the Now rule behind it. */}
@@ -180,24 +171,6 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
           </span>
         </div>
 
-        {/* X axis: years, centred on their gridlines. */}
-        <div aria-hidden="true" />
-        <div aria-hidden="true" className="relative h-6 text-sm font-semibold text-muted tabular-nums">
-          {years.map((year, i) => (
-            <span
-              key={year}
-              className={[
-                "absolute top-0",
-                i === 0 ? "" : i === years.length - 1 ? "-translate-x-full" : "-translate-x-1/2",
-                // Fewer years on small screens, so labels never collide.
-                [0, 2, 4, years.length - 1].includes(i) ? "" : "hidden sm:inline",
-              ].join(" ")}
-              style={{ left: `${xOf(year)}%` }}
-            >
-              {year}
-            </span>
-          ))}
-        </div>
       </div>
     </div>
   );

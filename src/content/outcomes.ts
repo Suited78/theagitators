@@ -19,7 +19,7 @@ export const outcomes: Outcome[] = [
     title: "Efficiency AI",
     description:
       "The work you already do, faster and with less effort. Hours back from the repeatable tasks, so people spend the week on what they’re good at.",
-    legend: ["Repeatable tasks", "Work people are good at"],
+    legend: ["Repeatable tasks, handed to AI", "Your team’s best work, amplified"],
   },
   {
     id: "opportunity",

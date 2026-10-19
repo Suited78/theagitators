@@ -151,7 +151,7 @@ export function OutcomesSection() {
               side by side, in the gap when stacked. */}
           <span
             aria-hidden="true"
-            className="label relative z-10 mx-auto -my-9 flex h-16 w-16 items-center justify-center rounded-full border-4 border-paper bg-purple text-white md:absolute md:top-1/2 md:left-1/2 md:m-0 md:-translate-x-1/2 md:-translate-y-1/2"
+            className="label relative z-10 hidden h-16 w-16 items-center justify-center rounded-full border-4 border-paper bg-purple text-white md:absolute md:flex md:top-1/2 md:left-1/2 md:m-0 md:-translate-x-1/2 md:-translate-y-1/2"
           >
             And
           </span>
