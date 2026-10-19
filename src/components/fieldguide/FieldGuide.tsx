@@ -329,7 +329,9 @@ export function FieldGuide() {
           <Climb />
         </div>
         <div className="shell mt-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-paper/15 pt-6">
-          <p className="text-sm font-semibold text-paper/80">Pass it on to someone who should read it.</p>
+          <p className="max-w-[44ch] text-base font-semibold text-paper">
+            Hit the switch in the bar below for examples tailored to your industry: cinema, or health and wellness. It stays with you as you scroll.
+          </p>
           <ShareGuide />
         </div>
       </header>
