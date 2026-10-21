@@ -159,7 +159,7 @@ One section (`EngageSection.tsx`) in place of the old Who, What and How:
 ## Top tips
 
 `/tips` (`src/content/tips.ts`, `src/components/tips/`) is Top tips on
-Getting Ahead with AI: thirteen short tips, each with a prompt to copy and a
+Getting Ahead with AI: short tips, each with a prompt to copy and a
 topic to filter by. It's linked from the footer, not the top nav, and is in
 the sitemap and llms.txt. Earlier addresses (`/tips-and-tricks`,
 `/field-guide`, `/ai-field-guide`) redirect to it (`public/_redirects`).
