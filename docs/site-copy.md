@@ -118,10 +118,12 @@ We spent a day on site running six structured sessions across creative, social, 
 
 Before building anything, we wrote down what the system could own and what only a person could. Then we built in three layers: a shared foundation everyone uses daily, four workflows aimed at the largest drains on time, and the governance and people structure that made both stick.
 
-- **Discover:** One day on site, six sessions, and a costed map of eight processes. The biggest drain was reporting: 16 hours per client, per month. _Keeps:_ A priced view of where the hours go, before any build spend
-- **Design:** A Rules of Engagement framework with a signed position on environmental impact and responsible use. A 40-prompt library, client workspaces with brand voice pre-loaded, and a house tone-of-voice skill. _Keeps:_ Governance issued over the Managing Director’s name, and a foundation every new hire starts from
-- **Deliver:** Outreach pipeline, weekly status, monthly newsletter and client reporting rebuilt. Four role-based training sessions, AI Champions given ownership, daily tips for three months. _Keeps:_ All 16 signed deliverables plus nine builds outside scope, documented for a successor to learn without us
-- **What’s next:** A scoped next phase. The team has already started writing its own skills, including lead-finding and email-drafting tools nobody asked for. _Keeps:_ The choice of what to build next, and the people to build it
+_Each stage is mapped to the five stages of our route (01 Start with a conversation to 05 Stay ahead)._
+
+- **Discover** (route 01 · 02)**:** One day on site, six sessions, and a costed map of eight processes. The biggest drain was reporting: 16 hours per client, per month. _Keeps:_ A priced view of where the hours go, before any build spend
+- **Design** (route 02)**:** A Rules of Engagement framework with a signed position on environmental impact and responsible use. A 40-prompt library, client workspaces with brand voice pre-loaded, and a house tone-of-voice skill. _Keeps:_ Governance issued over the Managing Director’s name, and a foundation every new hire starts from
+- **Deliver** (route 03 · 04)**:** Outreach pipeline, weekly status, monthly newsletter and client reporting rebuilt. Four role-based training sessions, AI Champions given ownership, daily tips for three months. _Keeps:_ All 16 signed deliverables plus nine builds outside scope, documented for a successor to learn without us
+- **What’s next** (route 05)**:** A scoped next phase. The team has already started writing its own skills, including lead-finding and email-drafting tools nobody asked for. _Keeps:_ The choice of what to build next, and the people to build it
 
 **What it exposed: The processes looked healthier than they were**
 
@@ -176,10 +178,12 @@ We started by spending almost nothing to find out what would be hard. A throwawa
 
 About seventy per cent of the effort that followed went into the knowledge itself. The AI was the smaller job.
 
-- **Discover:** A throwaway prototype built in days, then a full audit of the knowledge estate. _Keeps:_ A priced view of the two hard problems before committing to the build
-- **Design:** One-topic documents, each with an owner, a status and a review date. Grounding rules set before content volume. _Keeps:_ A knowledge structure and governance model that will outlast any single assistant
-- **Deliver:** Assistant live in Microsoft Teams for a pilot group. Every answer cited, and an evaluation suite run on every change. _Keeps:_ A working assistant their team operates, with runbooks that train a new operator in a day
-- **What’s next:** Full-team rollout as content grows. Customer-facing chat and voice on the same foundation. _Keeps:_ The choice of when to extend, at their own pace, without a rebuild
+_Each stage is mapped to the five stages of our route (01 Start with a conversation to 05 Stay ahead)._
+
+- **Discover** (route 01 · 02)**:** A throwaway prototype built in days, then a full audit of the knowledge estate. _Keeps:_ A priced view of the two hard problems before committing to the build
+- **Design** (route 02)**:** One-topic documents, each with an owner, a status and a review date. Grounding rules set before content volume. _Keeps:_ A knowledge structure and governance model that will outlast any single assistant
+- **Deliver** (route 03)**:** Assistant live in Microsoft Teams for a pilot group. Every answer cited, and an evaluation suite run on every change. _Keeps:_ A working assistant their team operates, with runbooks that train a new operator in a day
+- **What’s next** (route 04)**:** Full-team rollout as content grows. Customer-facing chat and voice on the same foundation. _Keeps:_ The choice of when to extend, at their own pace, without a rebuild
 
 **What it exposed: The first build showed how deep the problem went**
 
@@ -232,10 +236,12 @@ Capability first, build second. Three on-site sessions ran across three weeks ra
 
 The work falls into workflow automation (alerts, change monitoring, pulling data out of PDFs) and knowledge management (contract queries, and a short context file for each person on the team).
 
-- **Discover:** Three on-site sessions. Requirements captured across creative, sales activity and finance automation, each traced to the person who raised it, in two priorities. _Keeps:_ A ranked list of problems in the team’s own words
-- **Design:** Specifications for the highest-priority builds, including hardening the alerting prototype. Scope trimmed where the team could do the work themselves. _Keeps:_ Specifications and a delivery plan: two build drops, then an on-site install day
-- **Deliver:** In progress. One prototype and several automations delivered to date. _Keeps:_ New, automated ways of running what were entrenched manual processes
-- **What’s next:** Further build drops, then a fourth day on site installing each tool in each person’s environment and testing it on live data. _Keeps:_ Tools with plain-language documentation, maintainable without outside help
+_Each stage is mapped to the five stages of our route (01 Start with a conversation to 05 Stay ahead)._
+
+- **Discover** (route 01 · 02)**:** Three on-site sessions. Requirements captured across creative, sales activity and finance automation, each traced to the person who raised it, in two priorities. _Keeps:_ A ranked list of problems in the team’s own words
+- **Design** (route 02)**:** Specifications for the highest-priority builds, including hardening the alerting prototype. Scope trimmed where the team could do the work themselves. _Keeps:_ Specifications and a delivery plan: two build drops, then an on-site install day
+- **Deliver** (route 03)**:** In progress. One prototype and several automations delivered to date. _Keeps:_ New, automated ways of running what were entrenched manual processes
+- **What’s next** (route 04)**:** Further build drops, then a fourth day on site installing each tool in each person’s environment and testing it on live data. _Keeps:_ Tools with plain-language documentation, maintainable without outside help
 
 **What it exposed: A working demo isn’t a year of running unattended**
 
@@ -301,3 +307,97 @@ Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and 
 **Positioning line:** Practical AI.
 
 **Search description:** Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.
+
+**Links:** How we engage · Case studies · Team · Contact · Tips · Privacy
+
+## Tips page (/tips): Top tips on Getting Ahead with AI
+
+_Linked from the footer, not the top nav; shared by link and QR code._
+
+**Eyebrow:** From The Agitators
+
+**Intro:** Quick tips for getting more out of AI at work, each with a prompt you can copy. Read them all in a couple of minutes, or pick a topic.
+
+### 01 Context is king (Prompting)
+
+Tell it who you are, who you serve and what good looks like, and the answer sounds like yours instead of anyone’s. Save it once in the tool’s custom instructions or a project.
+
+**Try this:** About us: we’re [your business]. We serve [who your customers are]. Our tone is [how you sound]. Here’s an example of work we’re proud of: [paste it]. Keep all of this in mind for everything I ask today.
+
+### 02 Talk, don’t type (Prompting)
+
+Tap the microphone and talk for a minute, as if you were briefing a colleague. Talking keeps in the detail you’d cut when typing, and that detail is what makes the answer good.
+
+**Try saying:** So I need a one-page update by Friday. It’s for [who will read it], they mostly care about [what matters to them], and they’ll read it on their phones, so keep it short and tell them what we should change next.
+
+### 03 Confirm first (Prompting)
+
+It will always answer, even when it has guessed what you meant. A question back costs ten seconds; a wrong first draft costs ten minutes.
+
+**Try this:** [Your request, including who it’s for and what good looks like.] Before you start, ask me any questions you need answered.
+
+### 04 Give it (and you) a persona (Prompting)
+
+Say who it should be, then who you are. An analyst answers differently from a generalist, and pitches it differently for an owner than for an expert.
+
+**Try this:** You’re an experienced [role]. I’m [who you are and what you already know]. [Your question.]
+
+### 05 Turn off “train the model” (Safety)
+
+On personal accounts, what you paste in can be used to train future models unless you switch it off. Do it on every account your team uses; business plans usually exclude your data by default, but check.
+
+- ChatGPT: Settings › Data controls › Turn off “Improve the model for everyone”
+- Claude: Settings › Privacy › Turn off “Help improve Claude”
+- Gemini: Settings & help › Activity › Turn off “Keep Activity”. May still be labelled “Gemini Apps Activity”. Chats are kept for up to 72 hours even when it’s off.
+
+### 06 Read it before you send it (Safety)
+
+It is wrong with exactly the same confidence as when it’s right. Check every name, number and date, and ask where the figures came from.
+
+**Try this:** What did you base that on? List each source, and mark anything you estimated.
+
+### 07 Get what’s in people’s heads written down (Knowledge)
+
+Have each manager talk through their job in a ten-minute voice note, then turn each one into a one-page how-to. AI can then induct new staff and draft things your way.
+
+**Try this:** Here’s a transcript of [name] talking through how they [do the task]: [paste it]. Turn it into a one-page how-to a new starter could follow, with a checklist at the end. Flag anything that depends on their judgement.
+
+### 08 Forecast from your own numbers (Data)
+
+Export two years of weekly figures, with anything that identifies a person removed, and ask what to expect. Forecasting used to need an analyst.
+
+**Try this:** Attached: our weekly [sales or bookings] for the last two years, and what’s coming up in the next eight weeks. What should we expect each week, and what are you basing that on? Flag the weeks you’re least sure about.
+
+### 09 One newsletter becomes five (Content)
+
+Write it once, then ask for a version for each audience you serve. Same budget, more audiences. Read every version before it goes.
+
+**Try this:** Here’s this month’s newsletter: [paste it]. Rewrite it for [audience one], [audience two] and [audience three]. Keep the facts the same and change what each one leads with.
+
+### 10 Build the little tool yourself (Building)
+
+Describe a small tool in plain English and let it build it: an afternoon instead of a quote and a wait. Keep it internal until someone technical has checked it.
+
+**Try this:** Attached is a spreadsheet of [your data]. Build me a simple page that shows [what you want to see], with a chart I can read on my phone.
+
+### 11 Don’t put it in front of customers on day one (Safety)
+
+Test anything customer-facing behind the scenes first. Let staff check its answers for a few weeks, and go live only when you’d happily send every one.
+
+**Try this:** Here are this week’s most common customer questions and the answers our assistant drafted: [paste them]. Mark each one: fine to send, needs a change, or must go to a person. Explain each change.
+
+### 12 Put it on a schedule (Automation)
+
+Set up a task that runs every week without you asking. ChatGPT calls these scheduled tasks, Gemini calls them scheduled actions, and Claude offers them in Cowork; availability depends on your plan.
+
+**Try this:** Every Monday at 7am, summarise last week’s news in [your industry] and tell me the three things I should know.
+
+### 13 Send it off to do the research (Research)
+
+Switch on the research mode (Deep Research in ChatGPT and Gemini, Research in Claude) and hand it a question that would take you a day. Then check the sources it cites.
+
+**Try this:** Research how [businesses like ours] have [solved a problem] in the last three years. I’m deciding what to try next. Give me the five approaches with the best evidence, with sources.
+
+**Closing headline:** Want help putting these to work across your team?
+
+**Closing line:** Tips are where it starts. We help businesses build them into how the work gets done: the right tools, clear rules, and training on your team’s real tasks.

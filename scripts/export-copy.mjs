@@ -7,10 +7,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { caseStudies, workIntro } from "../src/content/caseStudies.ts";
-import { processIntro, processSteps } from "../src/content/process.ts";
+import { caseStudyStageMap, processIntro, processSteps } from "../src/content/process.ts";
 import { engageIntro, productNote, products } from "../src/content/products.ts";
 import { finalCta, hero, nav, site } from "../src/content/site.ts";
 import { team, teamIntro } from "../src/content/team.ts";
+import { tips, tipsClose, tipsIntro } from "../src/content/tips.ts";
 import { why } from "../src/content/why.ts";
 
 const out = [];
@@ -69,7 +70,8 @@ for (const study of caseStudies) {
   p("**The situation**"); study.situation.forEach(p);
   if (study.quote) p(`> ${study.quote.text} (${study.quote.attribution})`);
   p("**The approach**"); study.approach.forEach(p);
-  list(study.stageTable.map((s) => `**${s.stage}:** ${s.happened.replace(/\.$/, "")}. _Keeps:_ ${s.keeps}`));
+  p("_Each stage is mapped to the five stages of our route (01 Start with a conversation to 05 Stay ahead)._");
+  list(study.stageTable.map((s) => `**${s.stage}** (route ${(s.route ?? caseStudyStageMap[s.stage]).join(" · ")})**:** ${s.happened.replace(/\.$/, "")}. _Keeps:_ ${s.keeps}`));
   p(`**What it exposed: ${study.exposed.headline}**`); study.exposed.body.forEach(p);
   p("**Where we drew the line**");
   list([...study.line.system.map((l) => `System: ${l.item} (${l.note})`), ...study.line.person.map((l) => `Person: ${l.item} (${l.note})`)]);
@@ -96,6 +98,20 @@ field("Button", finalCta.action.label);
 h(2, "Footer");
 field("Positioning line", site.positioningLine);
 field("Search description", site.description);
+field("Links", `${nav.map((n) => n.label).join(" · ")} · Tips · Privacy`);
+
+h(2, `Tips page (/tips): ${tipsIntro.title}`);
+p("_Linked from the footer, not the top nav; shared by link and QR code._");
+field("Eyebrow", tipsIntro.eyebrow);
+field("Intro", tipsIntro.lede);
+for (const tip of tips) {
+  h(3, `${String(tip.n).padStart(2, "0")} ${tip.title} (${tip.topic})`);
+  p(tip.line);
+  if (tip.settings) list(tip.settings.map((s) => `${s.tool}: ${s.path.join(" › ")}${s.note ? `. ${s.note}` : ""}`));
+  if (tip.prompt) field(tip.spoken ? "Try saying" : "Try this", tip.prompt);
+}
+field("Closing headline", tipsClose.title);
+field("Closing line", tipsClose.body);
 
 const file = path.resolve(import.meta.dirname, "../docs/site-copy.md");
 fs.mkdirSync(path.dirname(file), { recursive: true });
