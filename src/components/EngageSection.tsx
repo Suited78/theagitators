@@ -1,4 +1,5 @@
 import { engageIntro } from "@/content/products";
+import { Motif } from "./Motif";
 import { ProcessRoute } from "./ProcessRoute";
 import { ProductChooser } from "./ProductChooser";
 import { SectionHeading } from "./SectionHeading";
@@ -24,6 +25,10 @@ export function EngageSection() {
         <div className="mt-16 lg:mt-24">
           <ProcessRoute />
         </div>
+        <p className="mt-12 flex flex-col gap-3 text-base font-semibold text-aubergine sm:flex-row sm:items-center sm:gap-4 lg:mt-16">
+          <Motif />
+          {engageIntro.guardrails}
+        </p>
       </div>
     </section>
   );

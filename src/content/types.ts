@@ -6,14 +6,6 @@ export type NavItem = {
   sections?: string[];
 };
 
-export type Outcome = {
-  id: string;
-  title: string;
-  description: string;
-  /** Labels for the two parts of the section's illustration. */
-  legend?: [string, string];
-};
-
 export type Product = {
   id: string;
   /** The client's own words: how they'd describe needing this. */

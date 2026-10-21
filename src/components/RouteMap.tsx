@@ -13,7 +13,7 @@ import { processSteps } from "@/content/process";
 /** Line colours, in product order. Mint is deepened so the line reads on white. */
 const ROUTE_COLOURS: Record<string, string> = {
   onboarding: "var(--color-purple)",
-  enablement: "#3f7a5c",
+  "efficiency-opportunity": "#3f7a5c",
   transformation: "var(--color-aubergine)",
 };
 
@@ -120,18 +120,25 @@ function Map({ g, active }: { g: Geometry; active: number }) {
   );
 }
 
+/** A key, not controls: one line per product. */
+export function RouteKey({ className = "" }: { className?: string }) {
+  return (
+    <ul className={`flex flex-wrap gap-x-5 gap-y-1.5 ${className}`} aria-label="Routes">
+      {products.map((product) => (
+        <li key={product.id} className="inline-flex items-center gap-2 text-sm font-bold">
+          <span aria-hidden="true" className="h-1.5 w-4 rounded-full" style={{ backgroundColor: ROUTE_COLOURS[product.id] }} />
+          {product.name}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function RouteMap({ active }: { active: number }) {
   return (
     <div>
-      {/* A key, not controls: one line per product. */}
-      <ul className="flex flex-wrap gap-x-5 gap-y-1.5" aria-label="Routes">
-        {products.map((product) => (
-          <li key={product.id} className="inline-flex items-center gap-2 text-sm font-bold">
-            <span aria-hidden="true" className="h-1.5 w-4 rounded-full" style={{ backgroundColor: ROUTE_COLOURS[product.id] }} />
-            {product.name}
-          </li>
-        ))}
-      </ul>
+      {/* On phones the key sits above the pinned band instead, so the band stays slim. */}
+      <RouteKey className="hidden lg:flex" />
 
       {/* The steps beside the map carry the words; the map is a picture of them. */}
       <svg
@@ -142,7 +149,7 @@ export function RouteMap({ active }: { active: number }) {
       >
         <Map g={VERTICAL} active={active} />
       </svg>
-      <svg viewBox="0 0 1000 180" className="mt-3 block h-auto w-full overflow-visible lg:hidden" aria-hidden="true">
+      <svg viewBox="0 0 1000 180" className="block h-auto w-full overflow-visible lg:hidden" aria-hidden="true">
         <Map g={HORIZONTAL} active={active} />
       </svg>
     </div>

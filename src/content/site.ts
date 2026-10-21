@@ -9,8 +9,8 @@ export const prelaunch = true;
 export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
-  tagline: "Change is happening. Agitate appropriately.",
-  positioningLine: "Practical AI for businesses that move first.",
+  tagline: "Past the experiments. Into the everyday work.",
+  positioningLine: "Practical AI.",
   description:
     "Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.",
   email: "info@theagitators.com.au",
@@ -20,25 +20,19 @@ export const site = {
 } as const;
 
 export const nav: NavItem[] = [
-  // Starts at the two kinds of AI, which open the how-we-engage story.
-  { id: "ai", label: "How we engage", sections: ["engage"] },
+  { id: "engage", label: "How we engage" },
   { id: "work", label: "Case studies" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
 
 export const hero = {
-  eyebrow: "Practical AI for businesses that move first.",
-  headline: ["Change is happening.", "Agitate appropriately."],
-  /** Options for the founders to choose between (October 2026 review). */
-  headlineAlternates: [
-    ["Make AI work for you."],
-    ["Change is happening.", "Let’s make it work for you."],
-    ["Agitating for", "better work."],
-  ],
+  eyebrow: "Practical AI",
+  // Founders' review, 21 October 2026: the hero makes the promise; The change makes the case.
+  headline: ["Past the experiments.", "Into the everyday work."],
   supporting:
     "We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.",
-  primaryCta: { label: "See how we engage", href: "#ai" },
+  primaryCta: { label: "See how we engage", href: "#engage" },
   secondaryCta: { label: "See our case studies", href: "#work" },
 } as const;
 

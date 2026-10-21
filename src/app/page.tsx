@@ -2,7 +2,6 @@ import { ContactSection } from "@/components/ContactSection";
 import { EngageSection } from "@/components/EngageSection";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
-import { OutcomesSection } from "@/components/OutcomesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TeamSection } from "@/components/TeamSection";
@@ -12,8 +11,7 @@ import { websiteSchema } from "@/lib/structuredData";
 
 /**
  * Single-page narrative. The order is the argument:
- * the change → the two kinds of AI → how we engage → proof → who we are →
- * talk to us. Backgrounds alternate white and cream; aubergine is kept for
+ * the change → how we engage → proof → who we are → talk to us. Backgrounds alternate white and cream; aubergine is kept for
  * the contact section and footer.
  */
 export default function Page() {
@@ -30,7 +28,6 @@ export default function Page() {
       <main>
         <Hero />
         <WhySection />
-        <OutcomesSection />
         <EngageSection />
         <WorkSection />
         <TeamSection />

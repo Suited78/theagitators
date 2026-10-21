@@ -17,7 +17,7 @@ export function organisationSchema() {
     url: site.url,
     logo: `${site.url}/icon.png`,
     email: site.email,
-    description: site.positioningLine,
+    description: site.description,
     areaServed: "AU",
     sameAs: realProfile(site.linkedin),
     founder: team.map((member) => ({

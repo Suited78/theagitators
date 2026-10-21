@@ -1,6 +1,6 @@
 # The Agitators: website copy
 
-_Generated from the site’s content files on 2026-10-19. Edit the content files, not this document._
+_Generated from the site’s content files on 2026-10-21. Edit the content files, not this document._
 
 ## Navigation
 
@@ -10,23 +10,17 @@ _Generated from the site’s content files on 2026-10-19. Edit the content files
 
 ## Hero
 
-**Eyebrow:** Practical AI for businesses that move first.
+**Eyebrow:** Practical AI
 
-**Headline:** Change is happening. Agitate appropriately.
+**Headline:** Past the experiments. Into the everyday work.
 
 **Supporting line:** We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.
 
 **Buttons:** See how we engage · See our case studies
 
-**Headline options under discussion:**
-
-- Make AI work for you.
-- Change is happening. Let’s make it work for you.
-- Agitating for better work.
-
 ## The change
 
-**Headline:** Everyone can see it moving. Almost nobody knows where to stand.
+**Headline:** Think AI could do more for your business? You’re probably right.
 
 **Lede:** AI isn’t arriving as a product you buy. It’s changing what work costs, who does it, how fast clients and customers expect it, and which of your advantages still hold.
 
@@ -38,20 +32,9 @@ Most business owners have worked this out already. They’ve read the articles a
 - How to redesign a process with AI at its core
 - How to build team capability that outlasts the current tools
 
-**The adoption gap:** What AI can do is accelerating. What most teams know isn’t. Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.
+**The adoption gap:** What AI can do is accelerating. The edge goes to teams that narrow the gap. Every year the tools can do more. What a business can take on, through its people, processes and habits, moves far more slowly. The space between the two lines is where advantage is won or lost.
 
-**Closing line:** That gap, between knowing something can be done and knowing what to do on Monday, is where we work.
-
-## Two kinds of AI
-
-**Headline:** Do what you do now, better. Do what wasn’t possible before.
-
-**Supporting line:** Most businesses start with efficiency. The bigger prize is usually opportunity. We help with both.
-
-- **Efficiency AI:** The work you already do, faster and with less effort. Hours back from the repeatable tasks, so people spend the week on what they’re good at.
-- **Opportunity AI:** Better client work, delivered faster, and room for services that weren’t practical, or even imagined, until now.
-
-**Guardrails:** Both come with clear rules for how AI is used, so your data, clients and reputation stay safe.
+**Closing line:** Not sure where to start, or how to stay ahead? We’ll agitate for the changes that get you there.
 
 ## How we engage
 
@@ -69,13 +52,13 @@ For teams at the beginning. We set up the right tools, agree the rules for using
 - Clear rules for safe, responsible use
 - Training built on your team’s real tasks
 
-### “We’ve got one use case to get right.” (AI Enablement)
+### “We want to streamline how we work, and build our first agent.” (AI Efficiency + Opportunity)
 
-For a critical process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.
+For teams with a few processes that are slow, expensive or stuck, and an idea they couldn’t act on before. We pick the ones worth doing, show them working on your real work, and make them stick.
 
-- The process mapped and costed
-- A redesign that uses AI where it earns its place
-- The saving measured once it’s running
+- The processes mapped and costed
+- Your first agent, built on your own work
+- The results measured once they’re running
 
 ### “We’ve got several use cases, or want to find them.” (AI Transformation)
 
@@ -100,6 +83,8 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 **04 Take it across the business.** A full rollout: piloting, refining, training, and the change and communications work that gets people using it every day. _If you stop here, you leave with:_ The change rolled out, built properly and handed to your teams.
 
 **05 Stay ahead.** Ongoing support as the tools change, shaped around what you need.
+
+**Guardrails:** Every engagement comes with clear rules for how AI is used, so your data, clients and reputation stay safe.
 
 ## Case studies
 
@@ -313,6 +298,6 @@ Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and 
 
 ## Footer
 
-**Positioning line:** Practical AI for businesses that move first.
+**Positioning line:** Practical AI.
 
 **Search description:** Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.

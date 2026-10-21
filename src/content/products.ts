@@ -8,6 +8,8 @@ import type { Product } from "./types";
  * site until they're settled; the depths are described in plain words.
  */
 export const engageIntro = {
+  /** Closes the section: the rules apply to every way in. */
+  guardrails: "Every engagement comes with clear rules for how AI is used, so your data, clients and reputation stay safe.",
   eyebrow: "How we engage",
   headline: "Wherever you are with AI, there’s a way in.",
   supporting:
@@ -28,15 +30,15 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "enablement",
-    quote: "We’ve got one use case to get right.",
-    name: "AI Enablement",
+    id: "efficiency-opportunity",
+    quote: "We want to streamline how we work, and build our first agent.",
+    name: "AI Efficiency + Opportunity",
     summary:
-      "For a critical process that’s slow, expensive or stuck. We work out what to change, show it working on your real work, and make it stick.",
+      "For teams with a few processes that are slow, expensive or stuck, and an idea they couldn’t act on before. We pick the ones worth doing, show them working on your real work, and make them stick.",
     includes: [
-      "The process mapped and costed",
-      "A redesign that uses AI where it earns its place",
-      "The saving measured once it’s running",
+      "The processes mapped and costed",
+      "Your first agent, built on your own work",
+      "The results measured once they’re running",
     ],
   },
   {

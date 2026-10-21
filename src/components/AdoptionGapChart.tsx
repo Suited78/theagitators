@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /**
- * The adoption gap: what AI can do accelerating while what most teams know
- * how to use barely moves. Conceptual, not plotted from data, so there are no
+ * The adoption gap: what AI can do accelerating while what teams have put
+ * to work barely moves. Conceptual, not plotted from data, so there are no
  * axis values or years to read off, and no hover layer that would imply some.
  *
  * Curves are drawn in a 0–100 box with a stretched viewBox and non-scaling
@@ -58,7 +58,7 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
     <div key={reduced ? "still" : "animated"} className={className}>
       <div
         role="img"
-        aria-label="Conceptual chart. What AI can do rises ever faster. What most teams know how to use starts low and barely rises. The space between them, the adoption gap, widens over time, and that distance is the real challenge."
+        aria-label="Conceptual chart. What AI can do rises ever faster. What teams have put to work starts low and barely rises. The space between them, the adoption gap, widens over time, and that distance is the real challenge."
       >
         <div aria-hidden="true" className="relative aspect-[4/3] sm:aspect-[16/8]">
           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
@@ -135,7 +135,7 @@ export function AdoptionGapChart({ className = "" }: { className?: string }) {
             className="absolute left-[1%] mt-1 bg-white pr-1.5 text-sm font-extrabold text-aubergine sm:text-base"
             style={{ top: `${(1 - absorption(0)) * 100}%` }}
           >
-            What most teams know how to use
+            What teams have put to work
           </span>
 
           {/* The gap, named; its background hides the Now rule behind it. */}

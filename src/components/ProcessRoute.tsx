@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { processIntro, processSteps } from "@/content/process";
 import { Reveal } from "./Reveal";
-import { RouteMap } from "./RouteMap";
+import { RouteKey, RouteMap } from "./RouteMap";
 
 export function ProcessRoute() {
   const stepsRef = useRef<HTMLOListElement | null>(null);
@@ -69,7 +69,8 @@ export function ProcessRoute() {
           while the steps pass it: beside them on large screens, as a band
           above them on small ones.
         */}
-        <div className="mt-12 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-x-10">
+        <RouteKey className="mt-10 lg:hidden" />
+        <div className="mt-4 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-x-10">
           <div className="sticky top-[calc(var(--header-h)+0.5rem)] z-10 border-b border-[var(--rule)] bg-white pt-2 pb-3 lg:top-[calc(var(--header-h)+1.5rem)] lg:col-span-5 lg:self-start lg:border-b-0 lg:pt-0 lg:pb-0">
             <RouteMap active={active} />
             <div className="mt-3 flex items-center justify-between gap-4">

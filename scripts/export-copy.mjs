@@ -7,7 +7,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { caseStudies, workIntro } from "../src/content/caseStudies.ts";
-import { outcomeIntro, outcomes } from "../src/content/outcomes.ts";
 import { processIntro, processSteps } from "../src/content/process.ts";
 import { engageIntro, productNote, products } from "../src/content/products.ts";
 import { finalCta, hero, nav, site } from "../src/content/site.ts";
@@ -31,8 +30,6 @@ field("Eyebrow", hero.eyebrow);
 field("Headline", hero.headline.join(" "));
 field("Supporting line", hero.supporting);
 field("Buttons", `${hero.primaryCta.label} · ${hero.secondaryCta.label}`);
-p("**Headline options under discussion:**");
-list(hero.headlineAlternates.map((lines) => lines.join(" ")));
 
 h(2, why.eyebrow);
 field("Headline", why.headline.join(" "));
@@ -42,12 +39,6 @@ p("**What nobody has time to work out:**");
 list(why.questions);
 field(why.gap.label, `${why.gap.headline} ${why.gap.body}`);
 field("Closing line", why.closer);
-
-h(2, outcomeIntro.eyebrow);
-field("Headline", outcomeIntro.headline.join(" "));
-field("Supporting line", outcomeIntro.supporting);
-list(outcomes.map((o) => `**${o.title}:** ${o.description}`));
-field("Guardrails", outcomeIntro.guardrails);
 
 h(2, engageIntro.eyebrow);
 field("Headline", engageIntro.headline);
@@ -64,6 +55,7 @@ p(processIntro.supporting);
 for (const step of processSteps) {
   p(`**${step.step} ${step.title}.** ${step.description}${step.keep ? ` _If you stop here, you leave with:_ ${step.keep}` : ""}`);
 }
+field("Guardrails", engageIntro.guardrails);
 
 h(2, workIntro.eyebrow);
 field("Headline", workIntro.headline);

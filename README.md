@@ -39,16 +39,15 @@ messaging can be rewritten without touching layout. Types are in
 | --- | --- |
 | `site.ts` | Brand name and wordmark split, nav items, hero headline (plus alternates), final CTA, email |
 | `why.ts` | The opening argument and the list of unanswered questions |
-| `outcomes.ts` | "Two kinds of AI": Efficiency AI and Opportunity AI, plus the guardrails line |
-| `products.ts` | "How we engage": the section intro and the three products, led by the client's own words |
+| `products.ts` | "How we engage": the section intro, the three products (led by the client's own words) and the guardrails line |
 | `process.ts` | "How we engage": the route every engagement follows, from first conversation to ongoing support |
 | `caseStudies.ts` | Case studies (homepage cards and `/work/[slug]` pages) |
 | `team.ts` | The three founders |
 
 Some specifics worth knowing:
 
-- **Hero headline.** `hero.headline` is an array — one entry per rendered line.
-  Three alternates are parked in `hero.headlineAlternates`; swap one in to try it.
+- **Hero headline.** `hero.headline` is an array, one entry per rendered line.
+  The hero makes the promise; The change (`why.ts`) makes the case.
 - **Navigation.** `nav` in `site.ts` drives the header, the mobile menu, the
   footer and the scroll-spy. Each `id` must match a section `id` in
   `src/app/page.tsx`.
@@ -70,7 +69,8 @@ Some specifics worth knowing:
   they render a numbered "portrait pending" plate.
 
 Section order is the argument the page makes, and lives in `src/app/page.tsx`:
-the change, the two kinds of AI, how we engage, work, team, contact.
+the change, how we engage, work, team, contact. (Two kinds of AI was
+removed in the 21 October review; it lives in git history if it returns.)
 
 **Copy for review.** `docs/site-copy.md` holds every word on the site in page
 order, generated from the content files. Regenerate it after any copy change
