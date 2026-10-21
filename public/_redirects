@@ -1,7 +1,8 @@
 # Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/).
-# The guide's working name, in case the old address was shared.
-/tips-and-tricks /ai-field-guide 301
-/tips-and-tricks/ /ai-field-guide 301
-# The guide's first address.
-/field-guide /ai-field-guide 301
-/field-guide/ /ai-field-guide 301
+# Earlier addresses for the tips page, in case any were shared.
+/tips-and-tricks /tips 301
+/tips-and-tricks/ /tips 301
+/field-guide /tips 301
+/field-guide/ /tips 301
+/ai-field-guide /tips 301
+/ai-field-guide/ /tips 301

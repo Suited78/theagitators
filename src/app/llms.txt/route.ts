@@ -1,5 +1,5 @@
 import { caseStudies } from "@/content/published";
-import { guideIntro } from "@/content/fieldGuide";
+import { tips, tipsIntro } from "@/content/tips";
 import { products } from "@/content/products";
 import { hero, site } from "@/content/site";
 import { team } from "@/content/team";
@@ -22,8 +22,9 @@ export function GET() {
     "## Case studies",
     ...caseStudies.map((s) => `- [${s.headline}](${site.url}/work/${s.slug}): ${s.summary}`),
     "",
-    "## Guides",
-    `- [${guideIntro.title}](${site.url}/ai-field-guide): ${guideIntro.subtitle}`,
+    "## Tips",
+    `[${tipsIntro.title}](${site.url}/tips): ${tipsIntro.lede}`,
+    ...tips.map((tip) => `- ${tip.title}: ${tip.line}`),
     "",
     "## Founders",
     ...team.map((m) => `- ${m.name}, ${m.role}${m.linkedin && /linkedin\.com\/in\//.test(m.linkedin) ? ` (${m.linkedin})` : ""}`),

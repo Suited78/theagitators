@@ -29,6 +29,15 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              {/* Not in the top nav: the tips are found here or by link and QR code. */}
+              <li>
+                <Link
+                  href="/tips"
+                  className="inline-flex min-h-10 items-center text-base text-paper/80 transition-colors duration-300 hover:text-paper"
+                >
+                  Tips
+                </Link>
+              </li>
             </ul>
           </nav>
 
