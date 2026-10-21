@@ -36,7 +36,7 @@ export type Tip = {
 export const tipsIntro = {
   eyebrow: "From The Agitators",
   title: "Top tips on Getting Ahead with AI",
-  lede: "Thirteen quick tips for getting more out of AI at work, each with a prompt you can copy. Read them all in a couple of minutes, or pick a topic.",
+  lede: "Quick tips for getting more out of AI at work, each with a prompt you can copy. Read them all in a couple of minutes, or pick a topic.",
 } as const;
 
 export const tips: Tip[] = [
