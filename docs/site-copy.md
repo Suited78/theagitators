@@ -278,7 +278,7 @@ A passion for building AI-driven solutions to human problems, informed by 25 yea
 
 ### James Bridges, Co-Founder
 
-25 years running streaming and pay-TV businesses at Amazon, iflix and Foxtel, now helping businesses make AI earn its keep.
+25 years running streaming and pay-TV businesses at Amazon and Foxtel, and building start-ups at iflix and iwonder, now tailoring AI to how businesses really work.
 
 **Tags:** Media and streaming · Operating models · Growth strategy
 

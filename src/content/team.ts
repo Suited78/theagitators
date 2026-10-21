@@ -22,7 +22,7 @@ export const team: TeamMember[] = [
     id: "founder-two",
     name: "James Bridges",
     role: "Co-Founder",
-    bio: "25 years running streaming and pay-TV businesses at Amazon, iflix and Foxtel, now helping businesses make AI earn its keep.",
+    bio: "25 years running streaming and pay-TV businesses at Amazon and Foxtel, and building start-ups at iflix and iwonder, now tailoring AI to how businesses really work.",
     expertise: ["Media and streaming", "Operating models", "Growth strategy"],
     photo: { src: "/team/founder-two.webp", alt: "Portrait of James Bridges", offset: "mint" },
     linkedin: "https://www.linkedin.com/in/jamestbridges/",
