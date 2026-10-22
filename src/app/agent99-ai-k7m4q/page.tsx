@@ -195,11 +195,14 @@ export default function Agent99Page() {
                   <h3 className="display-s mt-2 text-balance">{step.name}</h3>
                   <p className="mt-3 text-base leading-snug font-bold text-aubergine">{step.line}</p>
                   {step.body ? <p className="mt-3 text-base leading-snug text-muted">{step.body}</p> : null}
-                  <p className="mt-auto pt-6 text-base font-extrabold text-aubergine">{step.price}</p>
                 </Reveal>
               ))}
             </ol>
-            <p className="mt-6 text-sm text-muted">{pathway.note}</p>
+            {/* Pricing stated plainly at heading size, not as a footnote. */}
+            <Reveal className="mt-8 border-l-4 border-purple pl-5 md:pl-6">
+              <p className="display-s max-w-[40ch] text-balance">{pathway.pricing}</p>
+              <p className="body-copy mt-2">{pathway.pricingNote}</p>
+            </Reveal>
           </div>
         </section>
 

@@ -1,8 +1,9 @@
 /**
- * Agent99 proposal (/agent99-ai): the discovery workshop pitch, from the
+ * Agent99 proposal (/agent99-ai-k7m4q): the discovery workshop pitch, from the
  * working deck of 22 October 2026. A private page: shared by link only, kept
- * out of search engines, the sitemap and llms.txt. Prices are indicative and
- * ex GST, as in the deck.
+ * out of search engines, the sitemap and llms.txt. The slug has a random
+ * suffix so the page can't be found by guessing the client's name. Prices
+ * are ex GST, as in the deck.
  */
 
 export const proposal = {
@@ -107,38 +108,34 @@ export const pathway = {
       name: "Discovery workshop",
       line: "Half a day. Where the hours go, where the growth is, and which to chase first.",
       body: "",
-      price: "$3,000 + GST",
     },
     {
       step: "Step 1",
       name: "AI onboarding",
       line: "Get everyone on one tool, properly.",
       body: "One platform on accounts the business controls, a usage policy written with the team, everyone trained to the same level, starter prompts for your work.",
-      price: "From $15,000 indicative",
     },
     {
       step: "Step 2",
       name: "AI bootcamp",
       line: "Get real value out of the tool you have.",
       body: "For a team already on a platform. A day on site working through your real tasks, and the prompts and skills to build the next one yourselves.",
-      price: "From $15,000 indicative",
     },
     {
       step: "Step 3",
       name: "First agents",
       line: "Two or three things built properly.",
       body: "The top items from the register built and proved on real Agent99 briefs, measured before and after. A first agent where a task calls for one.",
-      price: "From $25,000 indicative",
     },
     {
       step: "Step 4",
       name: "Scaling agents",
       line: "AI at the core of how Agent99 runs.",
       body: "Agents through client service, reporting and new business, with a roadmap, training and measurement as you go.",
-      price: "From $50,000 indicative",
     },
   ],
-  note: "Figures indicative, ex GST. Platform licences are purchased by Agent99 directly.",
+  pricing: "Steps 1–4 scoped following the discovery workshop, with pricing starting from $15k.",
+  pricingNote: "All prices ex GST. Platform licences are purchased by Agent99 directly.",
 } as const;
 
 export const people = {
