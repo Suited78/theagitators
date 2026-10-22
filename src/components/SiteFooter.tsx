@@ -44,7 +44,7 @@ export function SiteFooter() {
           <div className="lg:col-span-3 lg:col-start-10">
             <p className="label text-mint">Elsewhere</p>
             <ul className="mt-4 space-y-1 text-base">
-              {/* Hidden until the company page exists (see site.linkedin). */}
+              {/* Shown only when site.linkedin is a real company page. */}
               {/linkedin\.com\/company\/.+/.test(site.linkedin) ? (
                 <li>
                   <a

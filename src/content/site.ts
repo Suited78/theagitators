@@ -15,8 +15,8 @@ export const site = {
   description:
     "Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.",
   email: "info@theagitators.com.au",
-  /** Company page. Leave as the bare domain until it exists; links and structured data skip it. */
-  linkedin: "https://www.linkedin.com/",
+  /** Company page: linked from the footer and listed in the structured data. */
+  linkedin: "https://www.linkedin.com/company/the-agitators-ai/",
   url: "https://theagitators.com.au",
 } as const;
 
