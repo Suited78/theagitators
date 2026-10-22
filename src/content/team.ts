@@ -12,7 +12,7 @@ export const team: TeamMember[] = [
     id: "founder-one",
     name: "Lee Robson",
     role: "Co-Founder",
-    bio: "A passion for building AI-driven solutions to human problems, informed by 25 years with startups, big brands, and agencies, including Foxtel and MullenLowe.",
+    bio: "A Claude Certified Associate with a passion for building AI-driven solutions to human problems, informed by 25 years with start-ups, big brands, and agencies, including Foxtel and MullenLowe.",
     expertise: ["Agency operations", "Change communications", "Creative production"],
     // Treatment C: black and white on an offset block of the founder's colour. Rendered once from the original.
     photo: { src: "/team/founder-one.webp", alt: "Portrait of Lee Robson", offset: "purple" },
