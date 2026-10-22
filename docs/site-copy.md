@@ -94,7 +94,7 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 
 ### Hours handed back, with the judgement kept human (Creative agency)
 
-**Sign-off:** Draft, not yet signed off (shown on the preview only)
+**Sign-off:** Approved
 
 An independent creative agency brought AI into daily operations across its businesses in three months, and drew a hard line around the judgement its clients pay for.
 
@@ -158,7 +158,7 @@ Two senior staff raised environmental impact, creative integrity and what this m
 
 ### Enquiries answered in seconds, not minutes (Travel & tourism)
 
-**Sign-off:** Draft, not yet signed off (shown on the preview only)
+**Sign-off:** Approved
 
 A cruise and travel retailer’s consultants now answer brand-specific enquiries from a governed knowledge assistant their own team runs.
 
@@ -214,7 +214,7 @@ So we restructured the knowledge into single-topic documents, made only approved
 
 ### A sales team trained, then tooled (Television distribution)
 
-**Sign-off:** Draft, not yet signed off (shown on the preview only)
+**Sign-off:** Approved
 
 A multinational television sales team gained new AI skills and fixes across creative, sales activity and finance automation, several of them already delivered.
 

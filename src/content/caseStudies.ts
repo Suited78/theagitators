@@ -20,7 +20,7 @@ export const workIntro = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "creative-agency-ai-integration",
-    status: "draft",
+    status: "approved",
     sector: "Creative agency",
     headline: "Hours handed back, with the judgement kept human",
     summary:
@@ -117,7 +117,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "travel-retailer-knowledge-assistant",
-    status: "draft",
+    status: "approved",
     sector: "Travel & tourism",
     headline: "Enquiries answered in seconds, not minutes",
     summary:
@@ -205,7 +205,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "television-sales-team-ai-tools",
-    status: "draft",
+    status: "approved",
     sector: "Television distribution",
     headline: "A sales team trained, then tooled",
     summary:
