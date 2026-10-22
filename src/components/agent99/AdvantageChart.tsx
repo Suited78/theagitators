@@ -35,7 +35,8 @@ const series = [
   { label: "What most agencies have put to work", note: null, colour: "var(--color-aubergine)", end: absorption(1) },
 ] as const;
 
-export function AdvantageChart() {
+/** `compact` drops the notes inside the chart, for when it's drawn small (the slide version). */
+export function AdvantageChart({ compact = false }: { compact?: boolean }) {
   const nowX = NOW * 100;
   return (
     <div
@@ -65,11 +66,14 @@ export function AdvantageChart() {
         </span>
         <p className="absolute left-[2%] max-w-[38%] leading-snug" style={{ top: "40%" }}>
           <span className="block text-sm font-extrabold sm:text-base">The adoption gap</span>
-          <span className="hidden text-sm text-muted md:block">Every year the tools can do more. What a business takes on moves far more slowly.</span>
+          <span className={`${compact ? "hidden" : "hidden md:block"} text-sm text-muted`}>Every year the tools can do more. What a business takes on moves far more slowly.</span>
         </p>
-        <p className="absolute left-[62%] leading-snug" style={{ top: "62%" }}>
+        <p
+          className={`absolute leading-snug ${compact ? "right-[3%] text-right" : "left-[62%]"}`}
+          style={{ top: compact ? "71%" : "62%" }}
+        >
           <span className="block text-sm font-extrabold text-purple sm:text-base">Your advantage</span>
-          <span className="hidden text-sm text-muted md:block">before everyone catches up</span>
+          <span className={`${compact ? "hidden" : "hidden md:block"} text-sm text-muted`}>before everyone catches up</span>
         </p>
       </div>
 
