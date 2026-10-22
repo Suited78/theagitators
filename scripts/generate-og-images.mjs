@@ -10,7 +10,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { caseStudies } from "../src/content/caseStudies.ts";
-import { hero, site } from "../src/content/site.ts";
+import { hero } from "../src/content/site.ts";
+import { tipsIntro } from "../src/content/tips.ts";
 
 const require = createRequire(import.meta.url);
 let chromium;
@@ -41,7 +42,9 @@ img { width: 300px; height: auto; }
 </body></html>`;
 
 const jobs = [
-  { file: "default.png", label: hero.eyebrow, title: site.tagline, size: 84 },
+  // The eyebrow says what we do; the hero headline is the promise.
+  { file: "default.png", label: hero.eyebrow, title: hero.headline.join(" "), size: 84 },
+  { file: "tips.png", label: tipsIntro.eyebrow, title: tipsIntro.title, size: 84 },
   ...caseStudies.map((s) => ({ file: `${s.slug}.png`, label: `Case study · ${s.sector}`, title: s.headline, size: 72 })),
 ];
 

@@ -235,22 +235,32 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
 
 ## Launch switch, search and AI visibility
 
-- **`prelaunch`** in `src/content/site.ts` is the launch switch. While `true`,
-  every page carries `noindex` and the footer shows a prelaunch notice. Set it
-  to `false` on cutover day; nothing else needs to change.
-- **Before cutover.** Still to do before the switch to theagitators.com.au:
-  - [ ] **Replace the site tagline** (`site.tagline` in `src/content/site.ts`),
-    once the founders approve the new line. It's still the old hero line,
-    "Past the experiments. Into the everyday work.", and appears in the browser
-    tab title, the share title and the default share image. After changing
-    it, regenerate the share images (command below) and update the LinkedIn
-    company page tagline to match.
-  - [ ] Set `prelaunch` to `false`. Once live, only case studies marked
-    `status: "approved"` show. None are yet, so get sign-off first or the
-    section launches empty.
-  - [ ] Add the custom domain in Cloudflare Pages (see Deploying, step 5). The
-    tips QR code (`public/qr/`) points at theagitators.com.au/tips and only
-    works from then.
+- **`prelaunch`** in `src/content/site.ts` is the launch switch, now `false`.
+  Set it back to `true` to put noindex on every page, show the prelaunch
+  notice in the footer and show draft case studies (`status: "draft"`) again.
+- **pages.dev stays out of search.** `public/_headers` sends
+  `X-Robots-Tag: noindex` on theagitators.pages.dev and every preview
+  deployment, so only theagitators.com.au is indexed.
+- **Cutover checklist** (October 2026):
+  - [x] Case studies approved; tagline set to "Practical AI for businesses"
+    (the share image pairs it with the hero headline); `prelaunch` off.
+  - [ ] Cloudflare Pages: production branch is the launch branch and its
+    latest deployment succeeded.
+  - [ ] Cloudflare DNS: note the apex and `www` records that point at Vercel
+    (for rollback), then delete them. Leave MX, SPF, DKIM, DMARC and the
+    google-site-verification TXT record alone.
+  - [ ] Cloudflare Pages → Custom domains: add `theagitators.com.au` and
+    `www.theagitators.com.au`.
+  - [ ] Cloudflare → Rules → Redirect Rules: `www.theagitators.com.au` →
+    `https://theagitators.com.au`, 301, path and query kept.
+  - [ ] Vercel: remove the domain from the holding project (keep the project
+    for rollback).
+  - [ ] Check: the domain serves the site, `www` and `http` redirect, /tips and
+    the tips QR code work, a test email reaches info@.
+  - [ ] Afterwards: submit `/sitemap.xml` in Google Search Console; point the
+    LinkedIn company page at the domain and set its tagline to match.
+  - Rollback: remove the custom domains from Pages, restore the noted DNS
+    records, and add the domain back to the Vercel holding project.
 - **Metadata.** Each page has a canonical URL, title, description and a
   1200×630 share image from `public/og/`. Regenerate the images after changing
   a case study headline or adding one:

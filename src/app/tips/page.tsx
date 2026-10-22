@@ -12,7 +12,12 @@ export const metadata: Metadata = {
   title: tipsIntro.title,
   description,
   alternates: { canonical: "/tips" },
-  openGraph: { title: tipsIntro.title, description, url: "/tips" },
+  openGraph: {
+    title: tipsIntro.title,
+    description,
+    url: "/tips",
+    images: [{ url: "/og/tips.png", width: 1200, height: 630, alt: tipsIntro.title }],
+  },
 };
 
 export default function TipsPage() {

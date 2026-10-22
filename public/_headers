@@ -19,3 +19,10 @@
   Cache-Control: public, max-age=86400
 /brand/*
   Cache-Control: public, max-age=86400
+
+# Keep the pages.dev copies (production and every preview) out of search
+# results; theagitators.com.au is the only address that should be indexed.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

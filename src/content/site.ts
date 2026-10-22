@@ -4,13 +4,13 @@ import type { NavItem } from "./types";
  * The launch switch. While true, every page asks search engines not to index
  * it and the footer carries a prelaunch notice. Set to false on cutover day.
  */
-export const prelaunch = true;
+export const prelaunch = false;
 
 export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
-  // The old hero line. Replacement awaiting founder approval: see "Before cutover" in the README.
-  tagline: "Past the experiments. Into the everyday work.",
+  // Browser tab, search result and share titles. The share image pairs it with the hero headline.
+  tagline: "Practical AI for businesses",
   positioningLine: "Practical AI for businesses.",
   description:
     "Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.",
