@@ -43,7 +43,6 @@ field("Closing line", why.closer);
 
 h(2, engageIntro.eyebrow);
 field("Headline", engageIntro.headline);
-field("Lead line", engageIntro.lead);
 field("Supporting line", engageIntro.supporting);
 field("Chooser prompt", productNote.prompt);
 for (const product of products) {

@@ -40,8 +40,6 @@ Most business owners have worked this out already. Some have tried a few tools; 
 
 **Headline:** Three ways in. Start with the one that sounds like you.
 
-**Lead line:** No matter where you are with AI, there’s a way in.
-
 **Supporting line:** We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. We start with audits, advice, and onboarding. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.
 
 **Chooser prompt:** Tap one to see what’s involved.
