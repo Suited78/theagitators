@@ -29,7 +29,9 @@ export const nav: NavItem[] = [
 export const hero = {
   eyebrow: "Practical AI",
   // Founders' review, 21 October 2026: the hero makes the promise; The change makes the case.
-  headline: ["Past the experiments.", "Into the everyday work."],
+  // 22 October: "Past the experiments. Into the everyday work." replaced, as it shut out readers
+  // who hadn't started with AI yet.
+  headline: ["Wherever you are with AI,", "we’ll help you get further."],
   supporting:
     "We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.",
   primaryCta: { label: "See how we engage", href: "#engage" },

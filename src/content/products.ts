@@ -11,7 +11,7 @@ export const engageIntro = {
   /** Closes the section: the rules apply to every way in. */
   guardrails: "Every engagement comes with clear rules for how AI is used, so your data, clients and reputation stay safe.",
   eyebrow: "How we engage",
-  headline: "Wherever you are with AI, there’s a way in.",
+  headline: "Three ways in. Start with the one that sounds like you.",
   supporting:
     "We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. Advice is where we start. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.",
 } as const;
@@ -57,6 +57,6 @@ export const products: Product[] = [
 
 /** The chooser's prompt. */
 export const productNote = {
-  prompt: "Which sounds most like you? Tap one to see what’s involved.",
+  prompt: "Tap one to see what’s involved.",
   unsure: "Not sure? That’s what the first conversation is for.",
 } as const;
