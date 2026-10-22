@@ -241,7 +241,7 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
 - **pages.dev stays out of search.** `public/_headers` sends
   `X-Robots-Tag: noindex` on theagitators.pages.dev and every preview
   deployment, so only theagitators.com.au is indexed.
-- **Cutover checklist** (October 2026):
+- **Cutover checklist** (completed 23 October 2026):
   - [x] Case studies approved; tagline set to "Practical AI for businesses"
     (the share image pairs it with the hero headline); `prelaunch` off.
   - [x] Cloudflare Pages: production branch is the launch branch and its
@@ -256,12 +256,12 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
   - [x] Cloudflare security: custom rule "Allow verified bots" (`cf.client.bot`
     → skip all managed rules), first in the list. Without it the managed rules
     blocked Googlebot and Search Console could not read the sitemap.
-  - [ ] Vercel: remove the domain from the holding project (keep the project
+  - [x] Vercel: remove the domain from the holding project (keep the project
     for rollback).
-  - [ ] Check: the domain serves the site, `www` and `http` redirect, /tips and
+  - [x] Check: the domain serves the site, `www` and `http` redirect, /tips and
     the tips QR code work, a test email reaches info@.
   - [x] Sitemap submitted in Google Search Console (processed 23 October 2026).
-  - [ ] Point the
+  - [x] Point the
     LinkedIn company page at the domain and set its tagline to match.
   - Rollback: remove the custom domains from Pages, restore the noted DNS
     records, and add the domain back to the Vercel holding project.
