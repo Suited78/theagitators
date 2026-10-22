@@ -238,6 +238,19 @@ is a `mailto:` link built from `site.email` in `src/content/site.ts`. The same
 - **`prelaunch`** in `src/content/site.ts` is the launch switch. While `true`,
   every page carries `noindex` and the footer shows a prelaunch notice. Set it
   to `false` on cutover day; nothing else needs to change.
+- **Before cutover.** Still to do before the switch to theagitators.com.au:
+  - [ ] **Replace the site tagline** (`site.tagline` in `src/content/site.ts`),
+    once the founders approve the new line. It's still the old hero line,
+    "Past the experiments. Into the everyday work.", and appears in the browser
+    tab title, the share title and the default share image. After changing
+    it, regenerate the share images (command below) and update the LinkedIn
+    company page tagline to match.
+  - [ ] Set `prelaunch` to `false`. Once live, only case studies marked
+    `status: "approved"` show. None are yet, so get sign-off first or the
+    section launches empty.
+  - [ ] Add the custom domain in Cloudflare Pages (see Deploying, step 5). The
+    tips QR code (`public/qr/`) points at theagitators.com.au/tips and only
+    works from then.
 - **Metadata.** Each page has a canonical URL, title, description and a
   1200×630 share image from `public/og/`. Regenerate the images after changing
   a case study headline or adding one:

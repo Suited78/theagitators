@@ -9,6 +9,7 @@ export const prelaunch = true;
 export const site = {
   // Brand guidelines: standard title case, never "AGI" in capitals.
   name: "The Agitators",
+  // The old hero line. Replacement awaiting founder approval: see "Before cutover" in the README.
   tagline: "Past the experiments. Into the everyday work.",
   positioningLine: "Practical AI.",
   description:
@@ -33,7 +34,7 @@ export const hero = {
   // who hadn't started with AI yet.
   headline: ["Wherever you are with AI,", "we’ll help you get further."],
   supporting:
-    "We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.",
+    "From streamlining the work you do now to building what you couldn’t before, we help founder-led businesses, SMEs and teams inside larger organisations put AI to work.",
   primaryCta: { label: "See how we engage", href: "#engage" },
   secondaryCta: { label: "See our case studies", href: "#work" },
 } as const;

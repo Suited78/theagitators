@@ -12,9 +12,9 @@ _Generated from the site’s content files on 2026-10-22. Edit the content files
 
 **Eyebrow:** Practical AI
 
-**Headline:** Past the experiments. Into the everyday work.
+**Headline:** Wherever you are with AI, we’ll help you get further.
 
-**Supporting line:** We help founder-led businesses, SMEs and teams inside larger organisations put AI to work: finding where it earns its place, building the tools, and training your people to run them.
+**Supporting line:** From streamlining the work you do now to building what you couldn’t before, we help founder-led businesses, SMEs and teams inside larger organisations put AI to work.
 
 **Buttons:** See how we engage · See our case studies
 
@@ -24,11 +24,11 @@ _Generated from the site’s content files on 2026-10-22. Edit the content files
 
 **Lede:** AI isn’t arriving as a product you buy. It’s changing what work costs, who does it, how fast clients and customers expect it, and which of your advantages still hold.
 
-Most business owners have worked this out already. They’ve read the articles and tried the tools. What’s missing is the time and know-how to get from experiments to AI that’s part of how the business runs.
+Most business owners have worked this out already. Some have tried a few tools; others haven’t found the time to start. What’s missing is the know-how, and the hours, to make AI part of how the business runs.
 
 **What nobody has time to work out:**
 
-- How to get from experiments to something in everyday use
+- Where to start, and which ideas are worth the effort
 - How to redesign a process with AI at its core
 - How to build team capability that outlasts the current tools
 
@@ -38,11 +38,11 @@ Most business owners have worked this out already. They’ve read the articles a
 
 ## How we engage
 
-**Headline:** Wherever you are with AI, there’s a way in.
+**Headline:** Three ways in. Start with the one that sounds like you.
 
 **Supporting line:** We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. Advice is where we start. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.
 
-**Chooser prompt:** Which sounds most like you? Tap one to see what’s involved.
+**Chooser prompt:** Tap one to see what’s involved.
 
 ### “We need to get started.” (AI Onboarding)
 

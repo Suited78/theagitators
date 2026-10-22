@@ -4,11 +4,11 @@ export const why = {
   lede:
     "AI isn’t arriving as a product you buy. It’s changing what work costs, who does it, how fast clients and customers expect it, and which of your advantages still hold.",
   body: [
-    "Most business owners have worked this out already. They’ve read the articles and tried the tools. What’s missing is the time and know-how to get from experiments to AI that’s part of how the business runs.",
+    "Most business owners have worked this out already. Some have tried a few tools; others haven’t found the time to start. What’s missing is the know-how, and the hours, to make AI part of how the business runs.",
   ],
   /** The unanswered questions, rendered as an editorial list. */
   questions: [
-    "How to get from experiments to something in everyday use",
+    "Where to start, and which ideas are worth the effort",
     "How to redesign a process with AI at its core",
     "How to build team capability that outlasts the current tools",
   ],
