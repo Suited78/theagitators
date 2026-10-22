@@ -43,7 +43,7 @@ export const finalCta = {
   eyebrow: "Contact",
   headline: "Ready to put AI to work?",
   supporting:
-    "Tell us what’s slow, expensive or stuck. If we’re not the right people, we’ll say so and point you somewhere better.",
+    "Tell us what’s slow, expensive or stuck, and we’ll show you a better way with AI.",
   action: { label: "Start a conversation", subject: "Starting a conversation" },
   alternates: ["Let’s find the leverage.", "Start a conversation.", "Where would you start?"],
 } as const;

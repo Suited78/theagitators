@@ -298,7 +298,7 @@ Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and 
 
 **Headline:** Ready to put AI to work?
 
-**Supporting line:** Tell us what’s slow, expensive or stuck. If we’re not the right people, we’ll say so and point you somewhere better.
+**Supporting line:** Tell us what’s slow, expensive or stuck, and we’ll show you a better way with AI.
 
 **Button:** Start a conversation
 
