@@ -1,6 +1,6 @@
 # The Agitators: website copy
 
-_Generated from the site’s content files on 2026-10-21. Edit the content files, not this document._
+_Generated from the site’s content files on 2026-10-22. Edit the content files, not this document._
 
 ## Navigation
 
@@ -332,7 +332,7 @@ Tap the microphone and talk for a minute, as if you were briefing a colleague. T
 
 ### 03 Confirm first (Prompting)
 
-It will always answer, even when it has guessed what you meant. A question back costs ten seconds; a wrong first draft costs ten minutes.
+It will always answer, even when it has guessed incorrectly what you meant. A question back costs ten seconds; a wrong first draft costs ten minutes.
 
 **Try this:** [Your request, including who it’s for and what good looks like.] Before you start, ask me any questions you need answered.
 
@@ -378,7 +378,7 @@ Write it once, then ask for a version for each audience you serve. Same budget, 
 
 Describe a small tool in plain English and let it build it: an afternoon instead of a quote and a wait. Keep it internal until someone technical has checked it.
 
-**Try this:** Attached is a spreadsheet of [your data]. Build me a simple page that shows [what you want to see], with a chart I can read on my phone.
+**Try this:** Attached is a spreadsheet of [your data]. Build me a simple webpage that shows [what you want to see], with a chart I can read on my phone.
 
 ### 11 Don’t put it in front of customers on day one (Safety)
 

@@ -64,7 +64,7 @@ export const tips: Tip[] = [
     id: "confirm",
     topic: "Prompting",
     title: "Confirm first",
-    line: "It will always answer, even when it has guessed what you meant. A question back costs ten seconds; a wrong first draft costs ten minutes.",
+    line: "It will always answer, even when it has guessed incorrectly what you meant. A question back costs ten seconds; a wrong first draft costs ten minutes.",
     prompt: "[Your request, including who it’s for and what good looks like.] Before you start, ask me any questions you need answered.",
   },
   {
@@ -132,7 +132,7 @@ export const tips: Tip[] = [
     topic: "Building",
     title: "Build the little tool yourself",
     line: "Describe a small tool in plain English and let it build it: an afternoon instead of a quote and a wait. Keep it internal until someone technical has checked it.",
-    prompt: "Attached is a spreadsheet of [your data]. Build me a simple page that shows [what you want to see], with a chart I can read on my phone.",
+    prompt: "Attached is a spreadsheet of [your data]. Build me a simple webpage that shows [what you want to see], with a chart I can read on my phone.",
   },
   {
     n: 11,

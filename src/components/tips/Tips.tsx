@@ -20,14 +20,14 @@ function useCopied() {
   return { copied, copy };
 }
 
-/** Prompts mark the parts to fill in with [square brackets]; show those as highlights. */
+/** Prompts mark the parts to fill in with [square brackets]; show those highlighted, brackets included. */
 function PromptText({ text }: { text: string }) {
   return (
     <>
       {text.split(/(\[[^\]]+\])/).map((part, index) =>
         part.startsWith("[") ? (
           <span key={index} className="rounded-[3px] bg-mint px-1 font-semibold text-aubergine [box-decoration-break:clone]">
-            {part.slice(1, -1)}
+            {part}
           </span>
         ) : (
           part
