@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
     sector: "Creative agency",
     headline: "Hours handed back, with the judgement kept human",
     summary:
-      "An independent creative agency brought AI into daily operations across both of its businesses in three months, and drew a hard line around the judgement its clients pay for.",
+      "An independent creative agency brought AI into daily operations across its businesses in three months, and drew a hard line around the judgement its clients pay for.",
     result: {
       value: "13–16%",
       label: "of repeatable-task time returned in 90 days, against a 10% target",
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
         stage: "Discover",
         happened:
           "One day on site, six sessions, and a costed map of eight processes. The biggest drain was reporting: 16 hours per client, per month.",
-        keeps: "A priced view of where the hours go, before any build spend",
+        keeps: "A clear view of where the effort goes, before any build started",
       },
       {
         stage: "Design",
@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
     exposed: {
       headline: "The processes looked healthier than they were",
       body: [
-        "Reporting meant scrolling each post, reading figures off the screen and typing them into a spreadsheet, then typing the same figures again into a client deck. The data couldn’t simply be piped across. The analytics platform exported PDF and images only at the agency’s tier, extracted numbers came back garbled, and the social platforms block automated collection outright.",
+        "Reporting meant scrolling each post, reading figures off the screen and typing them into a spreadsheet, then typing the same figures again into a client deck. The data couldn’t simply be piped across. The analytics platform exported PDF and images only at the agency’s tier, extracted numbers came back garbled, and the social platforms blocked automated collection outright.",
         "Two senior staff raised environmental impact, creative integrity and what this means for junior development early on. Their concerns shaped the Rules of Engagement directly, and the agency issued it in its own name.",
       ],
     },

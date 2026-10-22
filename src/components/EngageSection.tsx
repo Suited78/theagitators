@@ -16,6 +16,7 @@ export function EngageSection() {
         <SectionHeading
           eyebrow={engageIntro.eyebrow}
           headline={engageIntro.headline}
+          lead={engageIntro.lead}
           supporting={engageIntro.supporting}
           align="wide"
         />

@@ -10,13 +10,13 @@ _Generated from the site’s content files on 2026-10-22. Edit the content files
 
 ## Hero
 
-**Eyebrow:** Practical AI
+**Eyebrow:** Practical AI for businesses
 
 **Headline:** Wherever you are with AI, we’ll help you get further.
 
 **Supporting line:** From streamlining the work you do now to building what you couldn’t before, we help founder-led businesses, SMEs and teams inside larger organisations put AI to work.
 
-**Buttons:** See how we engage · See our case studies
+**Buttons:** See how we engage · See what we’ve done
 
 ## The change
 
@@ -40,13 +40,15 @@ Most business owners have worked this out already. Some have tried a few tools; 
 
 **Headline:** Three ways in. Start with the one that sounds like you.
 
-**Supporting line:** We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. Advice is where we start. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.
+**Lead line:** No matter where you are with AI, there’s a way in.
+
+**Supporting line:** We work with founder-led businesses, SMEs and teams inside larger organisations, on projects large or small. We start with audits, advice, and onboarding. We also build the tools, from a spreadsheet macro to an AI agent, and train your people to run them.
 
 **Chooser prompt:** Tap one to see what’s involved.
 
 ### “We need to get started.” (AI Onboarding)
 
-For teams at the beginning. We set up the right tools, agree the rules for using them, and get your people confident on their own work.
+For teams at the beginning. We set up the right tools, agree the rules for using them, and get your people confident with their own work.
 
 - Tools chosen and set up for the way you work
 - Clear rules for safe, responsible use
@@ -54,13 +56,13 @@ For teams at the beginning. We set up the right tools, agree the rules for using
 
 ### “We want to streamline how we work, and build our first agent.” (AI Efficiency + Opportunity)
 
-For teams with a few processes that are slow, expensive or stuck, and an idea they couldn’t act on before. We pick the ones worth doing, show them working on your real work, and make them stick.
+For teams with a few processes that are slow, expensive or stuck, or an idea they couldn’t act on before. We pick the ones worth doing, show them working on your real work, and make them stick.
 
 - The processes mapped and costed
 - Your first agent, built on your own work
 - The results measured once they’re running
 
-### “We’ve got several use cases, or want to find them.” (AI Transformation)
+### “We want to future-proof our business, with AI baked in.” (AI Transformation)
 
 For organisations ready to change how several parts of the business work. We find and rank the opportunities, then build the ones worth building.
 
@@ -68,13 +70,13 @@ For organisations ready to change how several parts of the business work. We fin
 - A proof of concept on the strongest one
 - The full build, across the business
 
-**Under the chooser:** Not sure? That’s what the first conversation is for.
+**Under the chooser:** Not sure what’s best for you? We’ll help you to decide.
 
 ### One route, however you start.
 
 Every stage ends with the next one scoped, so you always know what comes next. Stop whenever the answer is clear.
 
-**01 Start with a conversation.** A short questionnaire and a discovery conversation show us where you are, and point you to the right way in. _If you stop here, you leave with:_ A recommendation on the right way in.
+**01 Start with a conversation.** A short questionnaire and a discovery workshop show us where you are, and point you to the right way in. _If you stop here, you leave with:_ A recommendation on the right way in.
 
 **02 Get advice you can act on.** A clear plan for your situation: what to do first, what to leave alone, and what it’s worth. _If you stop here, you leave with:_ A plan you can act on, whether or not we stay involved.
 
@@ -96,7 +98,7 @@ Every stage ends with the next one scoped, so you always know what comes next. S
 
 **Sign-off:** Draft, not yet signed off (shown on the preview only)
 
-An independent creative agency brought AI into daily operations across both of its businesses in three months, and drew a hard line around the judgement its clients pay for.
+An independent creative agency brought AI into daily operations across its businesses in three months, and drew a hard line around the judgement its clients pay for.
 
 **Headline result:** 13–16% of repeatable-task time returned in 90 days, against a 10% target
 
@@ -120,14 +122,14 @@ Before building anything, we wrote down what the system could own and what only 
 
 _Each stage is mapped to the five stages of our route (01 Start with a conversation to 05 Stay ahead)._
 
-- **Discover** (route 01 · 02)**:** One day on site, six sessions, and a costed map of eight processes. The biggest drain was reporting: 16 hours per client, per month. _Keeps:_ A priced view of where the hours go, before any build spend
+- **Discover** (route 01 · 02)**:** One day on site, six sessions, and a costed map of eight processes. The biggest drain was reporting: 16 hours per client, per month. _Keeps:_ A clear view of where the effort goes, before any build started
 - **Design** (route 02)**:** A Rules of Engagement framework with a signed position on environmental impact and responsible use. A 40-prompt library, client workspaces with brand voice pre-loaded, and a house tone-of-voice skill. _Keeps:_ Governance issued over the Managing Director’s name, and a foundation every new hire starts from
 - **Deliver** (route 03 · 04)**:** Outreach pipeline, weekly status, monthly newsletter and client reporting rebuilt. Four role-based training sessions, AI Champions given ownership, daily tips for three months. _Keeps:_ All 16 signed deliverables plus nine builds outside scope, documented for a successor to learn without us
 - **What’s next** (route 05)**:** A scoped next phase. The team has already started writing its own skills, including lead-finding and email-drafting tools nobody asked for. _Keeps:_ The choice of what to build next, and the people to build it
 
 **What it exposed: The processes looked healthier than they were**
 
-Reporting meant scrolling each post, reading figures off the screen and typing them into a spreadsheet, then typing the same figures again into a client deck. The data couldn’t simply be piped across. The analytics platform exported PDF and images only at the agency’s tier, extracted numbers came back garbled, and the social platforms block automated collection outright.
+Reporting meant scrolling each post, reading figures off the screen and typing them into a spreadsheet, then typing the same figures again into a client deck. The data couldn’t simply be piped across. The analytics platform exported PDF and images only at the agency’s tier, extracted numbers came back garbled, and the social platforms blocked automated collection outright.
 
 Two senior staff raised environmental impact, creative integrity and what this means for junior development early on. Their concerns shaped the Rules of Engagement directly, and the agency issued it in its own name.
 
@@ -304,7 +306,7 @@ Two decades leading product, data and marketing at Disney, Time Inc, Foxtel and 
 
 ## Footer
 
-**Positioning line:** Practical AI.
+**Positioning line:** Practical AI for businesses.
 
 **Search description:** Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.
 

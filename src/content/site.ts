@@ -11,7 +11,7 @@ export const site = {
   name: "The Agitators",
   // The old hero line. Replacement awaiting founder approval: see "Before cutover" in the README.
   tagline: "Past the experiments. Into the everyday work.",
-  positioningLine: "Practical AI.",
+  positioningLine: "Practical AI for businesses.",
   description:
     "Practical AI for founder-led businesses and SMEs: we find where AI earns its place, build the tools and train your people to run them.",
   email: "info@theagitators.com.au",
@@ -28,7 +28,7 @@ export const nav: NavItem[] = [
 ];
 
 export const hero = {
-  eyebrow: "Practical AI",
+  eyebrow: "Practical AI for businesses",
   // Founders' review, 21 October 2026: the hero makes the promise; The change makes the case.
   // 22 October: "Past the experiments. Into the everyday work." replaced, as it shut out readers
   // who hadn't started with AI yet.
@@ -36,7 +36,7 @@ export const hero = {
   supporting:
     "From streamlining the work you do now to building what you couldn’t before, we help founder-led businesses, SMEs and teams inside larger organisations put AI to work.",
   primaryCta: { label: "See how we engage", href: "#engage" },
-  secondaryCta: { label: "See our case studies", href: "#work" },
+  secondaryCta: { label: "See what we’ve done", href: "#work" },
 } as const;
 
 export const finalCta = {

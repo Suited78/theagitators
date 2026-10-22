@@ -6,6 +6,8 @@ type SectionHeadingProps = {
   eyebrow: string;
   headline: ReactNode;
   supporting?: string;
+  /** A bold line between the headline and the supporting paragraph. */
+  lead?: string;
   /** Constrains the headline measure; sections vary. */
   className?: string;
   align?: "left" | "wide";
@@ -15,6 +17,7 @@ export function SectionHeading({
   eyebrow,
   headline,
   supporting,
+  lead,
   className = "",
   align = "left",
 }: SectionHeadingProps) {
@@ -28,9 +31,14 @@ export function SectionHeading({
           {headline}
         </h2>
       </Reveal>
+      {lead ? (
+        <Reveal index={2}>
+          <p className="lede mt-6 max-w-[52ch] font-bold text-aubergine">{lead}</p>
+        </Reveal>
+      ) : null}
       {supporting ? (
         <Reveal index={2}>
-          <p className="lede mt-6 max-w-[52ch]">{supporting}</p>
+          <p className={`lede max-w-[52ch] ${lead ? "mt-3" : "mt-6"}`}>{supporting}</p>
         </Reveal>
       ) : null}
     </div>

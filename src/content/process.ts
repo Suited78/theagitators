@@ -13,7 +13,7 @@ export const processSteps: ProcessStep[] = [
     title: "Start with a conversation",
     stop: "Conversation",
     description:
-      "A short questionnaire and a discovery conversation show us where you are, and point you to the right way in.",
+      "A short questionnaire and a discovery workshop show us where you are, and point you to the right way in.",
     keep: "A recommendation on the right way in.",
   },
   {
